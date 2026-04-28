@@ -300,14 +300,17 @@ export default function KontakPage() {
               </h2>
               
               <div className="relative w-full h-[350px] rounded-xl overflow-hidden border border-slate-100 bg-slate-100">
-                {/* Embed Map Here, using image placeholder for now as seen in screenshot */}
-                <Image 
-                  src="/assets/permits/permit-1.webp" 
-                  alt="Map Location" 
-                  fill 
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover opacity-60 mix-blend-luminosity grayscale" 
-                />
+                {/* Google Maps Iframe */}
+                <iframe 
+                  src="https://maps.google.com/maps?q=Jl.+Sepakat+III+No.61,+Cilangkap,+Cipayung,+Jakarta+Timur&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={false} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="opacity-70 mix-blend-luminosity grayscale hover:mix-blend-normal hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                ></iframe>
                 
                 {/* Overlay Card */}
                 <div className="absolute bottom-6 left-6 right-6 md:right-auto md:w-[320px] bg-white rounded-xl p-5 shadow-xl border border-slate-100">
@@ -315,15 +318,12 @@ export default function KontakPage() {
                   <p className="text-xs text-slate-500 leading-relaxed mb-4">
                     Jln. Sepakat III No.61, RT.08/01, Kel. Cilangkap, Kec. Cipayung, Jakarta Timur
                   </p>
-                  <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="text-[#e63329] font-bold text-xs inline-flex items-center gap-1.5 hover:underline">
+                  <a href="https://maps.google.com/maps?q=Jl.+Sepakat+III+No.61,+Cilangkap,+Cipayung,+Jakarta+Timur" target="_blank" rel="noreferrer" className="text-[#e63329] font-bold text-xs inline-flex items-center gap-1.5 hover:underline">
                     Lihat di Google Maps <ArrowRightBoldDuotoneIcon className="w-3 h-3" />
                   </a>
                 </div>
                 
-                {/* Pin Icon overlay */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#e63329]">
-                  <MapPointBoldDuotoneIcon className="w-12 h-12 drop-shadow-md text-[#e63329]" />
-                </div>
+
               </div>
             </div>
 
