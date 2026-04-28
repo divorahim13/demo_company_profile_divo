@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { ShieldCheckBoldDuotoneIcon, MedalRibbonStarBoldDuotoneIcon, SettingsBoldDuotoneIcon, HeadphonesRoundSoundBoldDuotoneIcon, ArrowRightBoldDuotoneIcon } from './icons';
 import Link from 'next/link';
+import heroBg from '@/public/herosection1.png';
 
 const Hero = () => {
   return (
@@ -22,12 +23,13 @@ const Hero = () => {
           style={{ clipPath: 'polygon(32.5% 0, 100% 0, 100% 100%, 12.5% 100%)' }}
         >
           <Image 
-            src="/herosection1.png" 
+            src={heroBg} 
             alt="HVAC technician at work — CV. Samudera Abadi Teknik"
             fill
             sizes="(min-width: 1024px) 55vw, 100vw"
             className="object-cover object-[72%_center]"
             priority
+            placeholder="blur"
           />
           {/* Subtle overlay to ensure text/navbar readability if needed, though mostly covered by the slant */}
           <div className="absolute inset-0 bg-black/10" />

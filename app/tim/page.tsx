@@ -9,6 +9,7 @@ import {
 } from '@/components/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import heroBg from '@/public/herosectiontim.png';
 
 /* ─── Data ────────────────────────────────────────────────────── */
 const strukturInti = [
@@ -81,8 +82,9 @@ export default function TimPage() {
             style={{ clipPath: 'polygon(15.5% 0, 100% 0, 100% 100%, 15.5% 100%, 0.5% 50%)' }}
           >
             <Image
-              src="/herosectiontim.png"
+              src={heroBg}
               alt="Teknisi SAT di lapangan"
+              placeholder="blur"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"

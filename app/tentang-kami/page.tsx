@@ -9,6 +9,7 @@ import {
 } from '@/components/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import heroBg from '@/public/herosectiontentangkami.png';
 
 const teamMembers = [
   { name: 'Yudi Santoso', role: 'Direktur Utama', image: '/assets/projects/project-1.webp' },
@@ -97,12 +98,13 @@ export default function TentangKamiPage() {
             style={{ clipPath: 'polygon(15.5% 0, 100% 0, 100% 100%, 15.5% 100%, 0.5% 50%)' }}
           >
             <Image 
-              src="/herosectiontentangkami.png" 
+              src={heroBg} 
               alt="Teknisi HVAC CV. Samudera Abadi Teknik"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover object-[55%_center]"
               priority
+              placeholder="blur"
             />
             {/* Dark overlay specifically for blending right side if needed, currently transparent */}
             <div className="absolute inset-0 bg-black/10" />

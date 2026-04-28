@@ -9,6 +9,7 @@ import {
 } from '@/components/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import heroBg from '@/public/herosectionmitra.png';
 
 export default function MitraPage() {
   return (
@@ -31,8 +32,9 @@ export default function MitraPage() {
             style={{ clipPath: 'polygon(15.5% 0, 100% 0, 100% 100%, 15.5% 100%, 0.5% 50%)' }}
           >
             <Image 
-              src="/herosectionmitra.png" 
+              src={heroBg} 
               alt="Mitra Bisnis SAT"
+              placeholder="blur"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover object-[72%_center]"

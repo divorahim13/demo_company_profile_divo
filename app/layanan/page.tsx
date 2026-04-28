@@ -9,6 +9,7 @@ import {
 } from '@/components/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import heroBg from '@/public/herosectionlayanankami.png';
 
 export default function LayananPage() {
   return (
@@ -31,12 +32,13 @@ export default function LayananPage() {
             style={{ clipPath: 'polygon(32.5% 0, 100% 0, 100% 100%, 12.5% 100%)' }}
           >
             <Image 
-              src="/herosectionlayanankami.png" 
+              src={heroBg} 
               alt="HVAC technician at work — CV. Samudera Abadi Teknik"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
               priority
+              placeholder="blur"
             />
             <div className="absolute inset-0 bg-black/10" />
           </div>

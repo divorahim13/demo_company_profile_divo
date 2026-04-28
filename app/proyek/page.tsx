@@ -8,6 +8,7 @@ import { ArrowRightBoldDuotoneIcon, Buildings2BoldDuotoneIcon } from '@/componen
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { projectCategories, projectList, type ProjectCategory } from '@/lib/projects';
+import heroBg from '@/public/assets/projects/project-6.webp';
 
 export default function ProyekPage() {
   const [active, setActive] = useState<'Semua' | ProjectCategory>('Semua');
@@ -21,8 +22,10 @@ export default function ProyekPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#070d1f] z-10" />
           <Image
-            src="/assets/projects/project-6.webp"
+            src={heroBg}
             alt="Projects Background"
+            placeholder="blur"
+            priority
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover opacity-20 scale-110"

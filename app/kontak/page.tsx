@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { BoltBoldDuotoneIcon, ArrowRightBoldDuotoneIcon, MapPointBoldDuotoneIcon, PhoneBoldDuotoneIcon, LetterBoldDuotoneIcon, HeadphonesRoundSoundBoldDuotoneIcon, AltArrowDownBoldDuotoneIcon } from '@/components/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import heroBg from '@/public/herosectionkontak.png';
 
 export default function KontakPage() {
   const whatsappHref =
@@ -32,8 +33,9 @@ export default function KontakPage() {
           >
             {/* Menggunakan gambar HVAC chiller di atap gedung sebagai ilustrasi */}
             <Image
-              src="/herosectionkontak.png"
+              src={heroBg}
               alt="Instalasi Chiller HVAC SAT"
+              placeholder="blur"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
