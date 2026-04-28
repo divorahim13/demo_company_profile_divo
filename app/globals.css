@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* ── Font Theme Registration (Tailwind v4 + next/font) ──── */
+@theme {
+  --font-body: Inter, Arial, Helvetica, system-ui, sans-serif;
+  --font-heading: "Arial Narrow", "Roboto Condensed", Arial, Helvetica, system-ui, sans-serif;
+}
+
+/* ── Base Resets ────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #1e293b;
+  font-family: var(--font-body);
+}
+
+/* ── Global heading tags → Barlow Condensed ─── */
+/*
+  By explicitly defining this, we ensure all h1,h2,h3 use Barlow Condensed
+  while maintaining their unique weights and colors specified in Tailwind classes.
+  The letter spacing adds to the industrial feel.
+*/
+h1, h2, h3 {
+  font-family: var(--font-heading);
+}
+
+
+
+
+/* ── Subtle Dot Grid Background ─────────────── */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, #cbd5e1 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
+}
+
+.bg-dot-pattern-dark {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
+}
+
+/* ── Card Accent Border ─────────────────────── */
+.card-accent-left {
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+.card-accent-left:hover {
+  border-left-color: #e63329;
+}
+
+/* Shared card system to avoid "template AI" feel */
+.surface-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.surface-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
+}
+
+.icon-chip {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+.surface-card:hover .icon-chip {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  color: #e63329;
+}
+
+/* ── Selection ──────────────────────────────── */
+::selection {
+  background: #e63329;
+  color: white;
+}
