@@ -36,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id">
-      <body className="font-body antialiased bg-zinc-900 text-white" suppressHydrationWarning>
+    <html lang="id" className="overflow-x-hidden">
+      <body className="font-body antialiased bg-zinc-900 text-white overflow-x-hidden w-full" suppressHydrationWarning>
         {children}
         <WhatsAppSticky />
       </body>
