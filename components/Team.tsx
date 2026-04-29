@@ -7,10 +7,28 @@ import { AltArrowLeftBoldDuotoneIcon, AltArrowRightBoldDuotoneIcon } from './ico
 
 const team = [
   {
+    name: 'Andi Sultan D Dalle, SE',
+    role: 'Komisaris',
+    desc: 'Memberikan arahan strategis dan pengawasan terhadap jalannya perusahaan.',
+    image: '/assets/uploads/IMG_6461.JPG',
+  },
+  {
     name: 'Dodi Kurniawan',
     role: 'Direktur',
     desc: 'Memimpin strategi dan pengembangan perusahaan.',
     image: '/assets/projects/project-1.webp',
+  },
+  {
+    name: 'Siwi Aryningsih, SE',
+    role: 'Admin & Finance Officer',
+    desc: 'Mengelola administrasi dan keuangan perusahaan secara akurat dan efisien.',
+    image: '/assets/uploads/IMG_6451.PNG',
+  },
+  {
+    name: 'Wahyu Jullian',
+    role: 'Sosial Media Officer',
+    desc: 'Mengembangkan strategi komunikasi dan kehadiran digital perusahaan.',
+    image: '/assets/uploads/IMG_6455.PNG',
   },
   {
     name: 'Fachrizal A.',

@@ -5,46 +5,46 @@ import { motion } from 'framer-motion';
 
 const partners = [
   {
-    id: 'daikin',
-    name: 'Daikin',
-    logo: 'https://www.google.com/s2/favicons?domain=daikin.com&sz=64',
-    category: 'HVAC',
-    initials: 'DK',
+    id: 'pertamina',
+    name: 'PT Pertamina (Persero)',
+    logo: '/brands/logopertamina.png',
+    category: 'Energy & Oil',
+    initials: 'PR',
   },
   {
-    id: 'mitsubishi-electric',
-    name: 'Mitsubishi Electric',
-    logo: 'https://www.google.com/s2/favicons?domain=mitsubishielectric.com&sz=64',
-    category: 'HVAC & Building Systems',
-    initials: 'ME',
+    id: 'telkom',
+    name: 'PT Telkom Indonesia',
+    logo: '/brands/logotelkom.png',
+    category: 'Telecommunication',
+    initials: 'TK',
   },
   {
-    id: 'schneider-electric',
-    name: 'Schneider Electric',
-    logo: 'https://www.google.com/s2/favicons?domain=se.com&sz=64',
-    category: 'Electrical & Automation',
-    initials: 'SE',
+    id: 'bca',
+    name: 'Bank Central Asia (BCA)',
+    logo: 'https://www.google.com/s2/favicons?domain=bca.co.id&sz=64',
+    category: 'Banking',
+    initials: 'BC',
   },
   {
-    id: 'panasonic',
-    name: 'Panasonic',
-    logo: 'https://www.google.com/s2/favicons?domain=panasonic.com&sz=64',
-    category: 'HVAC & Electronics',
-    initials: 'PN',
+    id: 'astra',
+    name: 'PT Astra International',
+    logo: 'https://www.google.com/s2/favicons?domain=astra.co.id&sz=64',
+    category: 'Automotive & Infrastructure',
+    initials: 'AS',
   },
   {
-    id: 'trane',
-    name: 'Trane Technologies',
-    logo: 'https://www.google.com/s2/favicons?domain=trane.com&sz=64',
-    category: 'HVAC',
-    initials: 'TT',
+    id: 'indofood',
+    name: 'Indofood Sukses Makmur',
+    logo: '/brands/logoindofood.png',
+    category: 'FMCG',
+    initials: 'ID',
   },
   {
-    id: 'lg',
-    name: 'LG Electronics',
-    logo: 'https://www.google.com/s2/favicons?domain=lg.com&sz=64',
-    category: 'HVAC & Building Solutions',
-    initials: 'LG',
+    id: 'wika',
+    name: 'PT Wijaya Karya',
+    logo: '/brands/logowika.png',
+    category: 'Construction & Infrastructure',
+    initials: 'WK',
   },
 ];
 
@@ -53,19 +53,19 @@ function PartnerLogo({ src, alt, initials }: { src: string; alt: string; initial
 
   if (failed) {
     return (
-      <div className="h-10 w-10 rounded-lg border border-slate-200 bg-slate-100 flex items-center justify-center text-[11px] font-semibold tracking-[0.08em] text-slate-600">
+      <div className="h-14 w-24 md:h-16 md:w-28 rounded-lg border border-slate-200 shadow-sm hover:border-[#e63329]/50 bg-slate-100 flex items-center justify-center text-[11px] md:text-sm font-semibold tracking-[0.08em] text-slate-600 shrink-0 transition-colors">
         {initials}
       </div>
     );
   }
 
   return (
-    <div className="h-10 w-10 rounded-lg border border-slate-200 bg-white flex items-center justify-center overflow-hidden p-1">
+    <div className="h-14 w-24 md:h-16 md:w-28 rounded-lg border border-slate-200 shadow-sm hover:border-[#e63329]/50 bg-white flex items-center justify-center overflow-hidden p-2 md:p-3 shrink-0 transition-colors">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt}
-        className="h-7 w-7 object-contain"
+        className="h-full w-full object-contain"
         loading="lazy"
         onError={() => setFailed(true)}
       />

@@ -26,7 +26,7 @@ const VisionMission = () => {
               <h3 className="text-2xl font-heading text-[#0a1122] tracking-tight">Visi</h3>
             </div>
             <p className="text-gray-600 leading-relaxed text-base italic" style={{fontFamily: 'var(--font-body)'}}>
-              &quot;Menjadi perusahaan penyedia layanan sistem bangunan terdepan dan terpercaya di Indonesia dengan standar kualitas terbaik.&quot;
+              &quot;Menjadi mitra teknis penyedia layanan instalasi dan perawatan sistem bangunan terdepan di Indonesia yang berorientasi pada kepuasan pelanggan, kualitas kerja, dan akuntabilitas.&quot;
             </p>
           </motion.div>
 
@@ -41,7 +41,7 @@ const VisionMission = () => {
             <div className="absolute inset-0 skew-x-[-15deg] overflow-hidden rounded-3xl border-8 border-white shadow-2xl">
               <div className="absolute inset-0 skew-x-[15deg] scale-125">
                 <Image 
-                  src="/assets/projects/project-6.webp"
+                  src="/assets/uploads/IMG_6420.PNG"
                   alt="Modern skyscraper"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -68,13 +68,13 @@ const VisionMission = () => {
             </div>
             <ul className="space-y-4">
               {[
-                "Memberikan solusi teknis yang andal dan efisien.",
-                "Menjaga kualitas kerja sesuai standar K3 dan SNI.",
-                "Membangun hubungan jangka panjang dengan klien.",
-                "Terus berinovasi meningkatkan performa layanan."
+                "Memberikan solusi pengadaan, instalasi, dan perawatan sistem bangunan (HVAC, M&E, keamanan, dan daya) dengan standar kualitas dan profesionalisme tertinggi.",
+                "Menghadirkan layanan yang tepat guna, efisien secara biaya, dan disesuaikan dengan kebutuhan spesifik setiap klien.",
+                "Meningkatkan kompetensi tim teknisi melalui pelatihan berkelanjutan untuk memastikan penguasaan teknologi terbaru.",
+                "Membangun hubungan kemitraan strategis jangka panjang yang saling menguntungkan dengan klien, pemasok, dan mitra usaha."
               ].map((misi, i) => (
                 <li key={i} className="flex items-start gap-3 group">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#e11d48] mt-2.5 transition-all group-hover:scale-150" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#e11d48] mt-2.5 transition-all group-hover:scale-150 flex-shrink-0" />
                   <span className="text-gray-600 leading-tight text-sm" style={{fontFamily: 'var(--font-body)'}}>
                     {misi}
                   </span>
@@ -86,7 +86,7 @@ const VisionMission = () => {
           {/* Mobile Image (no mask) */}
           <div className="lg:hidden relative h-[250px] w-full rounded-2xl overflow-hidden shadow-lg">
             <Image 
-              src="/assets/projects/project-6.webp"
+              src="/assets/uploads/IMG_6420.PNG"
               alt="Modern building"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

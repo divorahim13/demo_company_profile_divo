@@ -15,30 +15,35 @@ import heroBg from '@/public/herosectiontim.png';
 const strukturInti = [
   {
     title: 'Komisaris',
+    name: 'Andi Sultan D Dalle, SE',
     desc: 'Mengarahkan visi strategis dan pengembangan perusahaan secara berkelanjutan.',
-    image: '/assets/projects/project-1.webp',
+    image: '/assets/uploads/IMG_6461.JPG',
     icon: <UserBoldDuotoneIcon className="w-4 h-4 text-white" />,
   },
   {
     title: 'Direktur',
+    name: 'Dodi Kurniawan',
     desc: 'Memimpin operasional perusahaan dan memastikan kualitas layanan SAT tetap profesional.',
     image: '/assets/projects/project-2.webp',
     icon: <CrownBoldDuotoneIcon className="w-4 h-4 text-white" />,
   },
   {
     title: 'Project & Technical Manager',
+    name: 'Fachrizal A.',
     desc: 'Mengawasi perencanaan teknis, pelaksanaan project, dan koordinasi tim lapangan.',
     image: '/assets/projects/project-4.webp',
     icon: <SettingsBoldDuotoneIcon className="w-4 h-4 text-white" />,
   },
   {
     title: 'Finance & Admin',
+    name: 'Siwi Aryningsih, SE',
     desc: 'Mengelola administrasi, keuangan, dan dukungan operasional perusahaan secara terstruktur.',
-    image: '/assets/projects/project-5.webp',
+    image: '/assets/uploads/IMG_6451.PNG',
     icon: <BillListBoldDuotoneIcon className="w-4 h-4 text-white" />,
   },
   {
     title: 'Supervisor Teknisi',
+    name: 'Bayu Setiawan',
     desc: 'Memastikan pekerjaan teknis berjalan sesuai SOP, standar keselamatan, dan target project.',
     image: '/assets/projects/project-7.webp',
     icon: <UserBoldDuotoneIcon className="w-4 h-4 text-white" />,
@@ -201,9 +206,12 @@ export default function TimPage() {
 
                     {/* Text */}
                     <div className="pt-7 pb-5 px-3 flex flex-col flex-1 text-center">
-                      <h4 className="text-[#0a1122] font-bold text-xs mb-2 leading-snug min-h-[32px] flex items-center justify-center">
-                        {item.title}
+                      <h4 className="text-[#0a1122] font-bold text-sm mb-1 leading-snug flex items-center justify-center">
+                        {item.name}
                       </h4>
+                      <p className="text-[#e63329] font-bold text-[10px] uppercase tracking-wider mb-2">
+                        {item.title}
+                      </p>
                       <p className="text-zinc-500 text-[10px] leading-relaxed">
                         {item.desc}
                       </p>

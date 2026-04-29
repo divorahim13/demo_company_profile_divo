@@ -7,35 +7,29 @@ import {
   ShieldCheckBoldDuotoneIcon,
   UsersGroupTwoRoundedBoldDuotoneIcon,
   SettingsBoldDuotoneIcon,
-  HeadphonesRoundSoundBoldDuotoneIcon,
-  ClipboardCheckBoldDuotoneIcon
+  HeadphonesRoundSoundBoldDuotoneIcon
 } from './icons';
 
 const reasons = [
   {
     title: 'Bekerja Sesuai Standar',
-    description: 'Seluruh pekerjaan mengacu pada standar nasional dan internasional — SNI, ISO, dan regulasi K3 yang berlaku.',
+    description: 'Setiap pengerjaan proyek kami pastikan mematuhi regulasi Keselamatan dan Kesehatan Kerja (K3) serta Standar Nasional Indonesia (SNI).',
     icon: <ShieldCheckBoldDuotoneIcon className="w-7 h-7" />,
   },
   {
     title: 'Teknisi Profesional',
-    description: 'Didukung oleh tim teknisi berpengalaman, terlatih, dan bersertifikasi di bidangnya masing-masing.',
+    description: 'Proyek Anda ditangani langsung oleh tim teknisi bersertifikasi yang bekerja secara efisien untuk menjamin ketepatan waktu penyelesaian.',
     icon: <UsersGroupTwoRoundedBoldDuotoneIcon className="w-7 h-7" />,
   },
   {
-    title: 'Maintenance & Instalasi',
-    description: 'Solusi menyeluruh — mulai dari instalasi baru, perbaikan, hingga program maintenance berkala yang terencana.',
+    title: 'Instalasi & Perawatan',
+    description: 'Menyediakan layanan penuh dari pengadaan, instalasi awal, hingga program perawatan rutin untuk memastikan performa sistem tetap optimal.',
     icon: <SettingsBoldDuotoneIcon className="w-7 h-7" />,
   },
   {
-    title: 'After Sales Support',
-    description: 'Garansi pekerjaan, respons cepat, dan tim dukungan siap melayani 24 jam, 7 hari seminggu.',
+    title: 'After-Sales Support',
+    description: 'Kami memberikan garansi pengerjaan dan dukungan teknis yang responsif untuk memastikan kenyamanan Anda setelah proyek selesai.',
     icon: <HeadphonesRoundSoundBoldDuotoneIcon className="w-7 h-7" />,
-  },
-  {
-    title: 'Pengerjaan Sesuai SOP',
-    description: 'Setiap proyek dijalankan dengan prosedur kerja yang jelas, terdokumentasi, dan dapat dipertanggungjawabkan.',
-    icon: <ClipboardCheckBoldDuotoneIcon className="w-7 h-7" />,
   },
 ];
 
@@ -77,7 +71,7 @@ const WhyChooseUs = () => {
               className="relative h-32 sm:h-40 lg:h-36 max-w-md w-full rounded-2xl overflow-hidden mb-6 shadow-md"
             >
               <Image
-                src="/assets/projects/project-6.webp"
+                src="/assets/uploads/IMG_6440.PNG"
                 alt="Engineering Excellence"
                 fill
                 sizes="(min-width: 1024px) 448px, (min-width: 640px) 100vw, 100vw"
@@ -97,7 +91,7 @@ const WhyChooseUs = () => {
             </motion.div>
 
             <p className="text-slate-500 max-w-md text-base leading-[1.8]">
-              Kami percaya bahwa kepercayaan klien dibangun melalui konsistensi kerja, standar yang tidak kompromi, dan layanan purna jual yang nyata — bukan sekadar janji.
+              Kami percaya bahwa kepercayaan klien dibangun melalui konsistensi kerja, standar yang tidak kompromi, dan layanan purna jual yang nyata, bukan sekadar janji.
             </p>
           </div>
         </div>
@@ -107,10 +101,10 @@ const WhyChooseUs = () => {
           {reasons.map((reason, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="surface-card p-6 group"
             >
               {/* Icon */}

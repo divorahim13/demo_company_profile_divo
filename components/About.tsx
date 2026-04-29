@@ -26,7 +26,7 @@ const About = () => {
 
             <div className="relative rounded-xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] h-[480px]">
               <Image
-                src="/assets/projects/project-2.webp"
+                src="/assets/uploads/IMG_6409.PNG"
                 alt="HVAC Systems — Rooftop Installation"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -65,10 +65,10 @@ const About = () => {
             {/* Short scannable description */}
             <div className="space-y-4 text-slate-600 mb-10 text-base leading-[1.75]">
               <p>
-                SAT hadir sebagai mitra teknis untuk membantu kebutuhan sistem bangunan — mulai dari pengadaan perangkat, instalasi, perbaikan, maintenance berkala, hingga after sales support.
+                CV. Samudera Abadi Teknik didirikan untuk merespons tingginya kebutuhan akan mitra teknis yang andal seiring dengan pesatnya perkembangan teknologi dan infrastruktur. Kami hadir dengan komitmen memberikan solusi sistem bangunan terbaik, didukung oleh para ahli yang memiliki rekam jejak puluhan tahun di bidangnya.
               </p>
               <p>
-                Kami berkomitmen memberikan solusi yang andal, efisien, dan sesuai standar untuk mendukung kenyamanan, keamanan, dan produktivitas setiap ruang.
+                Kami mengutamakan keunggulan kualitas, integritas, dan profesionalisme di setiap proyek. Didukung oleh tim teknisi terlatih yang terus berinovasi, kami memastikan setiap pekerjaan, mulai dari instalasi hingga perawatan, diselesaikan dengan standar operasional yang ketat demi kepuasan klien dan mitra bisnis kami.
               </p>
             </div>
 

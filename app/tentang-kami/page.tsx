@@ -144,7 +144,7 @@ export default function TentangKamiPage() {
 
               {/* Description */}
               <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl">
-                Kami adalah perusahaan penyedia layanan teknis sistem bangunan yang berpengalaman dalam pengadaan, instalasi, perbaikan, dan perawatan untuk berbagai sistem mekanikal dan elektrikal.
+                CV. Samudera Abadi Teknik menyediakan solusi teknis komprehensif di bidang pengadaan, instalasi, dan perawatan sistem HVAC, Mekanikal, Elektrikal, CCTV, PABX, serta Genset untuk kebutuhan komersial dan industri.
               </p>
             </motion.div>
           </div>
@@ -173,10 +173,10 @@ export default function TentangKamiPage() {
               
               <div className="space-y-6 text-zinc-600 text-sm leading-relaxed mb-10 pr-4" style={{fontFamily: 'var(--font-body)'}}>
                 <p>
-                  CV. Samudera Abadi Teknik (SAT) hadir untuk memberikan solusi teknis yang andal, efisien, dan sesuai standar bagi kebutuhan bangunan komersial, industri, dan residensial.
+                  CV. Samudera Abadi Teknik didirikan untuk merespons tingginya kebutuhan akan mitra teknis yang andal seiring dengan pesatnya perkembangan teknologi dan infrastruktur. Kami hadir dengan komitmen memberikan solusi sistem bangunan terbaik, didukung oleh para ahli yang memiliki rekam jejak puluhan tahun di bidangnya.
                 </p>
                 <p>
-                  Kami berkomitmen memberikan layanan terbaik dengan mengutamakan kualitas, keselamatan kerja, dan kepuasan klien. Didukung oleh tim profesional dan teknologi terkini, kami siap menjadi partner jangka panjang untuk kesuksesan proyek Anda.
+                  Kami mengutamakan keunggulan kualitas, integritas, dan profesionalisme di setiap proyek. Didukung oleh tim teknisi terlatih yang terus berinovasi, kami memastikan setiap pekerjaan, mulai dari instalasi hingga perawatan, diselesaikan dengan standar operasional yang ketat demi kepuasan klien dan mitra bisnis kami.
                 </p>
               </div>
 
@@ -260,33 +260,43 @@ export default function TentangKamiPage() {
             </h2>
           </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {/* Premium Cards Grid */}
+          <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
             {[
               {
-                title: 'HVAC &\nCooling System',
-                icon: <SnowflakeBoldDuotoneIcon className="w-8 h-8" />,
+                title: 'HVAC & Cooling System',
+                icon: <SnowflakeBoldDuotoneIcon className="w-7 h-7" />,
                 image: '/assets/projects/project-2.webp',
+                desc: 'Perancangan, instalasi, dan pemeliharaan sistem tata udara untuk kenyamanan dan efisiensi energi yang optimal di berbagai fasilitas.',
+                width: 'w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-21.33px)]'
               },
               {
-                title: 'Mechanical &\nElectrical',
-                icon: <SettingsBoldDuotoneIcon className="w-8 h-8" />,
+                title: 'Mechanical & Electrical',
+                icon: <SettingsBoldDuotoneIcon className="w-7 h-7" />,
                 image: '/assets/projects/project-3.webp',
+                desc: 'Solusi mekanikal dan kelistrikan terpadu yang memastikan infrastruktur bangunan Anda beroperasi dengan aman dan andal.',
+                width: 'w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-21.33px)]'
               },
               {
-                title: 'CCTV &\nPABX',
-                icon: <CameraBoldDuotoneIcon className="w-8 h-8" />,
-                image: '/assets/projects/project-4.webp',
+                title: 'CCTV & PABX',
+                icon: <CameraBoldDuotoneIcon className="w-7 h-7" />,
+                image: '/assets/uploads/cctv.jpeg',
+                desc: 'Sistem keamanan terintegrasi dan infrastruktur telekomunikasi internal untuk mendukung kelancaran operasional bisnis.',
+                width: 'w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-21.33px)]'
               },
               {
-                title: 'Genset',
-                icon: <BoltBoldDuotoneIcon className="w-8 h-8" />,
-                image: '/assets/projects/project-5.webp',
+                title: 'Genset & Power',
+                icon: <BoltBoldDuotoneIcon className="w-7 h-7" />,
+                image: '/assets/uploads/genset.jpeg',
+                desc: 'Instalasi dan perawatan generator set untuk menjamin ketersediaan daya cadangan yang stabil tanpa gangguan.',
+                width: 'w-full md:w-[calc(50%-12px)] lg:w-[calc(40%-16px)]'
               },
               {
-                title: 'Maintenance &\nAfter Sales',
-                icon: <SettingsBoldDuotoneIcon className="w-8 h-8" />,
+                title: 'Maintenance & After Sales',
+                icon: <SettingsBoldDuotoneIcon className="w-7 h-7" />,
                 image: '/assets/projects/project-7.webp',
+                desc: 'Dukungan purna jual responsif dan program perawatan rutin untuk memperpanjang usia pakai aset teknis Anda.',
+                width: 'w-full md:w-[calc(50%-12px)] lg:w-[calc(40%-16px)]'
               }
             ].map((service, index) => (
               <motion.div
@@ -295,34 +305,42 @@ export default function TentangKamiPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-lg border border-slate-100 flex flex-col h-full shadow-sm hover:shadow-md transition-shadow group"
+                className={`${service.width} relative group rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_20px_40px_rgb(0,0,0,0.15)] transition-all duration-500 min-h-[380px] lg:min-h-[420px] flex items-end`}
               >
-                {/* Top: Icon + Title */}
-                <div className="p-6 flex items-center gap-4">
-                  <div className="text-slate-800">
+                {/* Background Image with Zoom Effect */}
+                <Image 
+                  src={service.image} 
+                  alt={service.title} 
+                  fill 
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 z-0"
+                />
+                
+                {/* Dark Gradient Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1122]/90 via-[#0a1122]/40 to-transparent z-10 opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-[#e63329]/20 opacity-0 group-hover:opacity-100 mix-blend-multiply transition-opacity duration-500 z-10" />
+
+                {/* Content */}
+                <div className="relative z-20 p-8 lg:p-10 w-full transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                  <div className="w-14 h-14 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center mb-6 group-hover:bg-[#e63329] group-hover:border-[#e63329] group-hover:scale-110 transition-all duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-[#0a1122] font-bold text-sm leading-snug whitespace-pre-line">
+                  
+                  <h3 className="text-white font-bold text-2xl lg:text-3xl leading-tight mb-3">
                     {service.title}
                   </h3>
-                </div>
-                
-                {/* Middle: Image */}
-                <div className="relative h-40 w-full overflow-hidden">
-                  <Image 
-                    src={service.image} 
-                    alt={service.title.replace('\n', ' ')} 
-                    fill 
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-
-                {/* Bottom: Arrow */}
-                <div className="p-4 flex justify-end">
-                  <div className="text-[#e63329] group-hover:translate-x-1 transition-transform">
-                    <ArrowRightBoldDuotoneIcon className="w-5 h-5" />
+                  
+                  {/* Hidden description that reveals on hover */}
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-in-out">
+                    <div className="overflow-hidden">
+                      <p className="text-white/80 text-sm leading-relaxed pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                        {service.desc}
+                      </p>
+                    </div>
                   </div>
+                  
+                  {/* Decorative line */}
+                  <div className="w-10 h-1 bg-[#e63329] mt-6 group-hover:w-full transition-all duration-700 ease-out rounded-full opacity-50 group-hover:opacity-100" />
                 </div>
               </motion.div>
             ))}
@@ -532,6 +550,73 @@ export default function TentangKamiPage() {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMPANY PROFILE ──────────────────────────────────────── */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#070d1f]">
+            {/* Background elements */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#e63329] rounded-full blur-[120px] opacity-20 -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500 rounded-full blur-[100px] opacity-10 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+            
+            {/* Abstract Grid Pattern */}
+            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+
+            <div className="relative z-10 p-8 md:p-14 lg:p-20 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+              <div className="flex-1 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white font-bold text-[10px] tracking-widest uppercase mb-6 backdrop-blur-md">
+                  <span className="w-2 h-2 rounded-full bg-[#e63329] animate-pulse"></span>
+                  COMPANY PROFILE
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.15]">
+                  Dapatkan <span className="text-[#e63329]">Profil Perusahaan</span> Kami Secara Lengkap
+                </h2>
+                <p className="text-slate-300 mb-10 max-w-xl leading-relaxed mx-auto md:mx-0 text-sm md:text-base">
+                  Pelajari lebih dalam mengenai sejarah, layanan unggulan, sertifikasi legalitas, hingga portofolio proyek berskala nasional yang telah kami selesaikan. Unduh dokumen Company Profile resmi CV. Samudera Abadi Teknik sekarang.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                  <Link
+                    href="/Company-Profile-SAT.pdf"
+                    target="_blank"
+                    download="Company-Profile-CV-Samudera-Abadi-Teknik.pdf"
+                    className="flex items-center justify-center gap-3 bg-[#e63329] text-white px-8 py-4 rounded font-bold text-sm hover:bg-white hover:text-[#e63329] transition-all shadow-lg shadow-[#e63329]/30 group w-full sm:w-auto"
+                  >
+                    <ClipboardCheckBoldDuotoneIcon className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+                    DOWNLOAD PDF
+                  </Link>
+                  <span className="text-slate-400 text-xs font-medium">Ukuran File: ~11 MB</span>
+                </div>
+              </div>
+
+              {/* Right side mockup */}
+              <div className="w-full md:w-[45%] flex justify-center md:justify-end relative">
+                <div className="relative">
+                  {/* Glowing shadow behind the image */}
+                  <div className="absolute inset-0 bg-[#e63329] blur-[40px] opacity-30 transform scale-90 translate-y-4 rounded-xl"></div>
+                  
+                  {/* The Document Image */}
+                  <motion.div 
+                    whileHover={{ y: -10, rotateY: -5 }}
+                    className="relative w-56 h-80 sm:w-64 sm:h-96 rounded-lg overflow-hidden border-[4px] border-white/80 bg-slate-100 shadow-2xl backdrop-blur-sm z-10 transition-transform duration-500 ease-out"
+                    style={{ transformStyle: 'preserve-3d' }}
+                  >
+                    <Image 
+                      src="/assets/compro-cover.png" 
+                      alt="Cover Company Profile SAT" 
+                      fill 
+                      sizes="(max-width: 768px) 250px, 400px" 
+                      className="object-cover" 
+                      priority
+                    />
+                    {/* Glossy overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-50 pointer-events-none"></div>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@ const CTA = () => {
       {/* Background Image for the whole section */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/assets/projects/project-6.webp"
+          src="/assets/uploads/IMG_3762.JPG.jpeg"
           alt="Modern buildings background"
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"

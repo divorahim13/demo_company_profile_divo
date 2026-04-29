@@ -5,8 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  BoltBoldDuotoneIcon, ArrowRightBoldDuotoneIcon, ShieldCheckBoldDuotoneIcon, HeadphonesRoundSoundBoldDuotoneIcon, CalendarBoldDuotoneIcon, UsersGroupTwoRoundedBoldDuotoneIcon, BagBoldDuotoneIcon, BuildingsBoldDuotoneIcon, HeartPulseBoldDuotoneIcon, Buildings2BoldDuotoneIcon, CityBoldDuotoneIcon, ClipboardCheckBoldDuotoneIcon, ChatRoundBoldDuotoneIcon, SettingsBoldDuotoneIcon, QuestionCircleBoldDuotoneIcon, MagniferBoldDuotoneIcon, AltArrowRightBoldDuotoneIcon, AltArrowLeftBoldDuotoneIcon
+  BoltBoldDuotoneIcon, ArrowRightBoldDuotoneIcon, ShieldCheckBoldDuotoneIcon, HeadphonesRoundSoundBoldDuotoneIcon, CalendarBoldDuotoneIcon, UsersGroupTwoRoundedBoldDuotoneIcon, BagBoldDuotoneIcon, BuildingsBoldDuotoneIcon, HeartPulseBoldDuotoneIcon, Buildings2BoldDuotoneIcon, CityBoldDuotoneIcon, ClipboardCheckBoldDuotoneIcon, ChatRoundBoldDuotoneIcon, SettingsBoldDuotoneIcon, QuestionCircleBoldDuotoneIcon, MagniferBoldDuotoneIcon, AltArrowRightBoldDuotoneIcon, AltArrowLeftBoldDuotoneIcon,
 } from '@/components/icons';
+import { ShoppingBag, Zap, HeartPulse, Building, Building2, Landmark, Search, Map, PenTool, Settings, CheckSquare, Headset } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import heroBg from '@/public/herosectionmitra.png';
@@ -164,29 +165,31 @@ export default function MitraPage() {
                 <div className="w-6 h-[3px] bg-[#e63329] mx-auto"></div>
               </div>
 
-              {/* Grid 3 Columns */}
+              {/* Grid Columns */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-3 md:mb-4">
                 {[
-                  { name: 'PGN', category: 'Energi & Gas', domain: 'pgn.co.id' },
-                  { name: 'WIKA', category: 'Konstruksi', domain: 'wika.co.id' },
+                  { name: 'Pertamina', category: 'Energi & Migas', domain: 'pertamina.com', customLogo: '/brands/logopertamina.png' },
+                  { name: 'Telkom Indonesia', category: 'Telekomunikasi', domain: 'telkom.co.id', customLogo: '/brands/logotelkom.png' },
+                  { name: 'Indofood', category: 'FMCG', domain: 'indofood.com', customLogo: '/brands/logoindofood.png' },
+                  { name: 'WIKA', category: 'Konstruksi', domain: 'wika.co.id', customLogo: '/brands/logowika.png' },
+                  { name: 'PGN', category: 'Energi & Gas', domain: 'pgn.co.id', customLogo: '/brands/pgnlogo.png' },
+                  { name: 'Elnusa', category: 'Energi', domain: 'elnusa.co.id', customLogo: '/brands/Elnusa.png' },
                   { name: 'Ramayana', category: 'Retail', domain: 'ramayana.co.id' },
                   { name: 'Matahari', category: 'Retail', domain: 'matahari.com' },
-                  { name: 'Elnusa', category: 'Energi', domain: 'elnusa.co.id' },
-                  { name: 'Mitra Keluarga', category: 'Healthcare', domain: 'mitrakeluarga.com' },
-                  { name: 'Mercedes-Benz', category: 'Automotive', domain: 'mercedes-benz.com' },
-                  { name: 'Margocity', category: 'Mall', domain: 'margocity.com' },
                   { name: 'BNI', category: 'Perbankan', domain: 'bni.co.id' },
                 ].map((item) => (
-                  <div key={item.name} className="h-20 md:h-24 border border-slate-100 rounded-lg flex items-center justify-center hover:shadow-md transition-shadow bg-white px-4">
-                    <div className="flex items-center gap-2 min-w-0">
+                  <div key={item.name} className="h-20 md:h-24 border border-slate-200 shadow-sm hover:border-[#e63329]/50 rounded-lg flex items-center justify-center hover:shadow-md transition-all bg-white px-3 md:px-4">
+                    <div className="flex items-center gap-3 md:gap-4 min-w-0 w-full justify-center">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={`https://www.google.com/s2/favicons?domain=${item.domain}&sz=64`}
+                        src={item.customLogo || `https://www.google.com/s2/favicons?domain=${item.domain}&sz=128`}
                         alt={`${item.name} logo`}
-                        className="w-8 h-8 rounded-md border border-slate-100 bg-white object-contain"
+                        className="h-10 md:h-12 w-auto max-w-[60px] md:max-w-[90px] object-contain flex-shrink-0"
                         loading="lazy"
                       />
-                      <span className="text-base md:text-xl font-bold text-slate-800 truncate">{item.name}</span>
+                      <span className="text-sm md:text-lg font-bold text-slate-800 leading-tight line-clamp-2 break-words">
+                        {item.name}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -194,16 +197,18 @@ export default function MitraPage() {
 
               {/* Centered PLN Logo */}
               <div className="flex justify-center">
-                <div className="w-1/2 md:w-[calc(33.333%-11px)] h-20 md:h-24 border border-slate-100 rounded-lg flex items-center justify-center hover:shadow-md transition-shadow bg-white px-4">
-                  <div className="flex items-center gap-2 md:gap-3 min-w-0">
+                <div className="w-1/2 md:w-[calc(33.333%-11px)] h-20 md:h-24 border border-slate-200 shadow-sm hover:border-[#e63329]/50 rounded-lg flex items-center justify-center hover:shadow-md transition-all bg-white px-3 md:px-4">
+                  <div className="flex items-center gap-3 md:gap-4 min-w-0 w-full justify-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="https://www.google.com/s2/favicons?domain=pln.co.id&sz=64"
+                      src="/brands/plnlogo.png"
                       alt="PLN logo"
-                      className="w-8 h-8 rounded-md border border-slate-100 bg-white object-contain"
+                      className="h-10 md:h-12 w-auto max-w-[60px] md:max-w-[90px] object-contain flex-shrink-0"
                       loading="lazy"
                     />
-                    <span className="text-2xl md:text-3xl font-black text-blue-700 tracking-widest">PLN</span>
+                    <span className="text-sm md:text-lg font-bold text-slate-800 leading-tight line-clamp-2 break-words">
+                      PLN
+                    </span>
                   </div>
                 </div>
               </div>
@@ -358,19 +363,33 @@ export default function MitraPage() {
       </section>
 
       {/* ── SEKTOR YANG KAMI LAYANI SECTION ──────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        {/* Subtle decorative background elements */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#e63329]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#0a1122]/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
+
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-xs md:text-sm font-black tracking-widest uppercase text-[#0a1122] mb-3">
-              SEKTOR YANG KAMI LAYANI
-            </h2>
-            <div className="w-8 h-[3px] bg-[#e63329] mx-auto"></div>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-6 h-[2px] bg-[#e63329]"></div>
+                <h2 className="text-xs md:text-sm font-black tracking-widest uppercase text-[#e63329]">
+                  CAKUPAN LAYANAN
+                </h2>
+              </div>
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a1122] leading-[1.1] tracking-tight">
+                Sektor yang Kami Layani
+              </h3>
+            </div>
+            <p className="text-slate-500 max-w-md text-sm md:text-base leading-relaxed">
+              Kami membawa keahlian teknis dan standar industri tertinggi ke berbagai sektor, memastikan setiap fasilitas beroperasi pada performa puncaknya.
+            </p>
           </div>
 
           {/* Sektor Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             
             {/* 1. Retail */}
             <motion.div 
@@ -378,13 +397,19 @@ export default function MitraPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="border border-slate-100 rounded-xl p-6 md:p-8 text-center shadow-sm hover:shadow-md transition-all bg-white flex flex-col items-center"
+              className="group bg-white border border-slate-200 hover:border-transparent hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl p-8 lg:p-10 transition-all duration-300 relative overflow-hidden"
             >
-              <BagBoldDuotoneIcon className="w-10 h-10 md:w-12 md:h-12 text-[#0a1122] mb-6 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm md:text-base mb-3">Retail</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Solusi sistem bangunan untuk pusat perbelanjaan dan retail modern.
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e63329]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-8 transition-colors duration-300 shadow-sm">
+                  <ShoppingBag className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-xl text-[#0a1122] mb-4 group-hover:text-[#e63329] transition-colors duration-300">Retail & Mall</h3>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8 flex-grow">
+                  Solusi sistem bangunan terintegrasi untuk pusat perbelanjaan dan retail modern yang membutuhkan kenyamanan pengunjung 24/7.
+                </p>
+                <div className="w-8 h-[2px] bg-slate-200 group-hover:bg-[#e63329] group-hover:w-16 transition-all duration-300 mt-auto"></div>
+              </div>
             </motion.div>
 
             {/* 2. Energi */}
@@ -393,13 +418,19 @@ export default function MitraPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="border border-slate-100 rounded-xl p-6 md:p-8 text-center shadow-sm hover:shadow-md transition-all bg-white flex flex-col items-center"
+              className="group bg-white border border-slate-200 hover:border-transparent hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl p-8 lg:p-10 transition-all duration-300 relative overflow-hidden"
             >
-              <BuildingsBoldDuotoneIcon className="w-10 h-10 md:w-12 md:h-12 text-[#0a1122] mb-6 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm md:text-base mb-3">Energi</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Mendukung fasilitas energi dengan sistem yang andal dan berkelanjutan.
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e63329]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-8 transition-colors duration-300 shadow-sm">
+                  <Zap className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-xl text-[#0a1122] mb-4 group-hover:text-[#e63329] transition-colors duration-300">Energi & Migas</h3>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8 flex-grow">
+                  Mendukung fasilitas energi dengan sistem operasional yang andal, memenuhi standar keamanan dan berkelanjutan yang ketat.
+                </p>
+                <div className="w-8 h-[2px] bg-slate-200 group-hover:bg-[#e63329] group-hover:w-16 transition-all duration-300 mt-auto"></div>
+              </div>
             </motion.div>
 
             {/* 3. Kesehatan */}
@@ -408,13 +439,19 @@ export default function MitraPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="border border-slate-100 rounded-xl p-6 md:p-8 text-center shadow-sm hover:shadow-md transition-all bg-white flex flex-col items-center"
+              className="group bg-white border border-slate-200 hover:border-transparent hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl p-8 lg:p-10 transition-all duration-300 relative overflow-hidden"
             >
-              <HeartPulseBoldDuotoneIcon className="w-10 h-10 md:w-12 md:h-12 text-[#0a1122] mb-6 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm md:text-base mb-3">Kesehatan</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Sistem yang higienis dan aman untuk rumah sakit dan fasilitas kesehatan.
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e63329]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-8 transition-colors duration-300 shadow-sm">
+                  <HeartPulse className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-xl text-[#0a1122] mb-4 group-hover:text-[#e63329] transition-colors duration-300">Fasilitas Kesehatan</h3>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8 flex-grow">
+                  Sistem tata udara dan kelistrikan yang higienis serta aman untuk rumah sakit, klinik, dan fasilitas kesehatan lainnya.
+                </p>
+                <div className="w-8 h-[2px] bg-slate-200 group-hover:bg-[#e63329] group-hover:w-16 transition-all duration-300 mt-auto"></div>
+              </div>
             </motion.div>
 
             {/* 4. Properti */}
@@ -423,13 +460,19 @@ export default function MitraPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="border border-slate-100 rounded-xl p-6 md:p-8 text-center shadow-sm hover:shadow-md transition-all bg-white flex flex-col items-center"
+              className="group bg-white border border-slate-200 hover:border-transparent hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl p-8 lg:p-10 transition-all duration-300 relative overflow-hidden"
             >
-              <BuildingsBoldDuotoneIcon className="w-10 h-10 md:w-12 md:h-12 text-[#0a1122] mb-6 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm md:text-base mb-3">Properti</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Solusi teknis untuk gedung apartemen, perkantoran, dan kawasan properti.
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e63329]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-8 transition-colors duration-300 shadow-sm">
+                  <Building className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-xl text-[#0a1122] mb-4 group-hover:text-[#e63329] transition-colors duration-300">Properti & Residensial</h3>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8 flex-grow">
+                  Solusi teknis menyeluruh untuk gedung apartemen, perumahan, perkantoran, dan kawasan properti skala besar.
+                </p>
+                <div className="w-8 h-[2px] bg-slate-200 group-hover:bg-[#e63329] group-hover:w-16 transition-all duration-300 mt-auto"></div>
+              </div>
             </motion.div>
 
             {/* 5. Komersial */}
@@ -438,13 +481,19 @@ export default function MitraPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="border border-slate-100 rounded-xl p-6 md:p-8 text-center shadow-sm hover:shadow-md transition-all bg-white flex flex-col items-center"
+              className="group bg-white border border-slate-200 hover:border-transparent hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl p-8 lg:p-10 transition-all duration-300 relative overflow-hidden"
             >
-              <Buildings2BoldDuotoneIcon className="w-10 h-10 md:w-12 md:h-12 text-[#0a1122] mb-6 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm md:text-base mb-3">Komersial</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Mendukung operasional bisnis dengan sistem yang efisien dan stabil.
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e63329]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-8 transition-colors duration-300 shadow-sm">
+                  <Building2 className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-xl text-[#0a1122] mb-4 group-hover:text-[#e63329] transition-colors duration-300">Komersial & Bisnis</h3>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8 flex-grow">
+                  Mendukung operasional ruang komersial dengan sistem yang efisien, stabil, dan maintenance berkala yang terjamin.
+                </p>
+                <div className="w-8 h-[2px] bg-slate-200 group-hover:bg-[#e63329] group-hover:w-16 transition-all duration-300 mt-auto"></div>
+              </div>
             </motion.div>
 
             {/* 6. Layanan Publik */}
@@ -453,13 +502,19 @@ export default function MitraPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="border border-slate-100 rounded-xl p-6 md:p-8 text-center shadow-sm hover:shadow-md transition-all bg-white flex flex-col items-center"
+              className="group bg-white border border-slate-200 hover:border-transparent hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl p-8 lg:p-10 transition-all duration-300 relative overflow-hidden"
             >
-              <CityBoldDuotoneIcon className="w-10 h-10 md:w-12 md:h-12 text-[#0a1122] mb-6 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm md:text-base mb-3">Layanan Publik</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Melayani kebutuhan teknis di fasilitas dan instansi layanan publik.
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e63329]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-8 transition-colors duration-300 shadow-sm">
+                  <Landmark className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-xl text-[#0a1122] mb-4 group-hover:text-[#e63329] transition-colors duration-300">Layanan Publik</h3>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8 flex-grow">
+                  Melayani kebutuhan teknis di fasilitas umum dan instansi pemerintah dengan standarisasi proyek yang transparan dan akuntabel.
+                </p>
+                <div className="w-8 h-[2px] bg-slate-200 group-hover:bg-[#e63329] group-hover:w-16 transition-all duration-300 mt-auto"></div>
+              </div>
             </motion.div>
 
           </div>
@@ -586,69 +641,78 @@ export default function MitraPage() {
             <div className="w-8 h-[3px] bg-[#e63329] mx-auto"></div>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-4 lg:gap-2 relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 relative z-10">
             
             {/* Step 1 */}
-            <div className="flex-1 w-full border border-slate-100 rounded-xl p-6 shadow-sm bg-white flex flex-col items-center text-center relative z-10 hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 rounded-full bg-[#0a1122] text-white flex items-center justify-center text-xs font-bold absolute -top-4 left-4">01</div>
-              <QuestionCircleBoldDuotoneIcon className="w-10 h-10 text-[#0a1122] mb-4 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm mb-2">Analisa Kebutuhan</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">Memahami kebutuhan sistem dan tujuan project Anda.</p>
-            </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <AltArrowRightBoldDuotoneIcon className="w-5 h-5 text-slate-300" />
+            <div className="group border border-slate-200 hover:border-[#e63329]/30 rounded-2xl p-8 bg-white shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -right-6 -bottom-6 text-[120px] font-black text-slate-50 group-hover:text-slate-100/50 leading-none select-none transition-colors duration-300 z-0">01</div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-6 transition-colors duration-300">
+                  <Search className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-[#0a1122] text-lg mb-3">Analisa Kebutuhan</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">Memahami secara mendalam kebutuhan sistem operasional dan tujuan utama project Anda.</p>
+              </div>
             </div>
 
             {/* Step 2 */}
-            <div className="flex-1 w-full border border-slate-100 rounded-xl p-6 shadow-sm bg-white flex flex-col items-center text-center relative z-10 hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 rounded-full bg-[#0a1122] text-white flex items-center justify-center text-xs font-bold absolute -top-4 left-4">02</div>
-              <MagniferBoldDuotoneIcon className="w-10 h-10 text-[#0a1122] mb-4 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm mb-2">Survey Lapangan</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">Melakukan survey dan pengumpulan data secara menyeluruh.</p>
-            </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <AltArrowRightBoldDuotoneIcon className="w-5 h-5 text-slate-300" />
+            <div className="group border border-slate-200 hover:border-[#e63329]/30 rounded-2xl p-8 bg-white shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -right-6 -bottom-6 text-[120px] font-black text-slate-50 group-hover:text-slate-100/50 leading-none select-none transition-colors duration-300 z-0">02</div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-6 transition-colors duration-300">
+                  <Map className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-[#0a1122] text-lg mb-3">Survey Lapangan</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">Melakukan observasi dan pengumpulan data teknis secara menyeluruh di lokasi project.</p>
+              </div>
             </div>
 
             {/* Step 3 */}
-            <div className="flex-1 w-full border border-slate-100 rounded-xl p-6 shadow-sm bg-white flex flex-col items-center text-center relative z-10 hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 rounded-full bg-[#0a1122] text-white flex items-center justify-center text-xs font-bold absolute -top-4 left-4">03</div>
-              <ClipboardCheckBoldDuotoneIcon className="w-10 h-10 text-[#0a1122] mb-4 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm mb-2">Perencanaan Teknis</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">Menyusun perencanaan teknis dan solusi yang paling tepat.</p>
-            </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <AltArrowRightBoldDuotoneIcon className="w-5 h-5 text-slate-300" />
+            <div className="group border border-slate-200 hover:border-[#e63329]/30 rounded-2xl p-8 bg-white shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -right-6 -bottom-6 text-[120px] font-black text-slate-50 group-hover:text-slate-100/50 leading-none select-none transition-colors duration-300 z-0">03</div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-6 transition-colors duration-300">
+                  <PenTool className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-[#0a1122] text-lg mb-3">Perencanaan Teknis</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">Menyusun desain engineering, perhitungan teknis, dan rancangan solusi yang paling optimal.</p>
+              </div>
             </div>
 
             {/* Step 4 */}
-            <div className="flex-1 w-full border border-slate-100 rounded-xl p-6 shadow-sm bg-white flex flex-col items-center text-center relative z-10 hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 rounded-full bg-[#0a1122] text-white flex items-center justify-center text-xs font-bold absolute -top-4 left-4">04</div>
-              <SettingsBoldDuotoneIcon className="w-10 h-10 text-[#0a1122] mb-4 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm mb-2">Pelaksanaan</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">Pekerjaan dilakukan oleh tenaga ahli dengan kontrol kualitas ketat.</p>
-            </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <AltArrowRightBoldDuotoneIcon className="w-5 h-5 text-slate-300" />
+            <div className="group border border-slate-200 hover:border-[#e63329]/30 rounded-2xl p-8 bg-white shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -right-6 -bottom-6 text-[120px] font-black text-slate-50 group-hover:text-slate-100/50 leading-none select-none transition-colors duration-300 z-0">04</div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-6 transition-colors duration-300">
+                  <Settings className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-[#0a1122] text-lg mb-3">Pelaksanaan</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">Eksekusi pekerjaan oleh tenaga ahli bersertifikasi dengan pengawasan kualitas yang ketat.</p>
+              </div>
             </div>
 
             {/* Step 5 */}
-            <div className="flex-1 w-full border border-slate-100 rounded-xl p-6 shadow-sm bg-white flex flex-col items-center text-center relative z-10 hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 rounded-full bg-[#0a1122] text-white flex items-center justify-center text-xs font-bold absolute -top-4 left-4">05</div>
-              <ClipboardCheckBoldDuotoneIcon className="w-10 h-10 text-[#0a1122] mb-4 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm mb-2">Testing & Handover</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">Pengujian sistem dan serah terima dengan dokumentasi lengkap.</p>
-            </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <AltArrowRightBoldDuotoneIcon className="w-5 h-5 text-slate-300" />
+            <div className="group border border-slate-200 hover:border-[#e63329]/30 rounded-2xl p-8 bg-white shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -right-6 -bottom-6 text-[120px] font-black text-slate-50 group-hover:text-slate-100/50 leading-none select-none transition-colors duration-300 z-0">05</div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-6 transition-colors duration-300">
+                  <CheckSquare className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-[#0a1122] text-lg mb-3">Testing & Handover</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">Pengujian sistem menyeluruh (commissioning) dan serah terima dengan dokumentasi lengkap.</p>
+              </div>
             </div>
 
             {/* Step 6 */}
-            <div className="flex-1 w-full border border-slate-100 rounded-xl p-6 shadow-sm bg-white flex flex-col items-center text-center relative z-10 hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 rounded-full bg-[#0a1122] text-white flex items-center justify-center text-xs font-bold absolute -top-4 left-4">06</div>
-              <HeadphonesRoundSoundBoldDuotoneIcon className="w-10 h-10 text-[#0a1122] mb-4 stroke-[1.2]" />
-              <h3 className="font-bold text-[#0a1122] text-sm mb-2">After Sales Support</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">Dukungan after sales untuk memastikan sistem berjalan optimal.</p>
+            <div className="group border border-slate-200 hover:border-[#e63329]/30 rounded-2xl p-8 bg-white shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -right-6 -bottom-6 text-[120px] font-black text-slate-50 group-hover:text-slate-100/50 leading-none select-none transition-colors duration-300 z-0">06</div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 group-hover:bg-[#e63329] group-hover:text-white text-[#0a1122] flex items-center justify-center mb-6 transition-colors duration-300">
+                  <Headset className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-[#0a1122] text-lg mb-3">After Sales Support</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">Dukungan teknis berkala dan respons cepat untuk memastikan sistem beroperasi optimal 24/7.</p>
+              </div>
             </div>
 
           </div>
@@ -670,33 +734,40 @@ export default function MitraPage() {
               
               {/* Testimonial 1 */}
               <div className="flex-1 border border-slate-100 rounded-xl p-8 shadow-sm flex flex-col md:flex-row gap-8 items-center bg-white hover:shadow-md transition-all">
-                <div className="w-24 h-12 md:w-32 md:h-16 relative flex items-center justify-center flex-shrink-0 bg-[#00529b] rounded-full shadow-inner">
-                  <span className="text-white font-black text-xl tracking-wider">WIKA</span>
+                <div className="w-24 h-12 md:w-32 md:h-16 relative flex items-center justify-center flex-shrink-0 p-2">
+                  <Image
+                    src="/brands/logowika.png"
+                    alt="WIKA logo"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
                 <div className="flex-1 text-center md:text-left">
                   <p className="text-sm text-slate-600 italic mb-4 leading-relaxed font-serif">
                     &quot;SAT merupakan partner yang profesional dan responsif. Pekerjaan instalasi HVAC berjalan sesuai standar dan timeline yang disepakati.&quot;
                   </p>
                   <p className="text-xs font-bold text-[#e63329]">
-                    — Tim Facility Management PT WIKA
+                    - Tim Facility Management PT WIKA
                   </p>
                 </div>
               </div>
 
               {/* Testimonial 2 */}
               <div className="flex-1 border border-slate-100 rounded-xl p-8 shadow-sm flex flex-col md:flex-row gap-8 items-center bg-white hover:shadow-md transition-all">
-                <div className="w-24 h-12 md:w-32 md:h-16 relative flex items-center justify-center flex-shrink-0">
-                  <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border-[3px] border-red-600 border-r-transparent -rotate-45" />
-                    <span className="text-lg md:text-[22px] font-black tracking-tight text-[#1f2937]">MATAHARI</span>
-                  </div>
+                <div className="w-24 h-12 md:w-32 md:h-16 relative flex items-center justify-center flex-shrink-0 p-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://www.google.com/s2/favicons?domain=matahari.com&sz=128"
+                    alt="Matahari logo"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div className="flex-1 text-center md:text-left">
                   <p className="text-sm text-slate-600 italic mb-4 leading-relaxed font-serif">
                     &quot;Maintenance rutin yang dilakukan SAT membantu kami menjaga kenyamanan dan efisiensi operasional di seluruh lokasi store.&quot;
                   </p>
                   <p className="text-xs font-bold text-[#e63329]">
-                    — Tim Engineering Matahari
+                    - Tim Engineering Matahari
                   </p>
                 </div>
               </div>

@@ -8,10 +8,9 @@ import {
   PhoneBoldDuotoneIcon, 
   LetterBoldDuotoneIcon, 
   ClockCircleBoldDuotoneIcon, 
-  LinkedinFillIcon, 
   InstagramFillIcon, 
-  FacebookCircleFillIcon, 
-  TwitterXLineIcon 
+  TiktokFillIcon,
+  YoutubeFillIcon 
 } from './icons';
 
 const Footer = () => {
@@ -41,10 +40,9 @@ const Footer = () => {
               Menyediakan layanan sistem bangunan yang andal dan terpercaya untuk berbagai kebutuhan Anda.
             </p>
             <div className="flex space-x-4">
-              <SocialIcon icon={<LinkedinFillIcon className="w-4 h-4" />} />
-              <SocialIcon icon={<InstagramFillIcon className="w-4 h-4" />} />
-              <SocialIcon icon={<FacebookCircleFillIcon className="w-4 h-4" />} />
-              <SocialIcon icon={<TwitterXLineIcon className="w-4 h-4" />} />
+              <SocialIcon href="https://instagram.com/samuderaabaditeknik" icon={<InstagramFillIcon className="w-4 h-4" />} />
+              <SocialIcon href="https://tiktok.com/@samuderaabadi_teknik" icon={<TiktokFillIcon className="w-4 h-4" />} />
+              <SocialIcon href="https://youtube.com/@samuderaabaditeknik" icon={<YoutubeFillIcon className="w-4 h-4" />} />
             </div>
           </div>
 
@@ -143,8 +141,8 @@ const Footer = () => {
   );
 };
 
-const SocialIcon = ({ icon }: { icon: React.ReactNode }) => (
-  <Link href="#" className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:bg-[#e63329] hover:text-white hover:border-[#e63329] transition-all">
+const SocialIcon = ({ icon, href }: { icon: React.ReactNode, href: string }) => (
+  <Link href={href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:bg-[#e63329] hover:text-white hover:border-[#e63329] transition-all">
     {icon}
   </Link>
 );

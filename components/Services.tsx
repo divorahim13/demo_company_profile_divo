@@ -11,31 +11,31 @@ const services = [
     title: 'HVAC &\nCooling System',
     description: 'Pengadaan, instalasi, dan perawatan AC, Chiller, AHU, Cooling Tower, dan sistem terkait.',
     icon: <SnowflakeBoldDuotoneIcon className="w-8 h-8" />,
-    image: '/assets/projects/project-2.webp',
+    image: '/assets/uploads/IMG_6409.PNG',
   },
   {
     title: 'Mechanical &\nElectrical',
     description: 'Pekerjaan sistem mekanikal dan elektrikal untuk mendukung operasional bangunan.',
     icon: <SettingsBoldDuotoneIcon className="w-8 h-8" />,
-    image: '/assets/projects/project-3.webp',
+    image: '/assets/uploads/IMG_6421.PNG',
   },
   {
     title: 'CCTV &\nPABX',
     description: 'Instalasi dan konfigurasi sistem CCTV, PABX, access control, dan jaringan komunikasi.',
     icon: <VideocameraBoldDuotoneIcon className="w-8 h-8" />,
-    image: '/assets/projects/project-4.webp',
+    image: '/assets/uploads/cctv.jpeg',
   },
   {
     title: 'Genset',
     description: 'Pengadaan, instalasi, perawatan, dan perbaikan genset untuk kebutuhan daya cadangan.',
     icon: <BoltBoldDuotoneIcon className="w-8 h-8" />,
-    image: '/assets/projects/project-5.webp',
+    image: '/assets/uploads/genset.jpeg',
   },
   {
     title: 'Maintenance &\nAfter Sales',
     description: 'Layanan maintenance berkala dan after sales support untuk kinerja sistem yang optimal.',
     icon: <SettingsBoldDuotoneIcon className="w-8 h-8" />,
-    image: '/assets/projects/project-7.webp',
+    image: '/assets/uploads/IMG_6436.PNG',
   }
 ];
 
@@ -60,10 +60,10 @@ const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="surface-card overflow-hidden flex flex-col h-full group"
             >
               <div className="p-6 lg:p-7 flex-grow flex flex-col">

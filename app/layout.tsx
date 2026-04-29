@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     template: '%s | CV. Samudera Abadi Teknik',
   },
   description: siteConfig.description,
+  keywords: siteConfig.keywords,
   alternates: {
     canonical: '/',
   },
@@ -35,8 +36,45 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // JSON-LD Schema for AEO (Answer Engine Optimization) & LocalBusiness SEO
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': ['HVACBusiness', 'LocalBusiness', 'Organization'],
+    name: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/assets/brand/sat-logo.png`,
+    image: `${siteConfig.url}${siteConfig.ogImage}`,
+    areaServed: {
+      '@type': 'Country',
+      name: 'Indonesia'
+    },
+    knowsAbout: [
+      'HVAC Installation',
+      'HVAC Maintenance',
+      'Mechanical Electrical Plumbing (MEP)',
+      'CCTV Installation',
+      'PABX Systems',
+      'Generator Set (Genset) Maintenance',
+      'Cooling Systems'
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+62', // Placeholder, update with real number later
+      contactType: 'customer service',
+      areaServed: 'ID',
+      availableLanguage: ['Indonesian', 'English']
+    }
+  };
+
   return (
     <html lang="id" className="overflow-x-hidden">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-body antialiased bg-zinc-900 text-white overflow-x-hidden w-full" suppressHydrationWarning>
         {children}
         <WhatsAppSticky />
