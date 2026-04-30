@@ -166,51 +166,37 @@ export default function MitraPage() {
               </div>
 
               {/* Grid Columns */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-3 md:mb-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                 {[
-                  { name: 'Pertamina', category: 'Energi & Migas', domain: 'pertamina.com', customLogo: '/brands/logopertamina.png' },
-                  { name: 'Telkom Indonesia', category: 'Telekomunikasi', domain: 'telkom.co.id', customLogo: '/brands/logotelkom.png' },
-                  { name: 'Indofood', category: 'FMCG', domain: 'indofood.com', customLogo: '/brands/logoindofood.png' },
-                  { name: 'WIKA', category: 'Konstruksi', domain: 'wika.co.id', customLogo: '/brands/logowika.png' },
-                  { name: 'PGN', category: 'Energi & Gas', domain: 'pgn.co.id', customLogo: '/brands/pgnlogo.png' },
-                  { name: 'Elnusa', category: 'Energi', domain: 'elnusa.co.id', customLogo: '/brands/Elnusa.png' },
-                  { name: 'Ramayana', category: 'Retail', domain: 'ramayana.co.id' },
-                  { name: 'Matahari', category: 'Retail', domain: 'matahari.com', customLogo: '/brands/logomatahari.png' },
-                  { name: 'BNI', category: 'Perbankan', domain: 'bni.co.id' },
+                  { name: 'Pertamina', domain: 'pertamina.com', customLogo: '/brands/logopertamina.png' },
+                  { name: 'Telkom Indonesia', domain: 'telkom.co.id', customLogo: '/brands/logotelkom.png' },
+                  { name: 'Indofood', domain: 'indofood.com', customLogo: '/brands/logoindofood.png' },
+                  { name: 'WIKA', domain: 'wika.co.id', customLogo: '/brands/logowika.png' },
+                  { name: 'PGN', domain: 'pgn.co.id', customLogo: '/brands/pgnlogo.png' },
+                  { name: 'Elnusa', domain: 'elnusa.co.id', customLogo: '/brands/Elnusa.png' },
+                  { name: 'Ramayana', domain: 'ramayana.co.id' },
+                  { name: 'Matahari', domain: 'matahari.com', customLogo: '/brands/logomatahari.png' },
+                  { name: 'BNI', domain: 'bni.co.id' },
+                  { name: 'PLN', domain: 'pln.co.id', customLogo: '/brands/plnlogo.png' },
+                  { name: 'Service City', domain: 'servicecity.co.id', customLogo: '/brands/servicecity.jpeg' },
                 ].map((item) => (
-                  <div key={item.name} className="h-20 md:h-24 border border-slate-200 shadow-sm hover:border-[#e63329]/50 rounded-lg flex items-center justify-center hover:shadow-md transition-all bg-white px-3 md:px-4">
-                    <div className="flex items-center gap-3 md:gap-4 min-w-0 w-full justify-center">
+                  <motion.div
+                    key={item.name}
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    className="h-20 md:h-24 border border-slate-200 shadow-sm hover:border-[#e63329]/50 rounded-lg flex items-center justify-center hover:shadow-md transition-all bg-white px-5 md:px-6"
+                    aria-label={item.name}
+                  >
+                    <div className="flex items-center min-w-0 w-full h-full justify-center">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={item.customLogo || `https://www.google.com/s2/favicons?domain=${item.domain}&sz=128`}
                         alt={`${item.name} logo`}
-                        className="h-10 md:h-12 w-auto max-w-[60px] md:max-w-[90px] object-contain flex-shrink-0"
+                        className="h-full max-h-12 md:max-h-14 w-full object-contain"
                         loading="lazy"
                       />
-                      <span className="text-sm md:text-lg font-bold text-slate-800 leading-tight line-clamp-2 break-words">
-                        {item.name}
-                      </span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-
-              {/* Centered PLN Logo */}
-              <div className="flex justify-center">
-                <div className="w-1/2 md:w-[calc(33.333%-11px)] h-20 md:h-24 border border-slate-200 shadow-sm hover:border-[#e63329]/50 rounded-lg flex items-center justify-center hover:shadow-md transition-all bg-white px-3 md:px-4">
-                  <div className="flex items-center gap-3 md:gap-4 min-w-0 w-full justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/brands/plnlogo.png"
-                      alt="PLN logo"
-                      className="h-10 md:h-12 w-auto max-w-[60px] md:max-w-[90px] object-contain flex-shrink-0"
-                      loading="lazy"
-                    />
-                    <span className="text-sm md:text-lg font-bold text-slate-800 leading-tight line-clamp-2 break-words">
-                      PLN
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
 

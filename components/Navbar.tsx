@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PhoneBoldDuotoneIcon, HamburgerMenuBoldDuotoneIcon, CloseCircleBoldDuotoneIcon } from './icons';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 
 const navLinks = [
   { label: 'Beranda', href: '/' },
@@ -20,6 +20,8 @@ const Navbar = () => {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progressScale = useSpring(scrollYProgress, { stiffness: 120, damping: 24, mass: 0.2 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +48,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16 lg:h-[68px]">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2.5">
-            <div className="relative flex h-10 w-[98px] items-center rounded bg-white px-2 py-1 shadow-sm">
+            <motion.div
+              whileHover={{ y: -1, scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+              className="relative flex h-10 w-[98px] items-center rounded bg-white px-2 py-1 shadow-sm"
+            >
               <Image
                 src="/logo.png"
                 alt="Logo CV. Samudera Abadi Teknik"
@@ -55,7 +61,7 @@ const Navbar = () => {
                 className="h-auto w-full"
                 priority
               />
-            </div>
+            </motion.div>
             <div className="hidden sm:flex flex-col leading-[1]">
               <span className="font-heading text-[13px] font-semibold tracking-[0.04em] text-white">
                 CV. Samudera
@@ -72,13 +78,17 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative font-heading text-[14px] font-semibold tracking-[0.02em] transition-colors py-1.5 group flex items-center ${
+                className={`motion-underline relative font-heading text-[14px] font-semibold tracking-[0.02em] transition-colors py-1.5 group flex items-center ${
                   isActive(link.href) ? 'text-white' : 'text-slate-300 hover:text-white'
                 }`}
               >
                 {link.label}
                 {isActive(link.href) && (
-                  <span className="absolute -bottom-0.5 left-0 w-full h-[1.5px] bg-[#e63329] rounded-full" />
+                  <motion.span
+                    layoutId="navbar-active-line"
+                    className="absolute -bottom-0.5 left-0 w-full h-[1.5px] bg-[#e63329] rounded-full"
+                    transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                  />
                 )}
               </Link>
             ))}
@@ -90,7 +100,7 @@ const Navbar = () => {
               <motion.div
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.98 }}
-                className="hidden lg:flex items-center space-x-2 bg-[#e63329] text-white px-4 py-2.5 rounded-md font-heading text-[12px] font-semibold tracking-[0.03em] cursor-pointer shadow-md shadow-[#e63329]/20"
+                className="sheen-button hidden lg:flex items-center space-x-2 bg-[#e63329] text-white px-4 py-2.5 rounded-md font-heading text-[12px] font-semibold tracking-[0.03em] cursor-pointer shadow-md shadow-[#e63329]/20"
               >
                 <PhoneBoldDuotoneIcon className="w-3.5 h-3.5" />
                 <span>Hubungi Kami</span>
@@ -119,32 +129,48 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-[#0e1c2f] border-t border-white/5 overflow-hidden"
           >
-            <div className="px-4 py-3 space-y-1">
+            <motion.div
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.055, delayChildren: 0.05 } },
+              }}
+              className="px-4 py-3 space-y-1"
+            >
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-                    isActive(link.href)
-                      ? 'bg-[#e63329]/10 text-[#e63329]'
-                      : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                <motion.div key={link.href} variants={{ hidden: { opacity: 0, x: -12 }, show: { opacity: 1, x: 0 } }}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
+                      isActive(link.href)
+                        ? 'bg-[#e63329]/10 text-[#e63329]'
+                        : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
-              <Link
-                href="/kontak"
-                onClick={() => setMobileOpen(false)}
-                className="block mt-3 bg-[#e63329] text-white px-4 py-2.5 text-sm font-semibold text-center rounded-md hover:bg-[#c01040] transition-colors"
-              >
-                Hubungi Kami
-              </Link>
-            </div>
+              <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
+                <Link
+                  href="/kontak"
+                  onClick={() => setMobileOpen(false)}
+                  className="sheen-button block mt-3 bg-[#e63329] text-white px-4 py-2.5 text-sm font-semibold text-center rounded-md hover:bg-[#c01040] transition-colors"
+                >
+                  <span>Hubungi Kami</span>
+                </Link>
+              </motion.div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+      <motion.div
+        className="absolute bottom-0 left-0 h-[2px] w-full origin-left bg-[#e63329]"
+        style={{ scaleX: progressScale }}
+      />
     </nav>
   );
 };

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import { ArrowRightBoldDuotoneIcon } from './icons';
+import { AnimatedCounter } from './motion-kit';
 
 const About = () => {
   return (
@@ -88,15 +89,15 @@ const About = () => {
 
             {/* Stats Row */}
             <div className="grid grid-cols-4 border-t border-slate-100 pt-8 gap-4">
-              <StatItem value="10+" line1="Tahun" line2="Pengalaman" />
-              <StatItem value="500+" line1="Proyek" line2="Selesai" hasDivider />
-              <StatItem value="100%" line1="Komitmen" line2="Kualitas" hasDivider />
-              <StatItem value="24/7" line1="Layanan" line2="Darurat" hasDivider />
+              <StatItem value={10} suffix="+" line1="Tahun" line2="Pengalaman" />
+              <StatItem value={500} suffix="+" line1="Proyek" line2="Selesai" hasDivider />
+              <StatItem value={100} suffix="%" line1="Komitmen" line2="Kualitas" hasDivider />
+              <StatItem value={24} suffix="/7" line1="Layanan" line2="Darurat" hasDivider />
             </div>
 
             {/* CTA link */}
             <Link
-              href="#"
+              href="/tentang-kami"
               className="inline-flex items-center gap-2 mt-10 text-sm font-bold text-[#e63329] hover:gap-3 transition-all tracking-wide uppercase group"
             >
               Lihat Profil Perusahaan
@@ -110,9 +111,9 @@ const About = () => {
   );
 };
 
-const StatItem = ({ value, line1, line2, hasDivider }: { value: string; line1: string; line2: string; hasDivider?: boolean }) => (
+const StatItem = ({ value, suffix = '', line1, line2, hasDivider }: { value: number; suffix?: string; line1: string; line2: string; hasDivider?: boolean }) => (
   <div className={`relative text-center px-3 ${hasDivider ? 'border-l border-slate-200' : ''}`}>
-    <span className="block text-3xl font-bold text-[#e63329] leading-none mb-1.5" style={{fontFamily: 'var(--font-body)'}}>{value}</span>
+    <AnimatedCounter value={value} suffix={suffix} className="block text-3xl font-bold text-[#e63329] leading-none mb-1.5" />
     <p className="text-[10px] font-semibold text-slate-400 leading-tight uppercase tracking-widest text-center" style={{fontFamily: 'var(--font-body)'}}>
       {line1}<br />{line2}
     </p>
@@ -120,4 +121,3 @@ const StatItem = ({ value, line1, line2, hasDivider }: { value: string; line1: s
 );
 
 export default About;
-

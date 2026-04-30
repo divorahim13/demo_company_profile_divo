@@ -12,6 +12,7 @@ import {
   TiktokFillIcon,
   YoutubeFillIcon 
 } from './icons';
+import { contactInfo } from '@/lib/contact';
 
 const Footer = () => {
   return (
@@ -40,9 +41,16 @@ const Footer = () => {
               Menyediakan layanan sistem bangunan yang andal dan terpercaya untuk berbagai kebutuhan Anda.
             </p>
             <div className="flex space-x-4">
-              <SocialIcon href="https://instagram.com/samuderaabaditeknik" icon={<InstagramFillIcon className="w-4 h-4" />} />
-              <SocialIcon href="https://tiktok.com/@samuderaabadi_teknik" icon={<TiktokFillIcon className="w-4 h-4" />} />
-              <SocialIcon href="https://youtube.com/@samuderaabaditeknik" icon={<YoutubeFillIcon className="w-4 h-4" />} />
+              <SocialIcon label="Instagram" href={contactInfo.socials[0].href} icon={<InstagramFillIcon className="w-4 h-4" />} />
+              <SocialIcon label="TikTok" href={contactInfo.socials[1].href} icon={<TiktokFillIcon className="w-4 h-4" />} />
+              <SocialIcon label="YouTube" href={contactInfo.socials[2].href} icon={<YoutubeFillIcon className="w-4 h-4" />} />
+            </div>
+            <div className="space-y-1 text-xs text-gray-500">
+              {contactInfo.socials.map((social) => (
+                <Link key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
+                  {social.label}: {social.handle}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -56,20 +64,24 @@ const Footer = () => {
               <li className="flex gap-4">
                 <MapPointBoldDuotoneIcon className="w-5 h-5 text-[#e63329] shrink-0" />
                 <span className="text-sm text-gray-400 leading-snug">
-                  Jl. Raya Industri No. 88, Kawasan Industri, Jakarta 12345 - Indonesia
+                  {contactInfo.address.short}
                 </span>
               </li>
               <li className="flex gap-4">
                 <PhoneBoldDuotoneIcon className="w-5 h-5 text-[#e63329] shrink-0" />
-                <span className="text-sm text-gray-400">
-                  (021) 8061 1223
-                </span>
+                <div className="text-sm text-gray-400 space-y-1">
+                  {contactInfo.phones.map((phone) => (
+                    <a key={phone.tel} href={`tel:${phone.tel}`} className="block hover:text-white transition-colors">
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
               </li>
               <li className="flex gap-4">
                 <LetterBoldDuotoneIcon className="w-5 h-5 text-[#e63329] shrink-0" />
-                <span className="text-sm text-gray-400 break-words">
-                  info@samuderaabaditeknik.co.id
-                </span>
+                <a href={`mailto:${contactInfo.email}`} className="text-sm text-gray-400 break-words hover:text-white transition-colors">
+                  {contactInfo.email}
+                </a>
               </li>
             </ul>
           </div>
@@ -122,7 +134,9 @@ const Footer = () => {
                 <PhoneBoldDuotoneIcon className="w-5 h-5 text-[#e63329] shrink-0" />
                 <div>
                   <span className="block text-sm text-[#e63329] font-bold">Layanan Darurat (24/7)</span>
-                  <span className="block text-xs text-gray-400">0811 1234 5678</span>
+                  <a href={`tel:${contactInfo.emergency.tel}`} className="block text-xs text-gray-400 hover:text-white transition-colors">
+                    {contactInfo.emergency.display}
+                  </a>
                 </div>
               </li>
             </ul>
@@ -141,8 +155,8 @@ const Footer = () => {
   );
 };
 
-const SocialIcon = ({ icon, href }: { icon: React.ReactNode, href: string }) => (
-  <Link href={href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:bg-[#e63329] hover:text-white hover:border-[#e63329] transition-all">
+const SocialIcon = ({ icon, href, label }: { icon: React.ReactNode, href: string, label: string }) => (
+  <Link href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:bg-[#e63329] hover:text-white hover:border-[#e63329] transition-all">
     {icon}
   </Link>
 );

@@ -232,7 +232,7 @@ export default function LayananPage() {
             {/* 01 HVAC & Cooling System */}
             <div className="lg:col-span-7 group relative overflow-hidden rounded-3xl bg-[#0e1c2f] min-h-[420px] lg:h-[450px]">
               <Image 
-                src="/assets/uploads/IMG_6409.PNG"
+                src="/assets/uploads/ac-central-3.jpeg"
                 alt="HVAC & Cooling System"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -374,7 +374,7 @@ export default function LayananPage() {
             {/* Image */}
             <div className="relative aspect-[16/9] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100">
               <Image 
-                src="/assets/uploads/IMG_6409.PNG"
+                src="/assets/uploads/ac-central-3.jpeg"
                 alt="HVAC & Cooling System Installation"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"

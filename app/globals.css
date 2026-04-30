@@ -16,6 +16,194 @@ body {
   font-family: var(--font-body);
 }
 
+@keyframes grid-drift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 72px 72px, -72px 72px;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.6;
+  }
+  82% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+}
+
+@keyframes float-loop {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    transform: scale(0.92);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.16;
+  }
+}
+
+@keyframes cta-sheen {
+  0% {
+    transform: translateX(-130%) skewX(-22deg);
+  }
+  52%, 100% {
+    transform: translateX(170%) skewX(-22deg);
+  }
+}
+
+.bg-engineering-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 72px 72px;
+  animation: grid-drift 24s linear infinite;
+}
+
+.blueprint-scan {
+  position: relative;
+  overflow: hidden;
+}
+
+.blueprint-scan::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 38%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  animation: scan-line 6.8s ease-in-out infinite;
+}
+
+.float-loop {
+  animation: float-loop 5.5s ease-in-out infinite;
+}
+
+.pulse-ring {
+  animation: pulse-ring 2.6s ease-in-out infinite;
+}
+
+.sheen-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.sheen-button::after {
+  content: "";
+  position: absolute;
+  inset: -30% auto -30% -45%;
+  z-index: 0;
+  width: 42%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+  animation: cta-sheen 4.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.sheen-button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.image-reveal-mask {
+  clip-path: inset(0 0 0 0);
+}
+
+.motion-underline {
+  position: relative;
+}
+
+.motion-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  border-radius: 999px;
+  background: #e63329;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms ease;
+}
+
+.motion-underline:hover::after {
+  transform: scaleX(1);
+}
+
+.page-hero-boost {
+  isolation: isolate;
+}
+
+.page-hero-boost::before,
+.page-hero-boost::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.page-hero-boost::before {
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 76px 76px;
+  opacity: 0.16;
+  animation: grid-drift 30s linear infinite;
+}
+
+.page-hero-boost::after {
+  z-index: 2;
+  width: 34%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.11), transparent);
+  opacity: 0;
+  animation: scan-line 7.2s ease-in-out infinite;
+}
+
+.motion-ready .auto-reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  filter: blur(7px);
+  transition:
+    opacity 720ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 720ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    filter 720ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.motion-ready img.auto-reveal {
+  transform: scale(0.985);
+}
+
+.motion-ready .auto-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+.motion-ready img.auto-reveal.is-visible {
+  transform: scale(1);
+}
+
 /* ── Global heading tags → Barlow Condensed ─── */
 /*
   By explicitly defining this, we ensure all h1,h2,h3 use Barlow Condensed
@@ -52,16 +240,16 @@ h1, h2, h3 {
 /* Shared card system to avoid "template AI" feel */
 .surface-card {
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
+  border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
 }
 
 .surface-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-6px);
   border-color: #cbd5e1;
-  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.13);
 }
 
 .icon-chip {
@@ -81,10 +269,22 @@ h1, h2, h3 {
   background: #fff1f2;
   border-color: #fecdd3;
   color: #e63329;
+  transform: translateY(-2px) rotate(-4deg);
 }
 
 /* ── Selection ──────────────────────────────── */
 ::selection {
   background: #e63329;
   color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

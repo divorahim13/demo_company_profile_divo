@@ -11,31 +11,36 @@ const services = [
     title: 'HVAC &\nCooling System',
     description: 'Pengadaan, instalasi, dan perawatan AC, Chiller, AHU, Cooling Tower, dan sistem terkait.',
     icon: <SnowflakeBoldDuotoneIcon className="w-8 h-8" />,
-    image: '/assets/uploads/ac-central-2.jpeg',
+    image: '/assets/uploads/ac-central-3.jpeg',
+    href: '/layanan/hvac',
   },
   {
     title: 'Mechanical &\nElectrical',
     description: 'Pekerjaan sistem mekanikal dan elektrikal untuk mendukung operasional bangunan.',
     icon: <SettingsBoldDuotoneIcon className="w-8 h-8" />,
     image: '/assets/uploads/IMG_6421.PNG',
+    href: '/layanan/me',
   },
   {
     title: 'CCTV &\nPABX',
     description: 'Instalasi dan konfigurasi sistem CCTV, PABX, access control, dan jaringan komunikasi.',
     icon: <VideocameraBoldDuotoneIcon className="w-8 h-8" />,
     image: '/assets/uploads/cctv.jpeg',
+    href: '/layanan/cctv',
   },
   {
     title: 'Genset',
     description: 'Pengadaan, instalasi, perawatan, dan perbaikan genset untuk kebutuhan daya cadangan.',
     icon: <BoltBoldDuotoneIcon className="w-8 h-8" />,
     image: '/assets/uploads/genset.jpeg',
+    href: '/layanan/genset',
   },
   {
     title: 'Maintenance &\nAfter Sales',
     description: 'Layanan maintenance berkala dan after sales support untuk kinerja sistem yang optimal.',
     icon: <SettingsBoldDuotoneIcon className="w-8 h-8" />,
     image: '/assets/uploads/IMG_6436.PNG',
+    href: '/layanan/maintenance',
   }
 ];
 
@@ -64,6 +69,7 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+              whileHover={{ y: -8 }}
               className="surface-card overflow-hidden flex flex-col h-full group"
             >
               <div className="p-6 lg:p-7 flex-grow flex flex-col">
@@ -80,7 +86,7 @@ const Services = () => {
                   {service.description}
                 </p>
                 {/* Link */}
-                <Link href="#" className="inline-flex items-center gap-2 text-[#0a1122] group-hover:text-[#e63329] font-semibold text-sm transition-colors mt-auto group/link">
+                <Link href={service.href} className="inline-flex items-center gap-2 text-[#0a1122] group-hover:text-[#e63329] font-semibold text-sm transition-colors mt-auto group/link">
                   Pelajari lebih lanjut 
                   <span className="text-[#e63329] transition-transform duration-200 group-hover/link:translate-x-0.5">
                     <ArrowRightBoldDuotoneIcon className="w-4 h-4" />
@@ -94,7 +100,7 @@ const Services = () => {
                   alt={service.title.replace('\n', ' ')} 
                   fill 
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                  className="object-cover group-hover:scale-110 transition-transform duration-1000" 
                   referrerPolicy="no-referrer"
                 />
               </div>

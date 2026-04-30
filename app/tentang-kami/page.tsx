@@ -34,8 +34,13 @@ const teamMembers = [
   },
   {
     name: 'Agus Dwi Retno',
-    role: 'Supervisor Teknisi',
+    role: 'Project Advisor',
     image: '/assets/uploads/agus-dwi-retno.png',
+  },
+  {
+    name: 'Wahyu Jullian',
+    role: 'Sosial Media Officer',
+    image: '/assets/uploads/IMG_6455.PNG',
   }
 ];
 

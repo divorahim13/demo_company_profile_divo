@@ -15,7 +15,7 @@ export const serviceDetails: ServiceDetail[] = [
     slug: 'hvac',
     title: 'HVAC & Cooling System',
     subtitle: 'Solusi pendinginan terintegrasi untuk bangunan komersial, industri, dan residensial.',
-    heroImage: '/assets/projects/project-2.webp',
+    heroImage: '/assets/uploads/ac-central-3.jpeg',
     summary:
       'Layanan mencakup pengadaan, instalasi, perbaikan, dan preventive maintenance sistem HVAC untuk menjaga kenyamanan dan efisiensi energi bangunan.',
     useCases: ['Gedung Perkantoran', 'Hotel & Hospitality', 'Fasilitas Retail', 'Area Produksi'],

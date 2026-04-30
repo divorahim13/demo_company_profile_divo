@@ -42,11 +42,18 @@ const strukturInti = [
     icon: <BillListBoldDuotoneIcon className="w-4 h-4 text-white" />,
   },
   {
-    title: 'Supervisor Teknisi',
+    title: 'Project Advisor',
     name: 'Agus Dwi Retno',
-    desc: 'Memastikan pekerjaan teknis berjalan sesuai SOP, standar keselamatan, dan target project.',
+    desc: 'Memberikan arahan teknis dan masukan strategis agar setiap project berjalan tepat sasaran.',
     image: '/assets/uploads/agus-dwi-retno.png',
     icon: <UserBoldDuotoneIcon className="w-4 h-4 text-white" />,
+  },
+  {
+    title: 'Sosial Media Officer',
+    name: 'Wahyu Jullian',
+    desc: 'Mengelola komunikasi digital, dokumentasi lapangan, dan publikasi aktivitas SAT.',
+    image: '/assets/uploads/IMG_6455.PNG',
+    icon: <ChatRoundBoldDuotoneIcon className="w-4 h-4 text-white" />,
   },
 ];
 
@@ -178,8 +185,8 @@ export default function TimPage() {
                 </span>
               </div>
 
-              {/* 5 Cards */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+              {/* Team Cards */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
                 {strukturInti.map((item, i) => (
                   <motion.div
                     key={i}
@@ -339,11 +346,12 @@ export default function TimPage() {
             <div className="w-[2px] h-8 bg-zinc-200 hidden md:block" />
 
             {/* Horizontal Fork (Desktop Only) */}
-            <div className="relative w-full max-w-[720px] hidden md:block">
-              {/* The horizontal bar connecting the 3 children */}
-              <div className="absolute top-0 left-[16.666%] right-[16.666%] h-[2px] bg-zinc-200" />
-              {/* The 3 vertical drops */}
-              <div className="flex justify-between px-[16.666%]">
+            <div className="relative w-full max-w-[960px] hidden md:block">
+              {/* The horizontal bar connecting the children */}
+              <div className="absolute top-0 left-[12.5%] right-[12.5%] h-[2px] bg-zinc-200" />
+              {/* Vertical drops */}
+              <div className="flex justify-between px-[12.5%]">
+                <div className="w-[2px] h-8 bg-zinc-200" />
                 <div className="w-[2px] h-8 bg-zinc-200" />
                 <div className="w-[2px] h-8 bg-zinc-200" />
                 <div className="w-[2px] h-8 bg-zinc-200" />
@@ -353,12 +361,13 @@ export default function TimPage() {
             {/* Mobile Vertical Line */}
             <div className="w-[2px] h-8 bg-zinc-200 md:hidden" />
 
-            {/* Level 3: 3 boxes */}
-            <div className="flex flex-col md:grid md:grid-cols-3 gap-0 md:gap-6 w-full max-w-[720px]">
+            {/* Level 3 boxes */}
+            <div className="flex flex-col md:grid md:grid-cols-4 gap-0 md:gap-6 w-full max-w-[960px]">
               {[
                 { label: 'PROJECT &\nTECHNICAL MANAGER', icon: <SettingsBoldDuotoneIcon className="w-6 h-6" /> },
                 { label: 'FINANCE &\nADMIN',              icon: <ClipboardCheckBoldDuotoneIcon className="w-6 h-6" /> },
-                { label: 'SUPERVISOR\nTEKNISI',           icon: <UserBoldDuotoneIcon className="w-6 h-6" /> },
+                { label: 'PROJECT\nADVISOR',              icon: <UserBoldDuotoneIcon className="w-6 h-6" /> },
+                { label: 'SOSIAL MEDIA\nOFFICER',         icon: <ChatRoundBoldDuotoneIcon className="w-6 h-6" /> },
               ].map((b, i) => (
                 <React.Fragment key={i}>
                   {/* Vertical connector for mobile between items */}

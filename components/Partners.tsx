@@ -8,43 +8,55 @@ const partners = [
     id: 'pertamina',
     name: 'PT Pertamina (Persero)',
     logo: '/brands/logopertamina.png',
-    category: 'Energy & Oil',
     initials: 'PR',
   },
   {
     id: 'telkom',
     name: 'PT Telkom Indonesia',
     logo: '/brands/logotelkom.png',
-    category: 'Telecommunication',
     initials: 'TK',
-  },
-  {
-    id: 'bca',
-    name: 'Bank Central Asia (BCA)',
-    logo: 'https://www.google.com/s2/favicons?domain=bca.co.id&sz=64',
-    category: 'Banking',
-    initials: 'BC',
-  },
-  {
-    id: 'astra',
-    name: 'PT Astra International',
-    logo: 'https://www.google.com/s2/favicons?domain=astra.co.id&sz=64',
-    category: 'Automotive & Infrastructure',
-    initials: 'AS',
   },
   {
     id: 'indofood',
     name: 'Indofood Sukses Makmur',
     logo: '/brands/logoindofood.png',
-    category: 'FMCG',
     initials: 'ID',
   },
   {
     id: 'wika',
     name: 'PT Wijaya Karya',
     logo: '/brands/logowika.png',
-    category: 'Construction & Infrastructure',
     initials: 'WK',
+  },
+  {
+    id: 'pgn',
+    name: 'PGN',
+    logo: '/brands/pgnlogo.png',
+    initials: 'PG',
+  },
+  {
+    id: 'elnusa',
+    name: 'Elnusa',
+    logo: '/brands/Elnusa.png',
+    initials: 'EL',
+  },
+  {
+    id: 'matahari',
+    name: 'Matahari',
+    logo: '/brands/logomatahari.png',
+    initials: 'MH',
+  },
+  {
+    id: 'pln',
+    name: 'PLN',
+    logo: '/brands/plnlogo.png',
+    initials: 'PL',
+  },
+  {
+    id: 'service-city',
+    name: 'Service City',
+    logo: '/brands/servicecity.jpeg',
+    initials: 'SC',
   },
 ];
 
@@ -53,14 +65,14 @@ function PartnerLogo({ src, alt, initials }: { src: string; alt: string; initial
 
   if (failed) {
     return (
-      <div className="h-14 w-24 md:h-16 md:w-28 rounded-lg border border-slate-200 shadow-sm hover:border-[#e63329]/50 bg-slate-100 flex items-center justify-center text-[11px] md:text-sm font-semibold tracking-[0.08em] text-slate-600 shrink-0 transition-colors">
+      <div className="h-20 w-full rounded-lg border border-slate-200 shadow-sm hover:border-[#e63329]/50 bg-slate-100 flex items-center justify-center text-[11px] md:text-sm font-semibold tracking-[0.08em] text-slate-600 transition-colors">
         {initials}
       </div>
     );
   }
 
   return (
-    <div className="h-14 w-24 md:h-16 md:w-28 rounded-lg border border-slate-200 shadow-sm hover:border-[#e63329]/50 bg-white flex items-center justify-center overflow-hidden p-2 md:p-3 shrink-0 transition-colors">
+    <div className="h-20 w-full rounded-lg border border-slate-200 shadow-sm hover:border-[#e63329]/50 bg-white flex items-center justify-center overflow-hidden p-4 transition-colors">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
@@ -98,7 +110,7 @@ const Partners = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-8 border-t border-slate-200">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 pt-8 border-t border-slate-200">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.id}
@@ -106,13 +118,11 @@ const Partners = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08, duration: 0.45, ease: 'easeOut' }}
-              className="surface-card px-5 py-4 flex items-center gap-3 text-slate-600 hover:text-slate-800"
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="surface-card px-4 py-4 flex items-center justify-center"
+              aria-label={partner.name}
             >
               <PartnerLogo src={partner.logo} alt={`${partner.name} logo`} initials={partner.initials} />
-              <div className="flex flex-col">
-                <span className="text-base font-semibold tracking-[0.01em]">{partner.name}</span>
-                <span className="text-[11px] text-slate-400">{partner.category}</span>
-              </div>
             </motion.div>
           ))}
         </div>

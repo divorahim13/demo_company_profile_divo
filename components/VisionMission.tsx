@@ -30,7 +30,7 @@ const VisionMission = () => {
             </p>
           </motion.div>
 
-          {/* Central Image with Parallelogram Mask */}
+          {/* Central Image without Parallelogram Mask */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -38,17 +38,15 @@ const VisionMission = () => {
             transition={{ duration: 0.8 }}
             className="relative h-[400px] hidden lg:block"
           >
-            <div className="absolute inset-0 skew-x-[-15deg] overflow-hidden rounded-3xl border-8 border-white shadow-2xl">
-              <div className="absolute inset-0 skew-x-[15deg] scale-125">
-                <Image 
-                  src="/assets/uploads/IMG_6420.PNG"
-                  alt="Modern skyscraper"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+            <div className="absolute inset-0 overflow-hidden rounded-3xl border-8 border-white shadow-2xl">
+              <Image 
+                src="/assets/uploads/IMG_6420.PNG"
+                alt="Teknisi profesional SAT"
+                fill
+                sizes="(min-width: 1024px) 33vw, 100vw"
+                className="object-cover object-top"
+                referrerPolicy="no-referrer"
+              />
             </div>
           </motion.div>
 

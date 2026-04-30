@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { siteConfig } from '@/lib/site';
+import { contactInfo } from '@/lib/contact';
 import WhatsAppSticky from '@/components/WhatsAppSticky';
+import SiteMotionEnhancer from '@/components/SiteMotionEnhancer';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -60,11 +62,12 @@ export default function RootLayout({
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+62', // Placeholder, update with real number later
+      telephone: contactInfo.emergency.tel,
       contactType: 'customer service',
       areaServed: 'ID',
       availableLanguage: ['Indonesian', 'English']
-    }
+    },
+    sameAs: contactInfo.socials.map((social) => social.href),
   };
 
   return (
@@ -77,6 +80,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased bg-zinc-900 text-white overflow-x-hidden w-full" suppressHydrationWarning>
         {children}
+        <SiteMotionEnhancer />
         <WhatsAppSticky />
       </body>
     </html>

@@ -17,55 +17,64 @@ export default function KontakPage() {
     <main className="min-h-screen bg-white selection:bg-[#e63329] selection:text-white">
       <Navbar />
 
-      {/* ══════════════════════════════════════════════════
-          HERO
-      ══════════════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-center bg-[#070d1f] overflow-hidden pt-20">
-        {/* ── Right diagonal image ── */}
-        <div className="absolute right-0 top-0 w-full lg:w-[50%] h-full z-0 hidden lg:block">
-          <div
-            className="absolute inset-0 bg-[#e63329]"
-            style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0% 100%)' }}
+      {/* ====== HERO ====== */}
+      <section className="relative min-h-screen bg-[#070d1f] overflow-hidden flex items-center">
+        {/* Right image - full height, NO clip-path, uses gradient blend */}
+        <div className="absolute right-0 top-0 w-full lg:w-[58%] h-full z-0 hidden lg:block">
+          <Image
+            src={heroBg}
+            alt="Customer Service CV. Samudera Abadi Teknik"
+            placeholder="blur"
+            fill
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            className="object-cover object-center"
+            priority
           />
-          <div
-            className="absolute inset-0"
-            style={{ clipPath: 'polygon(15.5% 0, 100% 0, 100% 100%, 0.5% 100%)' }}
-          >
-            {/* Menggunakan gambar HVAC chiller di atap gedung sebagai ilustrasi */}
-            <Image
-              src={heroBg}
-              alt="Instalasi Chiller HVAC SAT"
-              placeholder="blur"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/15" />
-          </div>
+          {/* Gradient fade from dark bg into image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070d1f] via-[#070d1f]/50 to-transparent" style={{ width: '45%' }} />
+          {/* Subtle overall darken for text readability */}
+          <div className="absolute inset-0 bg-black/5" />
+
         </div>
 
-        {/* ── Content ── */}
-        <div className="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-12 w-full py-24">
-          <div className="w-full lg:w-[50%] lg:pr-16">
+        {/* Mobile background */}
+        <div className="absolute inset-0 z-0 lg:hidden">
+          <Image
+            src={heroBg}
+            alt="Customer Service CV. Samudera Abadi Teknik"
+            placeholder="blur"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-[#070d1f]/80" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-12 w-full py-32 lg:py-0">
+          <div className="w-full lg:w-[42%]">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
               {/* Breadcrumb */}
-              <div className="flex items-center gap-2 text-xs font-bold tracking-wide mb-8">
+              <div className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-10">
                 <BoltBoldDuotoneIcon className="w-4 h-4 text-[#e63329]" />
                 <Link href="/" className="text-[#e63329] hover:text-white transition-colors">Beranda</Link>
-                <span className="text-[#e63329]">&gt;</span>
-                <span className="text-white">Kontak</span>
+                <span className="text-[#e63329]/60">/</span>
+                <span className="text-white/80">Kontak</span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-[1.15] tracking-tight">
-                Hubungi SAT untuk<br />Kebutuhan Project Anda
+              {/* Eyebrow */}
+              <span className="inline-block text-[#e63329] text-xs font-bold tracking-[0.2em] uppercase mb-4 border border-[#e63329]/30 px-3 py-1.5 rounded-full">Hubungi Kami</span>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+                Hubungi SAT untuk<br />Kebutuhan <span className="text-[#e63329]">Project</span> Anda
               </h1>
 
-              <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-lg mb-10">
+              <p className="text-slate-300 text-base lg:text-lg leading-relaxed max-w-md mb-10">
                 Tim SAT siap membantu kebutuhan pengadaan, instalasi, perbaikan, dan maintenance sistem bangunan Anda.
               </p>
 
@@ -73,10 +82,16 @@ export default function KontakPage() {
                 <Link
                   href={whatsappHref}
                   target="_blank"
-                  className="inline-flex items-center gap-2 bg-[#e63329] text-white px-7 py-3.5 rounded font-bold text-sm hover:bg-[#c01040] transition-colors shadow-lg shadow-[#e63329]/30"
+                  className="inline-flex items-center gap-2.5 bg-[#e63329] text-white px-8 py-4 rounded-lg font-bold text-sm hover:bg-[#c01040] transition-all shadow-lg shadow-[#e63329]/30 hover:shadow-xl hover:shadow-[#e63329]/40 hover:-translate-y-0.5"
                 >
                   KIRIM INQUIRY <ArrowRightBoldDuotoneIcon className="w-4 h-4" />
                 </Link>
+                <a
+                  href="tel:+6285693596638"
+                  className="inline-flex items-center gap-2.5 border border-white/20 text-white px-8 py-4 rounded-lg font-bold text-sm hover:bg-white/10 transition-all"
+                >
+                  <PhoneBoldDuotoneIcon className="w-4 h-4" /> HUBUNGI KAMI
+                </a>
               </div>
             </motion.div>
           </div>
@@ -154,16 +169,45 @@ export default function KontakPage() {
 
                 {/* Social Media Section */}
                 <div className="mt-12 pt-8 border-t border-white/10 z-10">
-                  <h4 className="text-slate-400 text-xs font-medium uppercase tracking-wider mb-4">Terhubung Dengan Kami</h4>
-                  <div className="flex items-center gap-3">
-                    <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#e63329] hover:border-[#e63329] hover:-translate-y-1 transition-all text-white">
-                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <h4 className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-6 opacity-70">Terhubung Dengan Kami</h4>
+                  <div className="flex flex-wrap gap-4">
+                    <a href="https://instagram.com/samuderaabaditeknik" target="_blank" rel="noopener noreferrer" 
+                      className="flex-1 min-w-[240px] flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-[#e63329] hover:border-[#e63329] transition-all duration-300 group">
+                      <div className="w-11 h-11 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/20 transition-colors shrink-0">
+                        <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                        </svg>
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5 group-hover:text-white/80">Instagram</span>
+                        <span className="text-sm font-semibold text-white truncate">@samuderaabaditeknik</span>
+                      </div>
                     </a>
-                    <a href="#" aria-label="TikTok" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#e63329] hover:border-[#e63329] hover:-translate-y-1 transition-all text-white">
-                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.96-.5 3.93-1.57 5.56-1.07 1.63-2.6 2.87-4.43 3.52-1.84.66-3.86.73-5.74.22-1.89-.5-3.6-1.55-4.83-3.02-1.23-1.47-1.92-3.34-1.98-5.26-.06-1.92.51-3.83 1.64-5.4 1.13-1.57 2.71-2.73 4.51-3.32 1.8-.59 3.75-.62 5.56-.08.15.04.3.09.44.15v4.22c-.17-.06-.34-.1-.52-.14-.58-.12-1.18-.15-1.78-.1-1.12.09-2.19.6-2.99 1.41-.8.8-1.28 1.88-1.34 3.01-.06 1.13.3 2.25 1.01 3.16.71.92 1.73 1.54 2.86 1.76 1.13.21 2.3-.01 3.28-.62.98-.6 1.69-1.53 2.01-2.63.15-.52.22-1.06.22-1.6v-15.35Z"/></svg>
+
+                    <a href="#" 
+                      className="flex-1 min-w-[240px] flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-[#e63329] hover:border-[#e63329] transition-all duration-300 group">
+                      <div className="w-11 h-11 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/20 transition-colors shrink-0">
+                        <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                        </svg>
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5 group-hover:text-white/80">TikTok</span>
+                        <span className="text-sm font-semibold text-white truncate">@sat_official</span>
+                      </div>
                     </a>
-                    <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#e63329] hover:border-[#e63329] hover:-translate-y-1 transition-all text-white">
-                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93-.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+
+                    <a href="#" 
+                      className="flex-1 min-w-[240px] flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-[#e63329] hover:border-[#e63329] transition-all duration-300 group">
+                      <div className="w-11 h-11 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/20 transition-colors shrink-0">
+                        <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17Z"/><path d="m10 15 5-3-5-3z"/>
+                        </svg>
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5 group-hover:text-white/80">YouTube</span>
+                        <span className="text-sm font-semibold text-white truncate">SAT Engineering</span>
+                      </div>
                     </a>
                   </div>
                 </div>

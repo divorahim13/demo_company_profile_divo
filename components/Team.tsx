@@ -32,9 +32,15 @@ const team = [
   },
   {
     name: 'Agus Dwi Retno',
-    role: 'Supervisor Teknisi',
-    desc: 'Memastikan pekerjaan teknis berjalan sesuai SOP, standar keselamatan, dan target project.',
+    role: 'Project Advisor',
+    desc: 'Memberikan arahan teknis dan masukan strategis agar setiap project berjalan tepat sasaran.',
     image: '/assets/uploads/agus-dwi-retno.png',
+  },
+  {
+    name: 'Wahyu Jullian',
+    role: 'Sosial Media Officer',
+    desc: 'Mengelola komunikasi digital, dokumentasi lapangan, dan publikasi aktivitas SAT.',
+    image: '/assets/uploads/IMG_6455.PNG',
   }
 ];
 
