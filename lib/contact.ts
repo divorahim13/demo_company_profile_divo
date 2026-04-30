@@ -22,8 +22,8 @@ export const contactInfo = {
     },
     {
       label: 'TikTok',
-      handle: '@samuderaabadi_teknik',
-      href: 'https://tiktok.com/@samuderaabadi_teknik',
+      handle: '@samuderaabadi_tek',
+      href: 'https://tiktok.com/@samuderaabadi_tek',
     },
     {
       label: 'YouTube',

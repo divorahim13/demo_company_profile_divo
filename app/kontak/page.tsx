@@ -184,7 +184,7 @@ export default function KontakPage() {
                       </div>
                     </a>
 
-                    <a href="#" 
+                    <a href="https://tiktok.com/@samuderaabadi_tek" target="_blank" rel="noopener noreferrer"
                       className="flex-1 min-w-[240px] flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-[#e63329] hover:border-[#e63329] transition-all duration-300 group">
                       <div className="w-11 h-11 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/20 transition-colors shrink-0">
                         <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -193,11 +193,11 @@ export default function KontakPage() {
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5 group-hover:text-white/80">TikTok</span>
-                        <span className="text-sm font-semibold text-white truncate">@sat_official</span>
+                        <span className="text-sm font-semibold text-white truncate">@samuderaabadi_tek</span>
                       </div>
                     </a>
 
-                    <a href="#" 
+                    <a href="https://youtube.com/@samuderaabaditeknik" target="_blank" rel="noopener noreferrer"
                       className="flex-1 min-w-[240px] flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-[#e63329] hover:border-[#e63329] transition-all duration-300 group">
                       <div className="w-11 h-11 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/20 transition-colors shrink-0">
                         <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -206,7 +206,7 @@ export default function KontakPage() {
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5 group-hover:text-white/80">YouTube</span>
-                        <span className="text-sm font-semibold text-white truncate">SAT Engineering</span>
+                        <span className="text-sm font-semibold text-white truncate">@samuderaabaditeknik</span>
                       </div>
                     </a>
                   </div>
@@ -318,7 +318,7 @@ export default function KontakPage() {
                 <p className="text-sm text-slate-500 leading-relaxed mb-4">
                   Hubungi kami langsung untuk respon cepat dari tim SAT.
                 </p>
-                <a href="#" className="text-[#e63329] font-bold text-sm inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                <a href="tel:+6285693596638" className="text-[#e63329] font-bold text-sm inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
                   +62 856-9359-6638 <ArrowRightBoldDuotoneIcon className="w-3 h-3" />
                 </a>
               </div>
@@ -334,7 +334,7 @@ export default function KontakPage() {
                 <p className="text-sm text-slate-500 leading-relaxed mb-4">
                   Sampaikan kebutuhan Anda melalui email resmi SAT.
                 </p>
-                <a href="#" className="text-[#e63329] font-bold text-[13px] inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform break-all">
+                <a href="mailto:sat.samuderaabaditeknik@gmail.com" className="text-[#e63329] font-bold text-[13px] inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform break-all">
                   sat.samuderaabaditeknik@gmail.com <ArrowRightBoldDuotoneIcon className="w-3 h-3 shrink-0" />
                 </a>
               </div>
@@ -352,7 +352,7 @@ export default function KontakPage() {
                 <p className="text-sm text-slate-500 leading-relaxed mb-4">
                   Diskusikan kebutuhan project Anda melalui WhatsApp.
                 </p>
-                <a href="#" className="text-[#e63329] font-bold text-sm inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                <a href="https://wa.me/6285693596638" target="_blank" rel="noopener noreferrer" className="text-[#e63329] font-bold text-sm inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
                   +62 856-9359-6638 <ArrowRightBoldDuotoneIcon className="w-3 h-3" />
                 </a>
               </div>
