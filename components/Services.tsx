@@ -94,13 +94,13 @@ const Services = () => {
                 </Link>
               </div>
               {/* Image */}
-              <div className="relative h-44 w-full mt-auto overflow-hidden">
+              <div className="relative h-56 sm:h-44 lg:h-48 w-full mt-auto overflow-hidden">
                 <Image 
                   src={service.image} 
                   alt={service.title.replace('\n', ' ')} 
                   fill 
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-1000" 
+                  className="object-cover object-top group-hover:scale-110 transition-transform duration-1000" 
                   referrerPolicy="no-referrer"
                 />
               </div>
