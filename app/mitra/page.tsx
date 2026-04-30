@@ -175,7 +175,7 @@ export default function MitraPage() {
                   { name: 'PGN', category: 'Energi & Gas', domain: 'pgn.co.id', customLogo: '/brands/pgnlogo.png' },
                   { name: 'Elnusa', category: 'Energi', domain: 'elnusa.co.id', customLogo: '/brands/Elnusa.png' },
                   { name: 'Ramayana', category: 'Retail', domain: 'ramayana.co.id' },
-                  { name: 'Matahari', category: 'Retail', domain: 'matahari.com' },
+                  { name: 'Matahari', category: 'Retail', domain: 'matahari.com', customLogo: '/brands/logomatahari.png' },
                   { name: 'BNI', category: 'Perbankan', domain: 'bni.co.id' },
                 ].map((item) => (
                   <div key={item.name} className="h-20 md:h-24 border border-slate-200 shadow-sm hover:border-[#e63329]/50 rounded-lg flex items-center justify-center hover:shadow-md transition-all bg-white px-3 md:px-4">
@@ -241,8 +241,8 @@ export default function MitraPage() {
             >
               <div className="relative h-56 w-full">
                 <Image 
-                  src="/assets/projects/project-3.webp"
-                  alt="Instalasi HVAC"
+                  src="/assets/uploads/ac-central-1.jpeg"
+                  alt="Instalasi AC Central VRV System"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
@@ -253,21 +253,21 @@ export default function MitraPage() {
               </div>
               <div className="p-6 md:p-8 flex-grow flex flex-col">
                 <h3 className="text-xl lg:text-2xl font-bold text-[#0a1122] mb-6 leading-snug tracking-tight min-h-[64px]">
-                  Instalasi HVAC untuk Gedung Commercial
+                  Instalasi AC Central VRV System
                 </h3>
                 <div className="grid grid-cols-[60px_10px_1fr] text-sm text-[#0a1122] mb-6 gap-y-1">
                   <span className="font-semibold">Lokasi</span>
                   <span>:</span>
-                  <span className="text-slate-600">Jakarta</span>
+                  <span className="text-slate-600">Jakarta Selatan</span>
                   
                   <span className="font-semibold">Sistem</span>
                   <span>:</span>
-                  <span className="text-slate-600">HVAC, VRV, AHU, Chiller</span>
+                  <span className="text-slate-600">VRV System 30 PK, 4 lantai</span>
                 </div>
                 <p className="text-sm text-slate-500 mb-8 leading-relaxed flex-grow">
-                  Instalasi sistem HVAC terintegrasi untuk gedung perkantoran bertingkat dengan efisiensi energi tinggi.
+                  Proyek instalasi dan perbaikan sistem VRV untuk gedung perkantoran 4 lantai dengan fokus pada efisiensi energi, kenyamanan area kerja, dan kemudahan maintenance.
                 </p>
-                <Link href="#" className="text-[#e63329] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all w-fit">
+                <Link href="/proyek/instalasi-ac-central-vrv-system" className="text-[#e63329] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all w-fit">
                   LIHAT DETAIL PROJECT <ArrowRightBoldDuotoneIcon className="w-4 h-4" />
                 </Link>
               </div>
@@ -284,7 +284,7 @@ export default function MitraPage() {
               <div className="relative h-56 w-full">
                 <Image 
                   src="/assets/projects/project-7.webp"
-                  alt="Maintenance Cooling System"
+                  alt="Maintenance Tahunan AC Split"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
@@ -295,21 +295,21 @@ export default function MitraPage() {
               </div>
               <div className="p-6 md:p-8 flex-grow flex flex-col">
                 <h3 className="text-xl lg:text-2xl font-bold text-[#0a1122] mb-6 leading-snug tracking-tight min-h-[64px]">
-                  Maintenance Cooling System untuk Fasilitas Bisnis
+                  Maintenance Tahunan AC Split
                 </h3>
                 <div className="grid grid-cols-[60px_10px_1fr] text-sm text-[#0a1122] mb-6 gap-y-1">
                   <span className="font-semibold">Lokasi</span>
                   <span>:</span>
-                  <span className="text-slate-600">Tangerang</span>
+                  <span className="text-slate-600">Jakarta Selatan</span>
                   
                   <span className="font-semibold">Sistem</span>
                   <span>:</span>
-                  <span className="text-slate-600">Cooling Tower, Chiller, Pump System</span>
+                  <span className="text-slate-600">48 unit AC Split</span>
                 </div>
                 <p className="text-sm text-slate-500 mb-8 leading-relaxed flex-grow">
-                  Layanan maintenance berkala untuk memastikan performa cooling system tetap optimal dan andal.
+                  Program maintenance preventif dan korektif untuk 48 unit AC split di kawasan hunian premium dengan target menjaga performa pendinginan stabil sepanjang tahun.
                 </p>
-                <Link href="#" className="text-[#e63329] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all w-fit">
+                <Link href="/proyek/maintenance-tahunan-ac-split" className="text-[#e63329] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all w-fit">
                   LIHAT DETAIL PROJECT <ArrowRightBoldDuotoneIcon className="w-4 h-4" />
                 </Link>
               </div>
@@ -325,8 +325,8 @@ export default function MitraPage() {
             >
               <div className="relative h-56 w-full">
                 <Image 
-                  src="/assets/projects/project-4.webp"
-                  alt="Instalasi CCTV & PABX"
+                  src="/assets/uploads/cctv.jpeg"
+                  alt="Smart CCTV & Monitoring System"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
@@ -337,21 +337,21 @@ export default function MitraPage() {
               </div>
               <div className="p-6 md:p-8 flex-grow flex flex-col">
                 <h3 className="text-xl lg:text-2xl font-bold text-[#0a1122] mb-6 leading-snug tracking-tight min-h-[64px]">
-                  Instalasi CCTV & PABX untuk Bangunan Operasional
+                  Smart CCTV & Monitoring System
                 </h3>
                 <div className="grid grid-cols-[60px_10px_1fr] text-sm text-[#0a1122] mb-6 gap-y-1">
                   <span className="font-semibold">Lokasi</span>
                   <span>:</span>
-                  <span className="text-slate-600">Bekasi</span>
+                  <span className="text-slate-600">Cikarang</span>
                   
                   <span className="font-semibold">Sistem</span>
                   <span>:</span>
-                  <span className="text-slate-600">CCTV, PABX, Access Control</span>
+                  <span className="text-slate-600">32 Kamera IP CCTV + Remote Monitoring</span>
                 </div>
                 <p className="text-sm text-slate-500 mb-8 leading-relaxed flex-grow">
-                  Instalasi sistem keamanan dan komunikasi untuk mendukung operasional dan keamanan gedung.
+                  Pembangunan sistem CCTV IP terpadu untuk area warehouse dan loading dock dengan kemampuan live monitoring dan playback rekaman terstruktur.
                 </p>
-                <Link href="#" className="text-[#e63329] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all w-fit">
+                <Link href="/proyek/smart-cctv-monitoring-system" className="text-[#e63329] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all w-fit">
                   LIHAT DETAIL PROJECT <ArrowRightBoldDuotoneIcon className="w-4 h-4" />
                 </Link>
               </div>
@@ -755,11 +755,11 @@ export default function MitraPage() {
               {/* Testimonial 2 */}
               <div className="flex-1 border border-slate-100 rounded-xl p-8 shadow-sm flex flex-col md:flex-row gap-8 items-center bg-white hover:shadow-md transition-all">
                 <div className="w-24 h-12 md:w-32 md:h-16 relative flex items-center justify-center flex-shrink-0 p-2">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="https://www.google.com/s2/favicons?domain=matahari.com&sz=128"
+                  <Image
+                    src="/brands/logomatahari.png"
                     alt="Matahari logo"
-                    className="w-full h-full object-contain"
+                    fill
+                    className="object-contain"
                   />
                 </div>
                 <div className="flex-1 text-center md:text-left">

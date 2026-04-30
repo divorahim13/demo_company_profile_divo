@@ -26,15 +26,15 @@ export const projectList: ProjectItem[] = [
     title: 'Instalasi AC Central VRV System',
     client: 'Gedung Perkantoran Sudirman',
     category: 'HVAC',
-    scope: 'Instalasi VRV System 30 PK, 4 lantai',
-    image: '/assets/projects/project-2.webp',
+    scope: 'Instalasi & Perbaikan VRV System 30 PK, 4 lantai',
+    image: '/assets/uploads/benerin-ac-central.png',
     year: '2024',
     tag: 'Corporate',
     location: 'Jakarta Selatan',
     duration: '10 minggu',
     teamSize: '12 personel',
     overview:
-      'Proyek instalasi sistem VRV untuk gedung perkantoran 4 lantai dengan fokus pada efisiensi energi, kenyamanan area kerja, dan kemudahan maintenance.',
+      'Proyek instalasi dan perbaikan sistem VRV untuk gedung perkantoran 4 lantai dengan fokus pada efisiensi energi, kenyamanan area kerja, dan kemudahan maintenance.',
     challenge:
       'Keterbatasan jalur ducting dan penempatan outdoor unit di area rooftop yang padat utilitas serta jadwal pekerjaan yang harus mengikuti jam operasional tenant.',
     solution:
@@ -46,7 +46,7 @@ export const projectList: ProjectItem[] = [
       'As-built drawing dan dokumen serah terima',
     ],
     tools: ['VRV System', 'Air Balancing Kit', 'Digital Manifold', 'Insulation System'],
-    gallery: ['/assets/projects/project-2.webp', '/assets/projects/project-6.webp', '/assets/projects/project-7.webp'],
+    gallery: ['/assets/uploads/benerin-ac-central.png', '/assets/projects/project-2.webp', '/assets/projects/project-7.webp'],
   },
   {
     slug: 'maintenance-tahunan-ac-split',
@@ -81,7 +81,7 @@ export const projectList: ProjectItem[] = [
     client: 'Warehouse Logistik Cikarang',
     category: 'CCTV & PABX',
     scope: '32 Kamera IP CCTV + Remote Monitoring',
-    image: '/assets/projects/project-4.webp',
+    image: '/assets/uploads/cctv.jpeg',
     year: '2024',
     tag: 'Industrial',
     location: 'Cikarang',
@@ -100,7 +100,7 @@ export const projectList: ProjectItem[] = [
       'Training operator dan SOP pemantauan',
     ],
     tools: ['IP Camera', 'NVR', 'PoE Switch', 'Structured Cabling'],
-    gallery: ['/assets/projects/project-4.webp', '/assets/projects/project-3.webp', '/assets/projects/project-6.webp'],
+    gallery: ['/assets/uploads/cctv.jpeg', '/assets/projects/project-4.webp', '/assets/projects/project-6.webp'],
   },
   {
     slug: 'power-backup-genset-250-kva',
@@ -108,7 +108,7 @@ export const projectList: ProjectItem[] = [
     client: 'Rumah Sakit Internasional',
     category: 'Genset',
     scope: 'Genset Diesel + Panel ATS/AMF',
-    image: '/assets/projects/project-5.webp',
+    image: '/assets/uploads/genset.jpeg',
     year: '2023',
     tag: 'Medical',
     location: 'Tangerang',
@@ -127,7 +127,7 @@ export const projectList: ProjectItem[] = [
       'Dokumentasi operasional & preventive maintenance',
     ],
     tools: ['Diesel Genset', 'ATS/AMF Panel', 'Power Analyzer', 'Acoustic Enclosure'],
-    gallery: ['/assets/projects/project-5.webp', '/assets/projects/project-3.webp', '/assets/projects/project-7.webp'],
+    gallery: ['/assets/uploads/genset.jpeg', '/assets/projects/project-5.webp', '/assets/projects/project-3.webp'],
   },
   {
     slug: 'panel-mdp-electrical-wiring',
@@ -162,7 +162,7 @@ export const projectList: ProjectItem[] = [
     client: 'Grand Hotel & Resort Jakarta',
     category: 'CCTV & PABX',
     scope: 'Sistem Telepon 120 Extension',
-    image: '/assets/projects/project-6.webp',
+    image: '/assets/uploads/ippbx.png',
     year: '2023',
     tag: 'Hospitality',
     location: 'Jakarta Pusat',
@@ -181,7 +181,7 @@ export const projectList: ProjectItem[] = [
       'Panduan operasional untuk tim hotel',
     ],
     tools: ['IP-PBX Server', 'VoIP Phone', 'Network Switch', 'Monitoring Dashboard'],
-    gallery: ['/assets/projects/project-6.webp', '/assets/projects/project-4.webp', '/assets/projects/project-7.webp'],
+    gallery: ['/assets/uploads/ippbx.png', '/assets/projects/project-4.webp', '/assets/projects/project-7.webp'],
   },
 ];
 
@@ -197,3 +197,4 @@ export const projectCategories: Array<'Semua' | ProjectCategory> = [
 export function getProjectBySlug(slug: string) {
   return projectList.find((item) => item.slug === slug);
 }
+

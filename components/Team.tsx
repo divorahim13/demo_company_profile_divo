@@ -9,50 +9,32 @@ const team = [
   {
     name: 'Andi Sultan D Dalle, SE',
     role: 'Komisaris',
-    desc: 'Memberikan arahan strategis dan pengawasan terhadap jalannya perusahaan.',
+    desc: 'Mengarahkan visi strategis dan pengembangan perusahaan secara berkelanjutan.',
     image: '/assets/uploads/IMG_6461.JPG',
   },
   {
-    name: 'Dodi Kurniawan',
+    name: 'Sodikin, S.Kom',
     role: 'Direktur',
-    desc: 'Memimpin strategi dan pengembangan perusahaan.',
-    image: '/assets/projects/project-1.webp',
+    desc: 'Memimpin operasional perusahaan dan memastikan kualitas layanan SAT tetap profesional.',
+    image: '/assets/uploads/sodikin.png',
+  },
+  {
+    name: 'Tri Kornisah Baladiah',
+    role: 'Project & Technical Manager',
+    desc: 'Mengawasi perencanaan teknis, pelaksanaan project, dan koordinasi tim lapangan.',
+    image: '/assets/uploads/tri-kornisah.jpeg',
   },
   {
     name: 'Siwi Aryningsih, SE',
-    role: 'Admin & Finance Officer',
-    desc: 'Mengelola administrasi dan keuangan perusahaan secara akurat dan efisien.',
+    role: 'Finance & Admin',
+    desc: 'Mengelola administrasi, keuangan, dan dukungan operasional perusahaan.',
     image: '/assets/uploads/IMG_6451.PNG',
   },
   {
-    name: 'Wahyu Jullian',
-    role: 'Sosial Media Officer',
-    desc: 'Mengembangkan strategi komunikasi dan kehadiran digital perusahaan.',
-    image: '/assets/uploads/IMG_6455.PNG',
-  },
-  {
-    name: 'Fachrizal A.',
-    role: 'Manajer Operasional',
-    desc: 'Bertanggung jawab atas pelaksanaan operasional lapangan.',
-    image: '/assets/projects/project-4.webp',
-  },
-  {
-    name: 'Rudi Hermawan',
-    role: 'Manajer Teknik',
-    desc: 'Menjamin kualitas dan keandalan setiap sistem.',
-    image: '/assets/projects/project-2.webp',
-  },
-  {
-    name: 'Ahmad Fachreza',
-    role: 'Manajer Proyek',
-    desc: 'Mengelola eksekusi proyek secara efektif.',
-    image: '/assets/projects/project-3.webp',
-  },
-  {
-    name: 'Bayu Setiawan',
-    role: 'Supervisor Service',
-    desc: 'Memastikan layanan purna jual berjalan dengan responsif.',
-    image: '/assets/projects/project-7.webp',
+    name: 'Agus Dwi Retno',
+    role: 'Supervisor Teknisi',
+    desc: 'Memastikan pekerjaan teknis berjalan sesuai SOP, standar keselamatan, dan target project.',
+    image: '/assets/uploads/agus-dwi-retno.png',
   }
 ];
 

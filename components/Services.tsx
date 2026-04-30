@@ -11,7 +11,7 @@ const services = [
     title: 'HVAC &\nCooling System',
     description: 'Pengadaan, instalasi, dan perawatan AC, Chiller, AHU, Cooling Tower, dan sistem terkait.',
     icon: <SnowflakeBoldDuotoneIcon className="w-8 h-8" />,
-    image: '/assets/uploads/IMG_6409.PNG',
+    image: '/assets/uploads/ac-central-2.jpeg',
   },
   {
     title: 'Mechanical &\nElectrical',

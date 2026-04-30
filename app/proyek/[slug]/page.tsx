@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
 import { ArrowRightBoldDuotoneIcon } from '@/components/icons';
 import { getProjectBySlug, projectList } from '@/lib/projects';
 
@@ -36,104 +37,142 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   if (!project) notFound();
 
   return (
-    <main className="min-h-screen bg-white selection:bg-[#e63329] selection:text-white">
+    <main className="min-h-screen bg-zinc-50 selection:bg-[#e63329] selection:text-white">
       <Navbar />
 
-      <section className="relative min-h-[56vh] bg-[#070d1f] pt-24 overflow-hidden">
-        <Image src={project.image} alt={project.title} fill className="object-cover opacity-25" sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070d1f] via-[#070d1f]/85 to-[#070d1f]/60" />
+      {/* ── HERO SECTION ────────────────────────────────────────── */}
+      <section className="relative min-h-[60vh] bg-[#070d1f] pt-24 pb-16 overflow-hidden flex flex-col justify-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src={project.image} 
+            alt={project.title} 
+            fill 
+            className="object-cover opacity-25" 
+            sizes="100vw" 
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070d1f] via-[#070d1f]/85 to-[#070d1f]/60" />
+        </div>
 
-        <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <p className="text-[#e63329] text-xs font-semibold tracking-[0.18em] uppercase mb-6">{project.category} • {project.tag}</p>
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight max-w-4xl">{project.title}</h1>
-          <p className="text-slate-300 mt-6 max-w-3xl leading-relaxed">{project.overview}</p>
+        <div className="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-12 w-full mt-10">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 mb-8 flex-wrap">
+            <div className="w-6 h-px bg-[#e63329] hidden sm:block" />
+            <nav className="flex items-center text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+              <Link href="/" className="text-[#e63329] hover:text-white transition-colors">Beranda</Link>
+              <span className="mx-2 text-white/30 font-normal">/</span>
+              <Link href="/proyek" className="text-[#e63329] hover:text-white transition-colors">Proyek</Link>
+              <span className="mx-2 text-white/30 font-normal">/</span>
+              <span className="text-white truncate max-w-[150px] sm:max-w-xs">{project.title}</span>
+            </nav>
+          </div>
 
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl">
+          <p className="text-[#e63329] text-[10px] font-bold tracking-widest uppercase mb-4">
+            {project.category} • {project.tag}
+          </p>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] max-w-4xl mb-6">
+            {project.title}
+          </h1>
+          <p className="text-zinc-300 text-sm md:text-base max-w-3xl leading-relaxed">
+            {project.overview}
+          </p>
+
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl border-t border-white/10 pt-8">
             {[
               { label: 'Klien', value: project.client },
               { label: 'Lokasi', value: project.location },
               { label: 'Durasi', value: project.duration },
               { label: 'Tim', value: project.teamSize },
             ].map((item) => (
-              <div key={item.label} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                <p className="text-[10px] text-slate-400 uppercase tracking-[0.16em] mb-1">{item.label}</p>
-                <p className="text-white text-sm font-semibold">{item.value}</p>
+              <div key={item.label}>
+                <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mb-1">{item.label}</p>
+                <p className="text-white text-sm font-bold">{item.value}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-7 space-y-10">
+      {/* ── CONTENT SECTION ────────────────────────────────────────── */}
+      <section className="py-20 bg-white border-b border-zinc-200">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          
+          {/* Main Content */}
+          <div className="lg:col-span-8 space-y-12">
             <div>
-              <h2 className="text-2xl font-bold text-[#0a1122] mb-3">Latar Belakang Proyek</h2>
-              <p className="text-slate-600 leading-relaxed">{project.overview}</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0a1122] mb-4">Latar Belakang Proyek</h2>
+              <p className="text-zinc-600 leading-relaxed">{project.overview}</p>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-[#0a1122] mb-3">Tantangan Utama</h2>
-              <p className="text-slate-600 leading-relaxed">{project.challenge}</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0a1122] mb-4">Tantangan Utama</h2>
+              <p className="text-zinc-600 leading-relaxed">{project.challenge}</p>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-[#0a1122] mb-3">Solusi SAT</h2>
-              <p className="text-slate-600 leading-relaxed">{project.solution}</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0a1122] mb-4">Solusi SAT</h2>
+              <p className="text-zinc-600 leading-relaxed">{project.solution}</p>
             </div>
           </div>
 
-          <div className="lg:col-span-5 space-y-6">
-            <div className="surface-card p-6">
-              <h3 className="text-lg font-semibold text-[#0a1122] mb-4">Lingkup Pekerjaan</h3>
-              <p className="text-slate-600 text-sm mb-4">{project.scope}</p>
-              <ul className="space-y-2">
+          {/* Sidebar */}
+          <div className="lg:col-span-4 space-y-6">
+            {/* Lingkup Pekerjaan */}
+            <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-8">
+              <h3 className="text-lg font-bold text-[#0a1122] mb-3">Lingkup Pekerjaan</h3>
+              <p className="text-zinc-500 text-sm mb-5 leading-relaxed">{project.scope}</p>
+              <ul className="space-y-3">
                 {project.deliverables.map((item) => (
-                  <li key={item} className="text-sm text-slate-600 flex items-start gap-2">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#e63329]" />
-                    {item}
+                  <li key={item} className="text-sm font-medium text-[#0a1122] flex items-start gap-3">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#e63329] flex-shrink-0" />
+                    <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="surface-card p-6">
-              <h3 className="text-lg font-semibold text-[#0a1122] mb-4">Perangkat / Teknologi</h3>
+            {/* Teknologi / Perangkat */}
+            <div className="bg-white border border-zinc-200 shadow-sm rounded-2xl p-8">
+              <h3 className="text-lg font-bold text-[#0a1122] mb-4">Perangkat & Teknologi</h3>
               <div className="flex flex-wrap gap-2">
                 {project.tools.map((tool) => (
-                  <span key={tool} className="px-3 py-1.5 rounded-full border border-slate-200 text-xs text-slate-600">
+                  <span key={tool} className="px-3 py-1.5 bg-zinc-100 rounded-md text-[11px] font-bold text-zinc-600 uppercase tracking-wider">
                     {tool}
                   </span>
                 ))}
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
-      <section className="pb-20">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-[#0a1122] mb-6">Dokumentasi Proyek</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {/* ── GALLERY SECTION ────────────────────────────────────────── */}
+      <section className="py-20 bg-zinc-50 border-b border-zinc-200">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+          <div className="mb-10 text-center md:text-left">
+            <span className="text-[#e63329] font-bold text-[10px] tracking-widest uppercase mb-2 block">DOKUMENTASI</span>
+            <h2 className="text-3xl font-bold text-[#0a1122]">Galeri Proyek</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {project.gallery.map((img, idx) => (
-              <div key={`${img}-${idx}`} className="relative h-64 rounded-2xl overflow-hidden border border-slate-100">
-                <Image src={img} alt={`${project.title} ${idx + 1}`} fill className="object-cover" sizes="(min-width: 1024px) 33vw, 100vw" />
+              <div key={`${img}-${idx}`} className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-zinc-200 shadow-sm group">
+                <Image 
+                  src={img} 
+                  alt={`${project.title} ${idx + 1}`} 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" 
+                />
+                {/* Subtle overlay on hover */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50 border-y border-slate-100">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div>
-            <h3 className="text-2xl font-bold text-[#0a1122]">Butuh Detail Teknis Serupa?</h3>
-            <p className="text-slate-600 mt-2">Tim kami siap menyiapkan scope, estimasi, dan rencana implementasi untuk proyek Anda.</p>
-          </div>
-          <Link href="/kontak" className="inline-flex items-center gap-2 bg-[#e63329] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#c01040] transition-colors">
-            Konsultasi Proyek
-            <ArrowRightBoldDuotoneIcon className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
+      <CTA />
 
       <Footer />
     </main>

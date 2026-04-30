@@ -4,10 +4,13 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRightBoldDuotoneIcon, Buildings2BoldDuotoneIcon } from '@/components/icons';
+import { ArrowRightBoldDuotoneIcon, Buildings2BoldDuotoneIcon, MapPointBoldDuotoneIcon } from '@/components/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
 import { projectCategories, projectList, type ProjectCategory } from '@/lib/projects';
+
+// You can swap this with another project image if preferred
 import heroBg from '@/public/assets/projects/project-6.webp';
 
 export default function ProyekPage() {
@@ -15,162 +18,193 @@ export default function ProyekPage() {
   const filtered = active === 'Semua' ? projectList : projectList.filter((p) => p.category === active);
 
   return (
-    <main className="min-h-screen bg-white selection:bg-[#e11d48] selection:text-white">
+    <main className="min-h-screen bg-zinc-50 selection:bg-[#e63329] selection:text-white">
       <Navbar />
 
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#070d1f]">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[#070d1f] z-10" />
-          <Image
-            src={heroBg}
-            alt="Projects Background"
-            placeholder="blur"
-            priority
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover opacity-20 scale-110"
+      {/* ── HERO SECTION ────────────────────────────────────────── */}
+      <section className="relative min-h-[70vh] bg-[#070d1f] overflow-hidden flex flex-col pt-24 pb-16">
+        {/* Right side Slanted Image Background (Matching Mitra Page Style) */}
+        <div className="absolute right-0 top-0 w-full lg:w-[55%] h-full z-0 hidden lg:block">
+          <div 
+            className="absolute inset-0 bg-[#e63329]"
+            style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 15% 100%, 0% 50%)' }}
           />
+          <div 
+            className="absolute inset-0"
+            style={{ clipPath: 'polygon(15.5% 0, 100% 0, 100% 100%, 15.5% 100%, 0.5% 50%)' }}
+          >
+            <Image 
+              src={heroBg} 
+              alt="Project SAT"
+              placeholder="blur"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover opacity-80"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
         </div>
 
-        <div className="relative z-20 text-center px-4 max-w-5xl mx-auto pt-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2 rounded-full mb-8 backdrop-blur-md">
-              <span className="text-[#e11d48] font-black tracking-[0.5em] text-[10px] uppercase italic">Our Portfolio</span>
+        {/* Mobile Background */}
+        <div className="absolute inset-0 z-0 lg:hidden">
+          <Image 
+            src={heroBg} 
+            alt="Project SAT"
+            placeholder="blur"
+            fill
+            sizes="100vw"
+            className="object-cover opacity-20"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070d1f] via-[#070d1f]/80 to-transparent" />
+        </div>
+
+        {/* Content Area */}
+        <div className="flex-grow flex items-center relative z-10">
+          <div className="max-w-[1440px] mx-auto px-6 lg:px-12 w-full">
+            <div className="w-full lg:w-[50%] xl:w-[46%]">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+              >
+                {/* Breadcrumb */}
+                <div className="flex items-center gap-2 mb-8">
+                  <div className="w-6 h-px bg-[#e63329]" />
+                  <nav className="flex items-center text-xs font-bold tracking-widest uppercase">
+                    <Link href="/" className="text-[#e63329] hover:text-white transition-colors">Beranda</Link>
+                    <span className="mx-2 text-white/30 font-normal">/</span>
+                    <span className="text-white">Proyek</span>
+                  </nav>
+                </div>
+
+                {/* Headline */}
+                <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
+                  Portofolio Kerja &<br />
+                  Keberhasilan <span className="text-[#e63329]">Proyek</span>
+                </h1>
+
+                {/* Description */}
+                <p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-10 max-w-lg">
+                  Menampilkan dedikasi kami dalam menghadirkan sistem infrastruktur bangunan yang andal di berbagai sektor industri di Indonesia, dari komersial hingga fasilitas vital.
+                </p>
+
+                {/* Stats */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/10 max-w-xl">
+                  {[
+                    { value: '500+', label: 'PROYEK SELESAI' },
+                    { value: '10+', label: 'TAHUN PENGALAMAN' },
+                    { value: '100%', label: 'SUCCESS RATE' },
+                    { value: '24/7', label: 'DUKUNGAN' },
+                  ].map((stat, i) => (
+                    <div key={i}>
+                      <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                      <div className="text-[9px] font-bold text-zinc-500 tracking-wider uppercase">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
-
-            <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9] uppercase italic">
-              KARYA NYATA <span className="text-[#e11d48]">SOLUSI</span><br />
-              TEKNIK KAMI.
-            </h1>
-
-            <p className="text-slate-400 text-base max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-              Menampilkan dedikasi kami dalam menghadirkan sistem infrastruktur yang andal di berbagai sektor industri di Indonesia.
-            </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      <section className="py-32 bg-white">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-20">
-            <div className="flex flex-wrap items-center gap-3">
+      {/* ── PROJECTS LIST ────────────────────────────────────────── */}
+      <section className="py-20 bg-white border-b border-zinc-200">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+          
+          {/* Header & Filters */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+            <div>
+              <span className="text-[#e63329] font-bold text-[10px] tracking-widest uppercase mb-2 block">KARYA KAMI</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0a1122]">Jelajahi Proyek SAT</h2>
+            </div>
+            
+            {/* Filter Tabs */}
+            <div className="flex flex-wrap items-center gap-2">
               {projectCategories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActive(cat)}
-                  className={`px-8 py-3.5 text-[10px] font-black uppercase tracking-widest rounded-full border-2 transition-all duration-300 ${
+                  className={`px-6 py-2.5 text-[11px] font-bold uppercase tracking-wider rounded-md transition-all duration-300 border ${
                     active === cat
-                      ? 'bg-[#e11d48] text-white border-[#e11d48] shadow-xl shadow-[#e11d48]/30'
-                      : 'bg-white text-slate-400 border-slate-100 hover:border-[#e11d48] hover:text-[#e11d48]'
+                      ? 'bg-[#0a1122] text-white border-[#0a1122] shadow-md'
+                      : 'bg-white text-zinc-500 border-zinc-200 hover:border-[#e63329] hover:text-[#e63329] hover:bg-zinc-50'
                   }`}
                 >
                   {cat}
                 </button>
               ))}
             </div>
-            <div className="text-[10px] font-black text-slate-300 tracking-[0.3em] uppercase">
-              Showing {filtered.length} Selected Projects
-            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+          {/* Project Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
               {filtered.map((project, i) => (
                 <motion.div
                   key={project.slug}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:-translate-y-4 transition-all duration-700"
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="group relative flex flex-col bg-white border border-zinc-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-500 hover:border-zinc-300"
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden">
+                  {/* Image Container */}
+                  <div className="relative aspect-[4/3] overflow-hidden bg-zinc-100">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-1000"
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1122] via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
-
-                    <div className="absolute top-6 left-6 flex flex-col gap-2">
-                      <span className="bg-[#e11d48] text-white text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-lg shadow-lg">
+                    
+                    {/* Overlay Badges */}
+                    <div className="absolute top-4 left-4 flex gap-2">
+                      <span className="bg-[#e63329] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded shadow-sm">
                         {project.category}
                       </span>
                     </div>
-                    <div className="absolute top-6 right-6">
-                      <span className="bg-white/10 backdrop-blur-md text-white text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-lg border border-white/20">
-                        {project.tag}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-8 left-8 right-8 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-2">
-                        {project.year} • {project.client}
-                      </p>
-                      <h3 className="text-white text-2xl font-black italic uppercase leading-none tracking-tighter mb-4">{project.title}</h3>
-                      <Link href={`/proyek/${project.slug}`} className="flex items-center gap-2 text-[#e11d48] font-black text-[10px] tracking-widest uppercase">
-                        View Details <ArrowRightBoldDuotoneIcon className="w-4 h-4" />
-                      </Link>
-                    </div>
                   </div>
 
-                  <div className="p-8 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-xl font-black text-[#0a1122] leading-tight mb-4 tracking-tight uppercase italic">{project.title}</h3>
-                    <div className="flex items-center gap-3 text-slate-400 text-xs font-bold">
-                      <Buildings2BoldDuotoneIcon className="w-4 h-4 text-[#e11d48]" />
-                      <span className="truncate">{project.client}</span>
+                  {/* Content Container */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="flex items-center justify-between gap-4 mb-3">
+                      <span className="text-[#e63329] text-[10px] font-bold tracking-widest uppercase">{project.tag}</span>
+                      <span className="text-zinc-400 text-[10px] font-bold tracking-wider">{project.year}</span>
                     </div>
-                    <Link href={`/proyek/${project.slug}`} className="inline-flex items-center gap-2 mt-5 text-[#e11d48] text-[10px] font-black tracking-widest uppercase">
-                      Detail Proyek <ArrowRightBoldDuotoneIcon className="w-4 h-4" />
-                    </Link>
+                    
+                    <h3 className="text-lg font-bold text-[#0a1122] leading-snug mb-4 group-hover:text-[#e63329] transition-colors">
+                      <Link href={`/proyek/${project.slug}`} className="focus:outline-none">
+                        <span className="absolute inset-0" aria-hidden="true" />
+                        {project.title}
+                      </Link>
+                    </h3>
+                    
+                    <div className="mt-auto space-y-2 pt-4 border-t border-zinc-100">
+                      <div className="flex items-center gap-2 text-zinc-500 text-xs">
+                        <Buildings2BoldDuotoneIcon className="w-4 h-4 text-zinc-400 flex-shrink-0" />
+                        <span className="truncate">{project.client}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-zinc-500 text-xs">
+                        <MapPointBoldDuotoneIcon className="w-4 h-4 text-zinc-400 flex-shrink-0" />
+                        <span className="truncate">{project.location}</span>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
-
-          <div className="mt-32 pt-20 border-t border-slate-100 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-            {[
-              { value: '500+', label: 'COMPLETED PROJECTS' },
-              { value: '10+', label: 'YEARS OF JOURNEY' },
-              { value: '100%', label: 'SUCCESS RATE' },
-              { value: '24/7', label: 'CLIENT SUPPORT' },
-            ].map((stat, i) => (
-              <div key={i}>
-                <div className="text-5xl font-black text-[#0a1122] tracking-tighter mb-2 italic">{stat.value}</div>
-                <div className="text-[10px] font-black text-slate-400 tracking-[0.3em] uppercase">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          
         </div>
       </section>
 
-      <section className="py-40 bg-[#070d1f] relative overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative z-10">
-            <h2 className="text-5xl md:text-8xl font-black text-white mb-10 tracking-tighter leading-none italic uppercase">
-              REPUTASI KAMI<br />ADALAH <span className="text-[#e11d48]">HASIL</span> KERJA.
-            </h2>
-            <p className="text-slate-400 text-base mb-16 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-              Percayakan sistem teknis bangunan Anda kepada tim yang telah terbukti menyelesaikan ratusan proyek dengan sukses.
-            </p>
-            <Link
-              href="/kontak"
-              className="inline-flex items-center gap-4 bg-[#e11d48] text-white px-16 py-7 rounded-full font-black tracking-widest text-xs hover:bg-white hover:text-[#0a1122] transition-all shadow-2xl shadow-[#e11d48]/40 active:scale-95 group"
-            >
-              MULAI PROYEK ANDA SEKARANG
-              <ArrowRightBoldDuotoneIcon className="w-5 h-5 group-hover:translate-x-3 transition-transform" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      {/* ── CTA SECTION ────────────────────────────────────────── */}
+      <CTA />
 
       <Footer />
     </main>

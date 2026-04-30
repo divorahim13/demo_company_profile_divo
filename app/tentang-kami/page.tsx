@@ -12,11 +12,31 @@ import Footer from '@/components/Footer';
 import heroBg from '@/public/herosectiontentangkami.png';
 
 const teamMembers = [
-  { name: 'Yudi Santoso', role: 'Direktur Utama', image: '/assets/projects/project-1.webp' },
-  { name: 'Andi Wijaya', role: 'Manager Operasional', image: '/assets/projects/project-2.webp' },
-  { name: 'Sultan Mahendra', role: 'Technical Lead', image: '/assets/projects/project-4.webp' },
-  { name: 'Siwi Astuti', role: 'Administrasi & Keuangan', image: '/assets/projects/project-5.webp' },
-  { name: 'Basir', role: 'Logistik', image: '/assets/projects/project-7.webp' },
+  {
+    name: 'Andi Sultan D Dalle, SE',
+    role: 'Komisaris',
+    image: '/assets/uploads/IMG_6461.JPG',
+  },
+  {
+    name: 'Sodikin, S.Kom',
+    role: 'Direktur',
+    image: '/assets/uploads/sodikin.png',
+  },
+  {
+    name: 'Tri Kornisah Baladiah',
+    role: 'Project & Technical Manager',
+    image: '/assets/uploads/tri-kornisah.jpeg',
+  },
+  {
+    name: 'Siwi Aryningsih, SE',
+    role: 'Finance & Admin',
+    image: '/assets/uploads/IMG_6451.PNG',
+  },
+  {
+    name: 'Agus Dwi Retno',
+    role: 'Supervisor Teknisi',
+    image: '/assets/uploads/agus-dwi-retno.png',
+  }
 ];
 
 const misiList = [
@@ -266,7 +286,7 @@ export default function TentangKamiPage() {
               {
                 title: 'HVAC & Cooling System',
                 icon: <SnowflakeBoldDuotoneIcon className="w-7 h-7" />,
-                image: '/assets/projects/project-2.webp',
+                image: '/assets/uploads/benerin-ac-central.png',
                 desc: 'Perancangan, instalasi, dan pemeliharaan sistem tata udara untuk kenyamanan dan efisiensi energi yang optimal di berbagai fasilitas.',
                 width: 'w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-21.33px)]'
               },
@@ -641,6 +661,9 @@ export default function TentangKamiPage() {
             {/* Calculation: Year container (40px) + Margin (16px) + Circle center (10px) = 66px */}
             <div className="absolute top-[66px] left-[10%] right-[10%] h-[2px] bg-slate-200 hidden md:block" />
             
+            {/* The Timeline Line (Mobile) - Continuous vertical line */}
+            <div className="absolute top-[40px] bottom-[40px] left-1/2 -translate-x-1/2 w-[2px] bg-slate-100 md:hidden" />
+            
             <div className="grid grid-cols-1 md:grid-cols-5 gap-16 md:gap-4 relative z-10">
               {[
                 {
@@ -664,25 +687,25 @@ export default function TentangKamiPage() {
                   desc: 'Terus berinovasi untuk memberikan solusi terbaik bagi setiap klien.'
                 }
               ].map((step, i) => (
-                <div key={i} className="flex flex-col items-center group">
-                  {/* Year (Above) - Fixed Height */}
-                  <div className="h-10 flex items-center justify-center mb-4">
+                <div key={i} className="flex flex-col items-center group relative z-10">
+                  {/* Year (Above) - Fixed Height with background to mask the line */}
+                  <div className="h-10 flex items-center justify-center mb-4 bg-white px-4 relative z-10">
                     <span className="text-2xl font-bold text-[#0a1122] group-hover:text-[#e63329] transition-colors duration-300">
                       {step.year}
                     </span>
                   </div>
                   
-                  {/* Circle (Center) - Fixed Height */}
-                  <div className="h-5 flex items-center justify-center mb-8 relative">
-                    <div className="w-5 h-5 rounded-full bg-white border-4 border-[#e63329] shadow-md group-hover:scale-125 transition-transform duration-300 z-20" />
-                    {/* Vertical line for mobile */}
-                    <div className="absolute top-5 w-[2px] h-16 bg-slate-100 md:hidden" />
+                  {/* Circle (Center) - Fixed Height with background to mask the line */}
+                  <div className="h-5 flex items-center justify-center mb-8 relative z-10 bg-white px-2">
+                    <div className="w-5 h-5 rounded-full bg-white border-4 border-[#e63329] shadow-md group-hover:scale-125 transition-transform duration-300 relative z-20" />
                   </div>
                   
-                  {/* Description (Below) */}
-                  <p className="text-slate-500 text-sm leading-relaxed max-w-[200px] text-center">
-                    {step.desc}
-                  </p>
+                  {/* Description (Below) with background to mask the line */}
+                  <div className="relative z-10 bg-white px-4 py-2">
+                    <p className="text-slate-500 text-sm leading-relaxed max-w-[200px] text-center">
+                      {step.desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

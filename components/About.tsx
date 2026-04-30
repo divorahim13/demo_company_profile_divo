@@ -26,7 +26,7 @@ const About = () => {
 
             <div className="relative rounded-xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] h-[480px]">
               <Image
-                src="/assets/uploads/IMG_6409.PNG"
+                src="/assets/uploads/benerin-ac-central.png"
                 alt="HVAC Systems — Rooftop Installation"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"

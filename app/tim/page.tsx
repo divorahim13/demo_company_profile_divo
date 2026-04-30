@@ -9,7 +9,7 @@ import {
 } from '@/components/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import heroBg from '@/public/herosectiontim.png';
+import heroBg from '@/public/background-baru-tim.jpeg';
 
 /* ─── Data ────────────────────────────────────────────────────── */
 const strukturInti = [
@@ -22,16 +22,16 @@ const strukturInti = [
   },
   {
     title: 'Direktur',
-    name: 'Dodi Kurniawan',
+    name: 'Sodikin, S.Kom',
     desc: 'Memimpin operasional perusahaan dan memastikan kualitas layanan SAT tetap profesional.',
-    image: '/assets/projects/project-2.webp',
+    image: '/assets/uploads/sodikin.png',
     icon: <CrownBoldDuotoneIcon className="w-4 h-4 text-white" />,
   },
   {
     title: 'Project & Technical Manager',
-    name: 'Fachrizal A.',
+    name: 'Tri Kornisah Baladiah',
     desc: 'Mengawasi perencanaan teknis, pelaksanaan project, dan koordinasi tim lapangan.',
-    image: '/assets/projects/project-4.webp',
+    image: '/assets/uploads/tri-kornisah.jpeg',
     icon: <SettingsBoldDuotoneIcon className="w-4 h-4 text-white" />,
   },
   {
@@ -43,9 +43,9 @@ const strukturInti = [
   },
   {
     title: 'Supervisor Teknisi',
-    name: 'Bayu Setiawan',
+    name: 'Agus Dwi Retno',
     desc: 'Memastikan pekerjaan teknis berjalan sesuai SOP, standar keselamatan, dan target project.',
-    image: '/assets/projects/project-7.webp',
+    image: '/assets/uploads/agus-dwi-retno.png',
     icon: <UserBoldDuotoneIcon className="w-4 h-4 text-white" />,
   },
 ];
@@ -75,33 +75,27 @@ export default function TimPage() {
       {/* ══════════════════════════════════════════════════
           HERO
       ══════════════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-center bg-[#070d1f] overflow-hidden pt-20">
-        {/* ── Right diagonal image ── */}
-        <div className="absolute right-0 top-0 w-full lg:w-[50%] h-full z-0 hidden lg:block">
-          <div
-            className="absolute inset-0 bg-[#e63329]"
-            style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 15% 100%, 0% 50%)' }}
+      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center bg-[#070d1f] overflow-hidden pt-20">
+        {/* ── Full width background image ── */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <Image
+            src={heroBg}
+            alt="Tim Profesional SAT"
+            placeholder="blur"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            priority
           />
-          <div
-            className="absolute inset-0"
-            style={{ clipPath: 'polygon(15.5% 0, 100% 0, 100% 100%, 15.5% 100%, 0.5% 50%)' }}
-          >
-            <Image
-              src={heroBg}
-              alt="Teknisi SAT di lapangan"
-              placeholder="blur"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/15" />
-          </div>
+          {/* Gradient overlay for readability: softened to ensure the whole team is visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070d1f]/90 via-[#070d1f]/40 to-transparent" />
+          {/* Darken on mobile for better text contrast */}
+          <div className="absolute inset-0 bg-[#070d1f]/60 lg:hidden" />
         </div>
 
         {/* ── Content ── */}
         <div className="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-12 w-full py-24">
-          <div className="w-full lg:w-[50%] lg:pr-16">
+          <div className="w-full lg:w-[60%] lg:pr-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -115,14 +109,17 @@ export default function TimPage() {
                 <span className="text-white">Tim</span>
               </div>
 
-              <div className="text-[#e63329] font-black tracking-widest text-xs uppercase mb-4">TIM KAMI</div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-6">
+                <UsersGroupTwoRoundedBoldDuotoneIcon className="w-4 h-4 text-[#e63329]" />
+                <span className="text-white font-bold tracking-widest text-xs uppercase">TIM KAMI</span>
+              </div>
 
-              <h1 className="text-5xl md:text-6xl xl:text-[5rem] font-bold text-white mb-6 leading-[1.05] tracking-tight">
+              <h1 className="text-5xl md:text-6xl xl:text-[5.5rem] font-bold text-white mb-6 leading-[1.05] tracking-tight">
                 Tim Profesional<br />di Balik SAT
               </h1>
 
-              <p className="text-zinc-400 text-sm leading-relaxed max-w-lg mb-10" style={{fontFamily: 'var(--font-body)'}}>
-                SAT didukung oleh tim yang berpengalaman, solid, dan berkomitmen untuk memberikan layanan teknis yang profesional, responsif, dan sesuai standar.
+              <p className="text-zinc-300 text-base md:text-lg leading-relaxed max-w-xl mb-10" style={{fontFamily: 'var(--font-body)'}}>
+                SAT didukung oleh tim yang berpengalaman, solid, dan berkomitmen penuh untuk memberikan layanan teknis yang profesional, responsif, dan memenuhi standar industri tertinggi.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -181,7 +178,7 @@ export default function TimPage() {
                 </span>
               </div>
 
-              {/* 5 Cards — Uniform height with image top + floating icon + text bottom */}
+              {/* 5 Cards */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 {strukturInti.map((item, i) => (
                   <motion.div
@@ -320,52 +317,61 @@ export default function TimPage() {
           </div>
 
           {/* Org Chart — SVG connector approach */}
-          <div className="flex flex-col items-center gap-0 max-w-5xl mx-auto">
-
-            {/* Komisaris */}
-            <div className="bg-[#070d1f] text-white px-10 py-4 rounded-xl flex items-center gap-2 w-64 justify-center shadow-md">
-              <UserBoldDuotoneIcon className="w-4 h-4" />
-              <span className="font-bold tracking-[0.16em] text-xs">KOMISARIS</span>
+          {/* Org Chart */}
+          <div className="flex flex-col items-center max-w-5xl mx-auto w-full">
+            
+            {/* Level 1: Komisaris */}
+            <div className="bg-[#0a1122] text-white px-8 py-3.5 rounded-xl flex items-center gap-3 w-full max-w-[260px] justify-center shadow-lg border border-zinc-800 relative z-10">
+              <UserBoldDuotoneIcon className="w-[18px] h-[18px] text-zinc-400" />
+              <span className="font-bold tracking-[0.15em] text-xs">KOMISARIS</span>
             </div>
 
-            {/* Connector line down */}
-            <div className="w-px h-8 bg-zinc-300" />
+            {/* Vertical Line */}
+            <div className="w-[2px] h-8 bg-zinc-200" />
 
-            {/* Direktur */}
-            <div className="bg-[#e63329] text-white px-10 py-4 rounded-xl flex items-center gap-2 w-64 justify-center shadow-md">
-              <CrownBoldDuotoneIcon className="w-4 h-4" />
-              <span className="font-bold tracking-[0.16em] text-xs">DIREKTUR</span>
+            {/* Level 2: Direktur */}
+            <div className="bg-[#e63329] text-white px-8 py-3.5 rounded-xl flex items-center gap-3 w-full max-w-[260px] justify-center shadow-lg border border-[#c01040]/50 relative z-10">
+              <CrownBoldDuotoneIcon className="w-[18px] h-[18px] text-white/90" />
+              <span className="font-bold tracking-[0.15em] text-xs">DIREKTUR</span>
             </div>
 
-            {/* Fork connector */}
-            <div className="w-px h-9 bg-zinc-300" />
-            {/* Horizontal bar */}
-            <div className="relative hidden md:flex items-start justify-center w-full max-w-[920px]">
-              {/* Horizontal line */}
-              <div className="absolute top-0 left-[14.2%] right-[14.2%] h-px bg-zinc-300" />
-              {/* 3 vertical drops */}
-              <div className="w-1/3 flex justify-start pl-[14.2%]">
-                <div className="w-px h-10 bg-zinc-300" />
-              </div>
-              <div className="w-1/3 flex justify-center">
-                <div className="w-px h-10 bg-zinc-300" />
-              </div>
-              <div className="w-1/3 flex justify-end pr-[14.2%]">
-                <div className="w-px h-10 bg-zinc-300" />
+            {/* Vertical Line going to the fork */}
+            <div className="w-[2px] h-8 bg-zinc-200 hidden md:block" />
+
+            {/* Horizontal Fork (Desktop Only) */}
+            <div className="relative w-full max-w-[720px] hidden md:block">
+              {/* The horizontal bar connecting the 3 children */}
+              <div className="absolute top-0 left-[16.666%] right-[16.666%] h-[2px] bg-zinc-200" />
+              {/* The 3 vertical drops */}
+              <div className="flex justify-between px-[16.666%]">
+                <div className="w-[2px] h-8 bg-zinc-200" />
+                <div className="w-[2px] h-8 bg-zinc-200" />
+                <div className="w-[2px] h-8 bg-zinc-200" />
               </div>
             </div>
 
-            {/* Level 3 — 3 boxes */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 w-full max-w-[920px]">
+            {/* Mobile Vertical Line */}
+            <div className="w-[2px] h-8 bg-zinc-200 md:hidden" />
+
+            {/* Level 3: 3 boxes */}
+            <div className="flex flex-col md:grid md:grid-cols-3 gap-0 md:gap-6 w-full max-w-[720px]">
               {[
-                { label: 'PROJECT & TECHNICAL MANAGER', icon: <SettingsBoldDuotoneIcon className="w-5 h-5 text-zinc-500" /> },
-                { label: 'FINANCE & ADMIN',              icon: <ClipboardCheckBoldDuotoneIcon className="w-5 h-5 text-zinc-500" /> },
-                { label: 'SUPERVISOR TEKNISI',           icon: <UserBoldDuotoneIcon className="w-5 h-5 text-zinc-500" /> },
+                { label: 'PROJECT &\nTECHNICAL MANAGER', icon: <SettingsBoldDuotoneIcon className="w-6 h-6" /> },
+                { label: 'FINANCE &\nADMIN',              icon: <ClipboardCheckBoldDuotoneIcon className="w-6 h-6" /> },
+                { label: 'SUPERVISOR\nTEKNISI',           icon: <UserBoldDuotoneIcon className="w-6 h-6" /> },
               ].map((b, i) => (
-                <div key={i} className="bg-white border border-zinc-200 rounded-2xl px-6 py-6 md:min-h-[132px] flex flex-col items-center justify-center gap-3 shadow-sm text-center">
-                  {b.icon}
-                  <span className="font-bold text-[#0a1122] text-sm tracking-[0.06em] leading-snug uppercase">{b.label}</span>
-                </div>
+                <React.Fragment key={i}>
+                  {/* Vertical connector for mobile between items */}
+                  {i > 0 && <div className="w-[2px] h-6 bg-zinc-200 mx-auto md:hidden" />}
+                  
+                  {/* Box */}
+                  <div className="bg-white border border-zinc-200 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm hover:shadow-md transition-all duration-300 hover:border-[#e63329]/40 hover:-translate-y-1 group relative z-10">
+                    <div className="w-14 h-14 rounded-full bg-zinc-50 border border-zinc-100 flex items-center justify-center text-zinc-400 group-hover:bg-red-50 group-hover:text-[#e63329] group-hover:border-red-100 transition-colors duration-300">
+                      {b.icon}
+                    </div>
+                    <span className="font-bold text-[#0a1122] text-xs tracking-[0.1em] text-center whitespace-pre-line leading-relaxed uppercase">{b.label}</span>
+                  </div>
+                </React.Fragment>
               ))}
             </div>
           </div>
