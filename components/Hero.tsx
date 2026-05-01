@@ -2,10 +2,11 @@
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import { ShieldCheckBoldDuotoneIcon, MedalRibbonStarBoldDuotoneIcon, SettingsBoldDuotoneIcon, HeadphonesRoundSoundBoldDuotoneIcon, ArrowRightBoldDuotoneIcon } from './icons';
+import { ShieldCheckBoldDuotoneIcon, HeadphonesRoundSoundBoldDuotoneIcon, ArrowRightBoldDuotoneIcon, ClockCircleBoldDuotoneIcon } from './icons';
 import Link from 'next/link';
-import heroBg from '@/public/hero-home-new.jpeg';
+import heroBg from '@/public/herosectionrumahberanda.png';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { CheckCircle2 } from 'lucide-react';
 
 const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -23,117 +24,93 @@ const Hero = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
+        staggerChildren: 0.12,
+        delayChildren: 0.15
       }
     }
   };
   
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, filter: 'blur(4px)' },
-    show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
+    hidden: { opacity: 0, y: 24, filter: 'blur(4px)' },
+    show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const } }
   };
 
   return (
     <section ref={containerRef} className="relative min-h-screen bg-[#070d1f] overflow-hidden flex flex-col">
-      <div className="absolute inset-0 z-[1] bg-engineering-grid opacity-[0.14] pointer-events-none" />
-      <div className="absolute left-0 top-0 z-[2] hidden h-full w-[58%] blueprint-scan bg-gradient-to-r from-white/[0.035] to-transparent pointer-events-none lg:block" />
+      {/* Full Background Image */}
       <motion.div
-        className="absolute left-[7%] top-[22%] z-[2] hidden h-px w-44 origin-left bg-white/30 lg:block"
-        animate={{ scaleX: [0, 1, 1, 0], opacity: [0, 0.55, 0.55, 0] }}
-        transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute left-[12%] bottom-[18%] z-[2] hidden h-24 w-px origin-bottom bg-[#e63329]/50 lg:block"
-        animate={{ scaleY: [0, 1, 1, 0], opacity: [0, 0.65, 0.65, 0] }}
-        transition={{ duration: 5.4, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-      />
-
-      <motion.div
-        className="absolute inset-0 z-0 lg:hidden"
-        initial={{ scale: 1.08, opacity: 0 }}
+        className="absolute inset-0 z-0"
+        initial={{ scale: 1.06, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        style={{ y, scale: imageScale }}
       >
         <Image
           src={heroBg}
-          alt="Teknisi SAT di area proyek"
+          alt="Teknisi SAT melayani instalasi di rumah"
           fill
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[center_25%] lg:object-[60%_20%]"
           priority
           placeholder="blur"
         />
-        <div className="absolute inset-0 bg-[#070d1f]/78" />
+        {/* Gradient overlay — darker left for text, transparent right to show technician */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070d1f]/85 via-[#070d1f]/60 to-[#070d1f]/90 lg:bg-none lg:bg-transparent" />
+        <div className="absolute inset-0 hidden lg:block" style={{
+          background: 'linear-gradient(to right, rgba(7,13,31,0.92) 0%, rgba(7,13,31,0.82) 35%, rgba(7,13,31,0.35) 60%, rgba(7,13,31,0.15) 100%)'
+        }} />
       </motion.div>
 
-      {/* Right side Slanted Image Background */}
-      <div className="absolute right-0 top-0 w-full lg:w-[60%] h-full z-0 hidden lg:block overflow-hidden">
-        {/* Red background layer (Divider) */}
-        <motion.div 
-          className="absolute inset-0 bg-[#e63329]"
-          initial={{ opacity: 0, x: 34 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          style={{ clipPath: 'polygon(32% 0, 100% 0, 100% 100%, 12% 100%)' }}
-        />
-        {/* Image layer */}
-        <motion.div 
-          className="absolute inset-0"
-          style={{ clipPath: 'polygon(32.5% 0, 100% 0, 100% 100%, 12.5% 100%)', y, scale: imageScale }}
-        >
-          <Image 
-            src={heroBg} 
-            alt="Teknisi SAT di area proyek"
-            fill
-            sizes="(min-width: 1024px) 55vw, 100vw"
-            className="object-cover object-[90%_20%]"
-            priority
-            placeholder="blur"
-          />
-          <div className="absolute inset-0 bg-black/5" />
-        </motion.div>
-      </div>
-
       {/* Content Area */}
-      <div className="flex-grow flex items-center relative z-10 pt-32 pb-16">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="flex-grow flex items-center relative z-10 pt-28 lg:pt-32 pb-6 lg:pb-0">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 w-full">
           
-          <div className="w-full lg:w-[50%]">
+          <div className="w-full lg:w-[52%] xl:w-[48%]">
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="show"
             >
-              {/* Eyebrow */}
-              <motion.div variants={itemVariants} className="mb-6">
-                <span className="text-[#ff4a40] font-semibold tracking-[0.15em] text-xs uppercase" style={{fontFamily: 'var(--font-body)'}}>
-                  Dari Pengadaan hingga Perawatan, Kami Mitra Terpercaya Anda
+              {/* Eyebrow Badge */}
+              <motion.div variants={itemVariants} className="mb-5">
+                <span className="inline-flex items-center gap-2 text-[#e63329] text-xs font-bold tracking-[0.2em] uppercase border border-[#e63329]/30 px-3 py-1.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#e63329] animate-pulse" />
+                  Melayani Rumah Tangga & Bisnis
                 </span>
               </motion.div>
 
               {/* Headline */}
-              <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl xl:text-[4.5rem] font-bold text-white leading-[1.05] mb-6 tracking-tight">
-                Solusi Terpercaya untuk<br />
-                Pengadaan, Instalasi, dan<br />
-                Perawatan Sistem Bangunan
+              <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
+                Jasa AC, Listrik &{' '}
+                <br className="hidden sm:block" />
+                Perawatan Bangunan{' '}
+                <br />
+                <span className="text-[#e63329]">Profesional</span>
               </motion.h1>
 
               {/* Sub-headline */}
-              <motion.p variants={itemVariants} className="text-slate-300 text-sm md:text-base leading-relaxed mb-10 max-w-xl pr-4" style={{fontFamily: 'var(--font-body)'}}>
-                CV. Samudera Abadi Teknik menyediakan solusi teknis komprehensif di bidang pengadaan, instalasi, dan perawatan sistem HVAC, Mekanikal, Elektrikal, CCTV, PABX, serta Genset untuk kebutuhan komersial dan industri.
+              <motion.p variants={itemVariants} className="text-slate-300 text-base lg:text-lg leading-relaxed mb-6 max-w-lg">
+                Butuh pasang AC rumah, perbaikan listrik, atau maintenance gedung?
+                Tim berpengalaman kami siap bantu. Hubungi kami via WhatsApp sekarang.
               </motion.p>
 
+              {/* Quick Benefit Checklist */}
+              <motion.div variants={itemVariants} className="flex flex-wrap gap-x-5 gap-y-2 mb-8">
+                <BenefitCheck text="Survei & Konsultasi Gratis" />
+                <BenefitCheck text="Garansi Resmi" />
+                <BenefitCheck text="Respon Cepat" />
+              </motion.div>
+
               {/* CTA Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-16">
+              <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
                 <Link href="/kontak" passHref>
                   <motion.button
-                    whileHover={{ scale: 1.02, boxShadow: "0 10px 25px -5px rgba(230, 51, 41, 0.4)" }}
+                    whileHover={{ scale: 1.02, boxShadow: "0 12px 28px -5px rgba(230, 51, 41, 0.45)" }}
                     whileTap={{ scale: 0.98 }}
-                    className="sheen-button bg-[#e63329] text-white px-8 py-4 font-bold flex items-center gap-2 transition-colors hover:bg-[#c01040] text-sm"
+                    className="sheen-button inline-flex items-center gap-2.5 bg-[#e63329] text-white px-8 py-4 rounded-lg font-bold text-sm hover:bg-[#c01040] transition-all shadow-lg shadow-[#e63329]/30 hover:shadow-xl hover:shadow-[#e63329]/40 hover:-translate-y-0.5"
                   >
-                    <span>KONSULTASI PROJECT</span>
-                    <ArrowRightBoldDuotoneIcon className="w-5 h-5 ml-1" />
+                    <span>HUBUNGI VIA WHATSAPP</span>
+                    <ArrowRightBoldDuotoneIcon className="w-4 h-4" />
                   </motion.button>
                 </Link>
 
@@ -141,7 +118,7 @@ const Hero = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="border-2 border-white/30 text-white px-8 py-4 font-bold hover:border-white hover:bg-white/5 hover:shadow-[0_0_28px_rgba(255,255,255,0.12)] transition-all text-sm"
+                    className="inline-flex items-center gap-2.5 border border-white/20 text-white px-8 py-4 rounded-lg font-bold text-sm hover:bg-white/10 transition-all"
                   >
                     LIHAT LAYANAN
                   </motion.button>
@@ -155,17 +132,40 @@ const Hero = () => {
 
       {/* Bottom Trust Bar */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 lg:bg-transparent bg-[#070d1f] border-t border-white/10 lg:border-none pb-8 lg:pb-12"
+        transition={{ delay: 0.7, duration: 0.7, ease: "easeOut" }}
+        className="relative z-10 mt-auto"
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-x-12 gap-y-6">
-            <TrustBadge icon={<ShieldCheckBoldDuotoneIcon className="w-6 h-6 text-white" />} label={<span>Teknisi<br/>Profesional</span>} />
-            <TrustBadge icon={<MedalRibbonStarBoldDuotoneIcon className="w-6 h-6 text-white" />} label={<span>Sesuai Standar<br/>ISO & SNI</span>} />
-            <TrustBadge icon={<SettingsBoldDuotoneIcon className="w-6 h-6 text-white" />} label={<span>Maintenance &<br/>After Sales</span>} />
-            <TrustBadge icon={<HeadphonesRoundSoundBoldDuotoneIcon className="w-6 h-6 text-white" />} label={<span>After Sales<br/>Support</span>} />
+        <div className="bg-[#070d1f]/80 backdrop-blur-md border-t border-white/[0.08]">
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 py-5">
+            <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                <TrustBadge 
+                  icon={<ShieldCheckBoldDuotoneIcon className="w-5 h-5 text-[#e63329]" />} 
+                  label="Teknisi Bersertifikat" 
+                />
+                <TrustBadge 
+                  icon={<ClockCircleBoldDuotoneIcon className="w-5 h-5 text-[#e63329]" />} 
+                  label="10+ Tahun Pengalaman" 
+                />
+                <TrustBadge 
+                  icon={<HeadphonesRoundSoundBoldDuotoneIcon className="w-5 h-5 text-[#e63329]" />} 
+                  label="Layanan Purna Jual" 
+                />
+              </div>
+              {/* Rating/Social proof */}
+              <div className="flex items-center gap-2 text-sm text-slate-400">
+                <div className="flex -space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-amber-400 text-xs">★</span>
+                  ))}
+                </div>
+                <span className="text-slate-300 font-medium">4.9</span>
+                <span className="text-slate-500">•</span>
+                <span>Dipercaya 500+ pelanggan</span>
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -174,21 +174,24 @@ const Hero = () => {
   );
 };
 
-const TrustBadge = ({ icon, label }: { icon: React.ReactNode; label: React.ReactNode }) => (
-  <motion.div 
-    whileHover={{ y: -2 }}
-    className="flex items-center gap-4 group cursor-default"
-  >
-    <div className="relative flex-shrink-0 w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-110">
-      <span className="absolute inset-1 rounded-full bg-[#e63329]/35 pulse-ring opacity-40" />
-      <span className="relative z-10">
+/* ── Small Helper Components ───────────────────── */
+
+const BenefitCheck = ({ text }: { text: string }) => (
+  <div className="flex items-center gap-1.5 text-sm text-slate-300">
+    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+    <span>{text}</span>
+  </div>
+);
+
+const TrustBadge = ({ icon, label }: { icon: React.ReactNode; label: string }) => (
+  <div className="flex items-center gap-2.5 group cursor-default">
+    <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-white/[0.06] border border-white/[0.08] flex items-center justify-center transition-all group-hover:bg-white/[0.1] group-hover:border-white/[0.15]">
       {icon}
-      </span>
     </div>
-    <span className="text-sm font-medium text-slate-200 leading-tight">
+    <span className="text-[13px] font-medium text-slate-300 group-hover:text-white transition-colors">
       {label}
     </span>
-  </motion.div>
+  </div>
 );
 
 export default Hero;

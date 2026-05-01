@@ -9,7 +9,7 @@ import {
 } from '@/components/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import heroBg from '@/public/herosectiontentangkami.png';
+import heroBg from '@/public/assets/uploads/herosectiontentangkamiterbaru.png';
 
 const teamMembers = [
   {
@@ -110,35 +110,26 @@ export default function TentangKamiPage() {
       {/* ── HERO SECTION ────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center bg-[#070d1f] overflow-hidden pt-20">
         
-        {/* Right side Slanted Image Background (Chevron Left) */}
-        <div className="absolute right-0 top-0 w-full lg:w-[50%] h-full z-0 hidden lg:block">
-          {/* Red background layer (Divider) */}
-          <div 
-            className="absolute inset-0 bg-[#e63329]"
-            style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 15% 100%, 0% 50%)' }}
+        {/* ── Full width background image ── */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <Image 
+            src={heroBg} 
+            alt="Teknisi CV. Samudera Abadi Teknik"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            priority
+            placeholder="blur"
           />
-          {/* Image layer */}
-          <div 
-            className="absolute inset-0"
-            style={{ clipPath: 'polygon(15.5% 0, 100% 0, 100% 100%, 15.5% 100%, 0.5% 50%)' }}
-          >
-            <Image 
-              src={heroBg} 
-              alt="Teknisi HVAC CV. Samudera Abadi Teknik"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-[55%_center]"
-              priority
-              placeholder="blur"
-            />
-            {/* Dark overlay specifically for blending right side if needed, currently transparent */}
-            <div className="absolute inset-0 bg-black/10" />
-          </div>
+          {/* Gradient overlay for text readability on desktop */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070d1f]/95 via-[#070d1f]/60 to-transparent" />
+          {/* Darker overlay on mobile for contrast */}
+          <div className="absolute inset-0 bg-[#070d1f]/70 lg:hidden" />
         </div>
 
         {/* Content Area */}
         <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
-          <div className="w-full lg:w-[50%] lg:pr-12 xl:pr-16">
+          <div className="w-full lg:w-[60%] lg:pr-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -169,7 +160,7 @@ export default function TentangKamiPage() {
 
               {/* Description */}
               <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl">
-                CV. Samudera Abadi Teknik menyediakan solusi teknis komprehensif di bidang pengadaan, instalasi, dan perawatan sistem HVAC, Mekanikal, Elektrikal, CCTV, PABX, serta Genset untuk kebutuhan komersial dan industri.
+                CV. Samudera Abadi Teknik menyediakan solusi teknis komprehensif di bidang pengadaan, instalasi, dan perawatan sistem HVAC, Mekanikal, Elektrikal, CCTV, PABX, serta Genset untuk kebutuhan rumah tangga maupun komersial.
               </p>
             </motion.div>
           </div>
@@ -193,15 +184,15 @@ export default function TentangKamiPage() {
               </div>
               
               <h2 className="text-4xl md:text-5xl font-bold text-[#0a1122] leading-[1.1] mb-8 tracking-tight">
-                Mitra Terpercaya untuk<br />Sistem Bangunan Anda
+                Solusi Terpercaya untuk<br />Rumah & Bangunan Anda
               </h2>
               
               <div className="space-y-6 text-zinc-600 text-sm leading-relaxed mb-10 pr-4" style={{fontFamily: 'var(--font-body)'}}>
                 <p>
-                  CV. Samudera Abadi Teknik didirikan untuk merespons tingginya kebutuhan akan mitra teknis yang andal seiring dengan pesatnya perkembangan teknologi dan infrastruktur. Kami hadir dengan komitmen memberikan solusi sistem bangunan terbaik, didukung oleh para ahli yang memiliki rekam jejak puluhan tahun di bidangnya.
+                  CV. Samudera Abadi Teknik didirikan untuk merespons tingginya kebutuhan akan solusi teknis yang andal untuk hunian maupun bangunan komersial. Kami hadir dengan komitmen memberikan solusi sistem terbaik, didukung oleh para ahli yang memiliki rekam jejak puluhan tahun di bidangnya.
                 </p>
                 <p>
-                  Kami mengutamakan keunggulan kualitas, integritas, dan profesionalisme di setiap proyek. Didukung oleh tim teknisi terlatih yang terus berinovasi, kami memastikan setiap pekerjaan, mulai dari instalasi hingga perawatan, diselesaikan dengan standar operasional yang ketat demi kepuasan klien dan mitra bisnis kami.
+                  Kami mengutamakan keunggulan kualitas, integritas, dan profesionalisme di setiap pengerjaan. Didukung oleh tim teknisi terlatih yang terus berinovasi, kami memastikan setiap pekerjaan—mulai dari instalasi di rumah hingga perawatan rutin di perusahaan—diselesaikan dengan standar operasional yang ketat demi kepuasan seluruh pelanggan kami.
                 </p>
               </div>
 

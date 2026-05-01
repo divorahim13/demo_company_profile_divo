@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px; height: 1920px;
+        overflow: hidden; background: #030712;
+        font-family: 'Inter', sans-serif;
+      }
+
+      /* ═══ OVERLAYS ═══ */
+      .ov-vignette {
+        position: absolute; inset: 0;
+        background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, rgba(3,7,18,0.85) 100%);
+        z-index: 50; pointer-events: none;
+      }
+      .ov-ll-top {
+        position: absolute; top: -30%; right: -20%; width: 100%; height: 80%;
+        background: radial-gradient(circle, rgba(230,51,41,0.20) 0%, transparent 55%);
+        z-index: 51; pointer-events: none; mix-blend-mode: screen; opacity: 0;
+      }
+      .ov-ll-bot {
+        position: absolute; bottom: -25%; left: -15%; width: 90%; height: 70%;
+        background: radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 50%);
+        z-index: 51; pointer-events: none; mix-blend-mode: screen; opacity: 0;
+      }
+      .ov-grain {
+        position: absolute; inset: 0; z-index: 52; pointer-events: none;
+        opacity: 0.04; mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 200px;
+      }
+      .flash { position: absolute; inset: 0; z-index: 60; background: #fff; opacity: 0; pointer-events: none; }
+
+      /* ═══ 3D STAGE ═══ */
+      .stage {
+        position: absolute; inset: 0;
+        perspective: 2500px; perspective-origin: 50% 45%;
+      }
+
+      /* ═══ PHONE ═══ */
+      .phone {
+        position: absolute; top: 50%; left: 50%;
+        width: 430px; height: 932px;
+        margin-left: -215px; margin-top: -466px;
+        transform-style: preserve-3d; will-change: transform;
+      }
+      .bezel {
+        position: absolute; inset: -18px;
+        background: linear-gradient(145deg, #1a1a2e 0%, #0a0a14 50%, #1a1a2e 100%);
+        border-radius: 58px;
+        box-shadow: 0 80px 200px rgba(0,0,0,0.95), 0 0 120px rgba(230,51,41,0.08),
+                    inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.4);
+      }
+      .screen {
+        position: relative; width: 430px; height: 932px;
+        border-radius: 40px; overflow: hidden; z-index: 2;
+        box-shadow: inset 0 0 30px rgba(0,0,0,0.3); background: #0a0a14;
+      }
+      .notch {
+        position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+        width: 130px; height: 32px; background: #000; border-radius: 20px; z-index: 10;
+      }
+      /* Full-page screenshot images — taller than viewport, scrollable via GSAP y */
+      .pg {
+        position: absolute; top: 0; left: 0;
+        width: 430px; height: auto; /* natural tall height */
+        opacity: 0;
+      }
+      .pg.on { opacity: 1; }
+      .reflect {
+        position: absolute; inset: 0; z-index: 5;
+        background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.02) 100%);
+        border-radius: 40px; pointer-events: none;
+      }
+
+      /* ═══ INTRO ═══ */
+      .intro {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        z-index: 40;
+      }
+      .i-over {
+        font-size: 24px; font-weight: 300; color: rgba(255,255,255,0.5);
+        letter-spacing: 18px; text-transform: uppercase; margin-bottom: 30px; opacity: 0;
+      }
+      .i-title {
+        font-size: 120px; font-weight: 900; color: #fff;
+        text-transform: uppercase; letter-spacing: 4px; line-height: 0.95;
+        text-shadow: 0 30px 80px rgba(0,0,0,0.9); opacity: 0; text-align: center;
+      }
+      .i-accent {
+        display: block;
+        background: linear-gradient(135deg, #e63329, #ff6b35);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      }
+      .i-tag {
+        font-size: 30px; font-weight: 400; color: rgba(255,255,255,0.6);
+        letter-spacing: 12px; text-transform: uppercase; margin-top: 40px; opacity: 0;
+      }
+      .i-line {
+        width: 0; height: 3px;
+        background: linear-gradient(90deg, transparent, #e63329, transparent);
+        margin-top: 25px; border-radius: 2px;
+      }
+
+      /* ═══ BADGES ═══ */
+      .badge {
+        position: absolute; z-index: 55; color: #fff; font-weight: 800;
+        text-transform: uppercase; letter-spacing: 5px; font-size: 32px;
+        background: rgba(3,7,18,0.75); padding: 18px 40px; border-radius: 14px;
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        opacity: 0; white-space: nowrap;
+        left: 50%; transform: translateX(-50%); bottom: 300px;
+      }
+      .dot {
+        display: inline-block; width: 12px; height: 12px;
+        background: #e63329; border-radius: 50%; margin-right: 14px;
+        vertical-align: middle; box-shadow: 0 0 20px rgba(230,51,41,0.6);
+      }
+
+      /* ═══ OUTRO ═══ */
+      .outro {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        z-index: 45;
+      }
+      .o-text {
+        font-size: 72px; font-weight: 900; color: #fff;
+        text-align: center; letter-spacing: 3px;
+        text-shadow: 0 20px 60px rgba(0,0,0,0.9); opacity: 0;
+      }
+      .o-sub {
+        font-size: 28px; font-weight: 400; color: #e63329;
+        letter-spacing: 14px; text-transform: uppercase; margin-top: 20px; opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main"
+         data-start="0" data-duration="30"
+         data-width="1080" data-height="1920">
+
+      <div class="ov-grain"></div>
+      <div class="ov-ll-top" id="llt"></div>
+      <div class="ov-ll-bot" id="llb"></div>
+      <div class="ov-vignette"></div>
+      <div class="flash" id="fl"></div>
+
+      <!-- INTRO -->
+      <div class="intro" id="intro">
+        <div class="i-over">CV. Samudera Abadi Teknik</div>
+        <h1 class="i-title">SAMUDERA<span class="i-accent">ABADI</span></h1>
+        <div class="i-line"></div>
+        <p class="i-tag">Engineering · Fabrication · Service</p>
+      </div>
+
+      <!-- 3D PHONE -->
+      <div class="stage">
+        <div class="phone" id="ph">
+          <div class="bezel" id="bz"></div>
+          <div class="screen" id="scr">
+            <div class="notch"></div>
+            <img src="page_beranda.png" class="pg on" id="p1" alt="" />
+            <img src="page_layanan.png" class="pg"    id="p2" alt="" />
+            <img src="page_proyek.png"  class="pg"    id="p3" alt="" />
+            <img src="page_mitra.png"   class="pg"    id="p4" alt="" />
+            <img src="page_kontak.png"  class="pg"    id="p5" alt="" />
+            <div class="reflect"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BADGES -->
+      <div class="badge" id="b1"><span class="dot"></span>Beranda</div>
+      <div class="badge" id="b2"><span class="dot"></span>Layanan Kami</div>
+      <div class="badge" id="b3"><span class="dot"></span>Proyek Unggulan</div>
+      <div class="badge" id="b4"><span class="dot"></span>Mitra Terpercaya</div>
+      <div class="badge" id="b5"><span class="dot"></span>Hubungi Kami</div>
+
+      <!-- OUTRO -->
+      <div class="outro">
+        <div class="o-text" id="ot">Build Yours<br/>Today.</div>
+        <div class="o-sub" id="os">samuderaabaditeknik.com</div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* ── helpers ── */
+      function flash(t) {
+        tl.to("#fl", { opacity: 0.65, duration: 0.06, ease: "power4.in" }, t);
+        tl.to("#fl", { opacity: 0, duration: 0.2, ease: "power2.out" }, t + 0.06);
+      }
+      function swap(outId, inId, t) {
+        flash(t);
+        tl.set(outId, { opacity: 0 }, t + 0.04);
+        tl.set(inId,  { opacity: 1 }, t + 0.04);
+        tl.set(inId,  { y: 0 }, t + 0.04); // reset scroll position
+      }
+      function showBadge(id, tIn, tOut) {
+        tl.to(id, { opacity: 1, duration: 0.3, ease: "back.out(1.7)" }, tIn);
+        tl.from(id, { y: 60, scale: 0.85, duration: 0.3, ease: "back.out(1.7)" }, tIn);
+        tl.to(id, { opacity: 0, y: -25, duration: 0.2, ease: "power2.in" }, tOut);
+      }
+
+      /* ── INITIAL STATES ── */
+      gsap.set("#ph", { scale: 4.5, y: 2800, z: -2000, rotateX: 60, rotateZ: -12 });
+      gsap.set("#scr", { filter: "blur(30px) brightness(0.3)" });
+      gsap.set("#bz", { opacity: 0 });
+
+      /* ═══════════════════════════════════════════
+         ACT 1: INTRO  (0 – 2.5s)
+         ═══════════════════════════════════════════ */
+      tl.to("#llt", { opacity: 1, duration: 1, ease: "power2.out" }, 0);
+      tl.to("#llb", { opacity: 0.8, duration: 1, ease: "power2.out" }, 0.2);
+      tl.to(".i-over", { opacity: 1, duration: 0.4, ease: "power3.out" }, 0.2);
+      tl.from(".i-over", { y: 25, duration: 0.4, ease: "power3.out" }, 0.2);
+      tl.to(".i-title", { opacity: 1, duration: 0.3, ease: "power2.out" }, 0.4);
+      tl.from(".i-title", { y: 50, scale: 0.93, duration: 0.6, ease: "power4.out" }, 0.4);
+      tl.to(".i-line", { width: 200, duration: 0.4, ease: "power3.inOut" }, 0.7);
+      tl.to(".i-tag", { opacity: 1, duration: 0.3, ease: "power2.out" }, 0.85);
+      tl.from(".i-tag", { y: 15, duration: 0.4, ease: "power3.out" }, 0.85);
+      tl.to("#intro", { scale: 1.1, opacity: 0, duration: 0.35, ease: "power2.in" }, 2.1);
+
+      /* ═══════════════════════════════════════════
+         ACT 2: BERANDA  (2.2 – 7s)
+         Phone flies in, then scrolls through homepage
+         ═══════════════════════════════════════════ */
+      tl.to("#bz", { opacity: 1, duration: 0.5 }, 2.2);
+      tl.to("#scr", { filter: "blur(0px) brightness(1)", duration: 1 }, 2.2);
+      tl.to("#ph", {
+        scale: 2.3, y: 500, z: 0,
+        rotateX: 8, rotateZ: 2, rotateY: -4,
+        duration: 1.5, ease: "power4.out"
+      }, 2.2);
+
+      showBadge("#b1", 3.5, 5.5);
+
+      // SCROLL within beranda — smooth scroll down the full-page
+      tl.to("#p1", { y: -600, duration: 2.5, ease: "power2.inOut" }, 4.0);
+
+      // Camera: gentle orbit while scrolling
+      tl.to("#ph", {
+        rotateY: -8, rotateX: 12, rotateZ: -1, scale: 2.5,
+        duration: 3, ease: "sine.inOut"
+      }, 4.0);
+
+      tl.to("#llt", { x: -50, y: 30, duration: 4, ease: "sine.inOut" }, 3.0);
+
+      /* ═══════════════════════════════════════════
+         ACT 3: LAYANAN  (7 – 12s)
+         ═══════════════════════════════════════════ */
+      swap("#p1", "#p2", 7.0);
+
+      // Snap to new camera angle
+      tl.to("#ph", {
+        scale: 2.6, y: 200, z: -80,
+        rotateX: 14, rotateY: 12, rotateZ: -3,
+        duration: 0.8, ease: "power3.out"
+      }, 7.1);
+
+      showBadge("#b2", 7.8, 10.0);
+
+      // SCROLL within layanan page
+      tl.to("#p2", { y: -500, duration: 3, ease: "power2.inOut" }, 8.0);
+
+      // Camera: slow orbit opposite direction
+      tl.to("#ph", {
+        rotateY: 4, rotateX: 10, scale: 2.4,
+        duration: 4, ease: "sine.inOut"
+      }, 8.5);
+
+      tl.to("#llb", { x: 40, y: -15, duration: 4, ease: "sine.inOut" }, 7.0);
+
+      /* ═══════════════════════════════════════════
+         ACT 4: PROYEK  (12 – 17s)
+         ═══════════════════════════════════════════ */
+      swap("#p2", "#p3", 12.0);
+
+      tl.to("#ph", {
+        scale: 2.3, y: -200, z: -180,
+        rotateX: 18, rotateY: -10, rotateZ: 4,
+        duration: 0.8, ease: "power3.out"
+      }, 12.1);
+
+      showBadge("#b3", 12.8, 15.0);
+
+      // SCROLL proyek
+      tl.to("#p3", { y: -700, duration: 3.5, ease: "power2.inOut" }, 13.0);
+
+      // Camera: dramatic swing
+      tl.to("#ph", {
+        rotateY: -5, rotateX: 8, rotateZ: -2, scale: 2.6,
+        duration: 4, ease: "sine.inOut"
+      }, 13.5);
+
+      tl.to("#llt", { x: 60, y: -20, opacity: 0.6, duration: 4, ease: "sine.inOut" }, 12.0);
+
+      /* ═══════════════════════════════════════════
+         ACT 5: MITRA  (17 – 22s)
+         ═══════════════════════════════════════════ */
+      swap("#p3", "#p4", 17.0);
+
+      tl.to("#ph", {
+        scale: 2.7, y: 100, z: 50,
+        rotateX: 6, rotateY: 14, rotateZ: -1,
+        duration: 0.8, ease: "power3.out"
+      }, 17.1);
+
+      showBadge("#b4", 17.8, 20.0);
+
+      // SCROLL mitra
+      tl.to("#p4", { y: -600, duration: 3, ease: "power2.inOut" }, 18.0);
+
+      tl.to("#ph", {
+        rotateY: 6, rotateX: 10, scale: 2.5,
+        duration: 4, ease: "sine.inOut"
+      }, 18.5);
+
+      tl.to("#llb", { x: -30, y: 20, opacity: 0.9, duration: 4, ease: "sine.inOut" }, 17.0);
+
+      /* ═══════════════════════════════════════════
+         ACT 6: KONTAK  (22 – 27s)
+         ═══════════════════════════════════════════ */
+      swap("#p4", "#p5", 22.0);
+
+      tl.to("#ph", {
+        scale: 2.4, y: -150, z: -120,
+        rotateX: 16, rotateY: -8, rotateZ: 3,
+        duration: 0.8, ease: "power3.out"
+      }, 22.1);
+
+      showBadge("#b5", 22.8, 25.0);
+
+      // SCROLL kontak
+      tl.to("#p5", { y: -400, duration: 3, ease: "power2.inOut" }, 23.0);
+
+      tl.to("#ph", {
+        rotateY: 4, rotateX: 12, scale: 2.5,
+        duration: 4, ease: "sine.inOut"
+      }, 23.5);
+
+      /* ═══════════════════════════════════════════
+         ACT 7: OUTRO  (27 – 30s)
+         ═══════════════════════════════════════════ */
+      tl.to("#scr", { filter: "blur(25px) brightness(0.3)", duration: 0.8 }, 27.0);
+      tl.to("#ph", { scale: 5.5, z: -3000, rotateX: 50, duration: 1.2, ease: "power2.in" }, 27.0);
+      tl.to("#bz", { opacity: 0, duration: 0.5 }, 27.3);
+
+      tl.to("#ot", { opacity: 1, duration: 0.5, ease: "power3.out" }, 27.5);
+      tl.from("#ot", { y: 40, scale: 0.95, duration: 0.5, ease: "power4.out" }, 27.5);
+      tl.to("#os", { opacity: 1, duration: 0.4, ease: "power2.out" }, 28.1);
+      tl.from("#os", { y: 15, letterSpacing: "20px", duration: 0.4, ease: "power3.out" }, 28.1);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -158,10 +158,10 @@ export default function LayananPage() {
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-[#0e1c2f] leading-[1.15] mb-6">
-                Solusi Lengkap untuk<br className="hidden md:block" /> Kebutuhan Sistem Bangunan
+                Solusi Lengkap untuk<br className="hidden md:block" /> Kebutuhan Rumah & Sistem Bangunan
               </h2>
               <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-10">
-                CV. Samudera Abadi Teknik menyediakan layanan teknis end-to-end yang mengintegrasikan pengadaan, instalasi, dan perawatan. Fokus kami adalah memastikan sistem HVAC, Mekanikal, Elektrikal, hingga Keamanan Anda berjalan dengan efisiensi maksimal dan tanpa gangguan operasional.
+                CV. Samudera Abadi Teknik menyediakan layanan teknis end-to-end yang mengintegrasikan pengadaan, instalasi, dan perawatan. Fokus kami adalah memastikan kenyamanan hunian dan kelancaran sistem operasional bangunan Anda tanpa gangguan.
               </p>
               
               <div className="flex flex-wrap sm:flex-nowrap items-center gap-6 md:gap-8">
@@ -176,7 +176,7 @@ export default function LayananPage() {
                   <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100 shrink-0 shadow-sm">
                     <BuildingsBoldDuotoneIcon className="w-6 h-6 text-[#e63329]" />
                   </div>
-                  <span className="text-sm font-bold text-[#0e1c2f] leading-tight">Skala Industri<br/>& Komersial</span>
+                  <span className="text-sm font-bold text-[#0e1c2f] leading-tight">Rumah Tinggal<br/>& Komersial</span>
                 </div>
               </div>
             </div>
@@ -374,7 +374,7 @@ export default function LayananPage() {
             {/* Image */}
             <div className="relative aspect-[16/9] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100">
               <Image 
-                src="/assets/uploads/ac-central-3.jpeg"
+                src="/assets/uploads/ac-central-4.jpeg"
                 alt="HVAC & Cooling System Installation"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -444,7 +444,7 @@ export default function LayananPage() {
               { icon: <ShieldCheckBoldDuotoneIcon />, title: 'Sesuai Standar\nK3 & SOP', desc: 'Setiap pekerjaan mengikuti standar keselamatan dan prosedur kerja yang ketat.' },
               { icon: <ClipboardCheckBoldDuotoneIcon />, title: 'Pengadaan hingga\nMaintenance', desc: 'Layanan terintegrasi mulai dari pengadaan, instalasi, perbaikan, hingga perawatan berkala.' },
               { icon: <ClockCircleBoldDuotoneIcon />, title: 'Respon Cepat', desc: 'Siap merespon kebutuhan Anda dengan cepat dan memberikan solusi yang tepat.' },
-              { icon: <HeadphonesRoundSoundBoldDuotoneIcon />, title: 'Sales\nSupport', desc: 'Dukungan purna jual yang sangat responsif untuk menjaga kepuasan klien kami.' }
+              { icon: <HeadphonesRoundSoundBoldDuotoneIcon />, title: 'Sales\nSupport', desc: 'Dukungan purna jual yang sangat responsif untuk menjaga kepuasan pelanggan kami.' }
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center text-center group">
                 <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white mb-6 group-hover:bg-[#e63329] group-hover:border-[#e63329] group-hover:-translate-y-2 transition-all duration-300 shrink-0 shadow-lg">
@@ -527,7 +527,7 @@ export default function LayananPage() {
                 title: 'Residential',
                 icon: <HomeBoldDuotoneIcon className="w-7 h-7" />,
                 desc: 'Solusi sistem kelistrikan dan tata udara premium untuk hunian modern yang nyaman, aman, dan efisien.',
-                img: '/assets/uploads/IMG_6420.PNG'
+                img: '/assets/uploads/maintancedanaftersalessuport.png'
               },
               {
                 title: 'Business',

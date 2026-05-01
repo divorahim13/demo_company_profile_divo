@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -12,6 +12,45 @@ import heroBg from '@/public/herosectionkontak.png';
 export default function KontakPage() {
   const whatsappHref =
     'https://wa.me/6285693596638?text=Halo%20tim%20CV.%20Samudera%20Abadi%20Teknik%2C%20saya%20ingin%20konsultasi%20kebutuhan%20project.';
+
+  const [formData, setFormData] = useState({
+    nama: '',
+    perusahaan: '',
+    wa: '',
+    email: '',
+    kebutuhan: '',
+    pesan: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSendWhatsApp = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { nama, perusahaan, wa, email, kebutuhan, pesan } = formData;
+    
+    let message = `Halo tim CV. Samudera Abadi Teknik, saya ingin konsultasi kebutuhan project.\n\n`;
+    if (nama) message += `*Nama:* ${nama}\n`;
+    if (perusahaan) message += `*Perusahaan:* ${perusahaan}\n`;
+    if (wa) message += `*WhatsApp:* ${wa}\n`;
+    if (email) message += `*Email:* ${email}\n`;
+    if (kebutuhan) {
+      const kebutuhanLabel = 
+        kebutuhan === 'pengadaan' ? 'Pengadaan Unit' :
+        kebutuhan === 'instalasi' ? 'Instalasi Sistem' :
+        kebutuhan === 'maintenance' ? 'Maintenance Berkala' :
+        kebutuhan === 'perbaikan' ? 'Perbaikan / Trouble' :
+        kebutuhan === 'lainnya' ? 'Lainnya' : kebutuhan;
+      message += `*Kebutuhan:* ${kebutuhanLabel}\n`;
+    }
+    if (pesan) message += `\n*Pesan:*\n${pesan}\n`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/6285693596638?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <main className="min-h-screen bg-white selection:bg-[#e63329] selection:text-white">
@@ -220,20 +259,27 @@ export default function KontakPage() {
                   <span className="absolute bottom-0 left-0 w-12 h-[3px] bg-[#e63329]"></span>
                 </h3>
 
-                <form className="flex flex-col gap-6">
+                <form onSubmit={handleSendWhatsApp} className="flex flex-col gap-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-slate-500 uppercase tracking-wide">Nama Lengkap</label>
                       <input 
                         type="text" 
+                        name="nama"
+                        value={formData.nama}
+                        onChange={handleChange}
                         placeholder="Masukkan nama Anda" 
                         className="w-full px-4 py-3.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#e63329] focus:ring-1 focus:ring-[#e63329] transition-all"
+                        required
                       />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-slate-500 uppercase tracking-wide">Instansi / Perusahaan</label>
                       <input 
                         type="text" 
+                        name="perusahaan"
+                        value={formData.perusahaan}
+                        onChange={handleChange}
                         placeholder="Nama perusahaan" 
                         className="w-full px-4 py-3.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#e63329] focus:ring-1 focus:ring-[#e63329] transition-all"
                       />
@@ -244,14 +290,21 @@ export default function KontakPage() {
                       <label className="text-xs font-bold text-slate-500 uppercase tracking-wide">Nomor WhatsApp</label>
                       <input 
                         type="tel" 
+                        name="wa"
+                        value={formData.wa}
+                        onChange={handleChange}
                         placeholder="Contoh: 08123456789" 
                         className="w-full px-4 py-3.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#e63329] focus:ring-1 focus:ring-[#e63329] transition-all"
+                        required
                       />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-slate-500 uppercase tracking-wide">Alamat Email</label>
                       <input 
                         type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="email@perusahaan.com" 
                         className="w-full px-4 py-3.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#e63329] focus:ring-1 focus:ring-[#e63329] transition-all"
                       />
@@ -260,9 +313,15 @@ export default function KontakPage() {
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wide">Jenis Kebutuhan</label>
                     <div className="relative">
-                      <select className="w-full px-4 py-3.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-800 appearance-none focus:bg-white focus:outline-none focus:border-[#e63329] focus:ring-1 focus:ring-[#e63329] transition-all cursor-pointer">
+                      <select 
+                        name="kebutuhan"
+                        value={formData.kebutuhan}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-800 appearance-none focus:bg-white focus:outline-none focus:border-[#e63329] focus:ring-1 focus:ring-[#e63329] transition-all cursor-pointer"
+                        required
+                      >
                         <option value="">Pilih kebutuhan layanan Anda</option>
-                        <option value="pengadaan">Pengadaan Unit HVAC/Chiller</option>
+                        <option value="pengadaan">Pengadaan Unit</option>
                         <option value="instalasi">Instalasi Sistem</option>
                         <option value="maintenance">Maintenance Berkala</option>
                         <option value="perbaikan">Perbaikan / Trouble</option>
@@ -274,19 +333,22 @@ export default function KontakPage() {
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wide">Detail Project / Pesan</label>
                     <textarea 
+                      name="pesan"
+                      value={formData.pesan}
+                      onChange={handleChange}
                       placeholder="Jelaskan secara singkat mengenai kebutuhan project atau permasalahan sistem Anda..." 
                       rows={4}
                       className="w-full px-4 py-3.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#e63329] focus:ring-1 focus:ring-[#e63329] transition-all resize-none"
+                      required
                     ></textarea>
                   </div>
                   
-                  <Link
-                    href={whatsappHref}
-                    target="_blank"
-                    className="w-full bg-[#e63329] text-white py-4 rounded-lg font-bold text-sm hover:bg-[#c01040] hover:shadow-lg hover:shadow-[#e63329]/30 hover:-translate-y-0.5 transition-all mt-2 flex items-center justify-center gap-2 group"
+                  <button
+                    type="submit"
+                    className="w-full bg-[#e63329] text-white py-4 rounded-lg font-bold text-sm hover:bg-[#c01040] hover:shadow-lg hover:shadow-[#e63329]/30 hover:-translate-y-0.5 transition-all mt-2 flex items-center justify-center gap-2 group cursor-pointer"
                   >
                     KIRIM INQUIRY <ArrowRightBoldDuotoneIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  </button>
                 </form>
               </div>
             </div>
@@ -449,7 +511,7 @@ export default function KontakPage() {
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8 md:pl-32">
           <div className="md:w-[40%]">
             <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
-              Butuh Mitra Teknis yang Responsif dan Andal?
+              Butuh Bantuan Teknis untuk Rumah atau Bangunan Anda?
             </h2>
           </div>
           

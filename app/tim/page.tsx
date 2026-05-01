@@ -60,7 +60,7 @@ const strukturInti = [
 const nilaiKerja = [
   { title: 'Solid',       desc: 'Bekerja dengan koordinasi dan kolaborasi yang kuat.',              icon: <UsersGroupTwoRoundedBoldDuotoneIcon className="w-7 h-7" /> },
   { title: 'Handal',      desc: 'Memiliki kompetensi teknis yang dapat diandalkan.',                icon: <ShieldCheckBoldDuotoneIcon className="w-7 h-7" /> },
-  { title: 'Ramah',       desc: 'Mengedepankan komunikasi yang baik dengan klien dan mitra.',      icon: <ChatRoundBoldDuotoneIcon className="w-7 h-7" /> },
+  { title: 'Ramah',       desc: 'Mengedepankan komunikasi yang baik dengan pelanggan rumah tangga dan mitra bisnis.',      icon: <ChatRoundBoldDuotoneIcon className="w-7 h-7" /> },
   { title: 'Berdedikasi', desc: 'Fokus pada kualitas kerja dan tanggung jawab.',                   icon: <TargetBoldDuotoneIcon className="w-7 h-7" /> },
   { title: 'Profesional', desc: 'Menjalankan pekerjaan sesuai standar dan etika kerja.',           icon: <MedalRibbonStarBoldDuotoneIcon className="w-7 h-7" /> },
 ];

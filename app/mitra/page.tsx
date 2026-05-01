@@ -172,7 +172,7 @@ export default function MitraPage() {
                   { name: 'Telkom Indonesia', domain: 'telkom.co.id', customLogo: '/brands/logotelkom.png' },
                   { name: 'Indofood', domain: 'indofood.com', customLogo: '/brands/logoindofood.png' },
                   { name: 'WIKA', domain: 'wika.co.id', customLogo: '/brands/logowika.png' },
-                  { name: 'PGN', domain: 'pgn.co.id', customLogo: '/brands/pgnlogo.png' },
+                  { name: 'PGN', domain: 'pgn.co.id', customLogo: '/logopgnterbaru.png' },
                   { name: 'Elnusa', domain: 'elnusa.co.id', customLogo: '/brands/Elnusa.png' },
                   { name: 'Ramayana', domain: 'ramayana.co.id' },
                   { name: 'Matahari', domain: 'matahari.com', customLogo: '/brands/logomatahari.png' },
@@ -227,7 +227,7 @@ export default function MitraPage() {
             >
               <div className="relative h-56 w-full">
                 <Image 
-                  src="/assets/uploads/ac-central-1.jpeg"
+                  src="/instalasiaccentralvrvsystem.jpeg"
                   alt="Instalasi AC Central VRV System"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"

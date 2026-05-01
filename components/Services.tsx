@@ -9,37 +9,37 @@ import { SnowflakeBoldDuotoneIcon, SettingsBoldDuotoneIcon, VideocameraBoldDuoto
 const services = [
   {
     title: 'HVAC &\nCooling System',
-    description: 'Pengadaan, instalasi, dan perawatan AC, Chiller, AHU, Cooling Tower, dan sistem terkait.',
+    description: 'Instalasi, perbaikan, dan perawatan AC rumah tangga, Chiller, hingga sistem pendingin komersial.',
     icon: <SnowflakeBoldDuotoneIcon className="w-8 h-8" />,
-    image: '/assets/uploads/ac-central-3.jpeg',
+    image: '/assets/uploads/ac-central-4.jpeg',
     href: '/layanan/hvac',
   },
   {
     title: 'Mechanical &\nElectrical',
-    description: 'Pekerjaan sistem mekanikal dan elektrikal untuk mendukung operasional bangunan.',
+    description: 'Pekerjaan sistem mekanikal dan kelistrikan untuk mendukung kenyamanan hunian dan operasional bangunan.',
     icon: <SettingsBoldDuotoneIcon className="w-8 h-8" />,
     image: '/assets/uploads/IMG_6421.PNG',
     href: '/layanan/me',
   },
   {
     title: 'CCTV &\nPABX',
-    description: 'Instalasi dan konfigurasi sistem CCTV, PABX, access control, dan jaringan komunikasi.',
+    description: 'Instalasi sistem kamera keamanan (CCTV) dan jaringan komunikasi untuk rumah dan kantor Anda.',
     icon: <VideocameraBoldDuotoneIcon className="w-8 h-8" />,
     image: '/assets/uploads/cctv.jpeg',
     href: '/layanan/cctv',
   },
   {
     title: 'Genset',
-    description: 'Pengadaan, instalasi, perawatan, dan perbaikan genset untuk kebutuhan daya cadangan.',
+    description: 'Pengadaan dan perawatan genset untuk memastikan cadangan listrik tetap siaga saat dibutuhkan.',
     icon: <BoltBoldDuotoneIcon className="w-8 h-8" />,
     image: '/assets/uploads/genset.jpeg',
     href: '/layanan/genset',
   },
   {
     title: 'Maintenance &\nAfter Sales',
-    description: 'Layanan maintenance berkala dan after sales support untuk kinerja sistem yang optimal.',
+    description: 'Layanan cuci AC, perbaikan berkala, dan dukungan teknis untuk memastikan perangkat Anda tetap awet.',
     icon: <SettingsBoldDuotoneIcon className="w-8 h-8" />,
-    image: '/assets/uploads/IMG_6436.PNG',
+    image: '/assets/uploads/maintancedanaftersalessuport.png',
     href: '/layanan/maintenance',
   }
 ];
@@ -55,9 +55,12 @@ const Services = () => {
             Layanan Kami
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-[#0a1122] relative inline-block tracking-tight">
-            Solusi Lengkap Sistem Bangunan
+            Solusi Lengkap Bangunan & Perumahan
             <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-[#e63329]"></span>
           </h2>
+          <p className="text-slate-500 max-w-2xl mx-auto mt-8 text-sm md:text-base leading-relaxed">
+            Melayani proyek komersial skala besar hingga kebutuhan teknis instalasi dan perawatan AC rumah tangga Anda.
+          </p>
         </div>
 
         {/* Cards Grid */}

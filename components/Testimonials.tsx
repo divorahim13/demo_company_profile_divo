@@ -23,6 +23,12 @@ const testimonials = [
     name: 'Tim Operasional',
     text: 'Komunikasi teknis jelas, laporan pekerjaan mudah dipahami, dan tim lapangan bekerja dengan standar keselamatan yang baik.',
   },
+  {
+    logo: '', // No logo for residential
+    company: 'Pelanggan Residensial',
+    name: 'Ibu Sarah',
+    text: 'Responnya cepat sekali! AC rumah langsung dingin lagi dan teknisinya sangat sopan serta menjaga kebersihan area rumah.',
+  },
 ];
 
 export default function Testimonials() {
@@ -43,7 +49,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {testimonials.map((item, index) => (
             <motion.article
               key={item.company}
@@ -56,7 +62,15 @@ export default function Testimonials() {
             >
               <div className="flex items-center justify-between gap-4 mb-6">
                 <div className="relative h-12 w-28">
-                  <Image src={item.logo} alt={`${item.company} logo`} fill sizes="112px" className="object-contain object-left" />
+                  {item.logo ? (
+                    <Image src={item.logo} alt={`${item.company} logo`} fill sizes="112px" className="object-contain object-left" />
+                  ) : (
+                    <div className="flex items-center h-full">
+                      <div className="w-10 h-10 rounded-full bg-[#e63329]/10 flex items-center justify-center text-[#e63329] font-bold text-lg">
+                        {item.name.charAt(0)}
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="flex items-center gap-1 text-[#e63329]">
                   {Array.from({ length: 5 }).map((_, i) => (

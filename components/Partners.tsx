@@ -31,7 +31,7 @@ const partners = [
   {
     id: 'pgn',
     name: 'PGN',
-    logo: '/brands/pgnlogo.png',
+    logo: '/logopgnterbaru.png',
     initials: 'PG',
   },
   {

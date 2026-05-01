@@ -66,10 +66,10 @@ const About = () => {
             {/* Short scannable description */}
             <div className="space-y-4 text-slate-600 mb-10 text-base leading-[1.75]">
               <p>
-                CV. Samudera Abadi Teknik didirikan untuk merespons tingginya kebutuhan akan mitra teknis yang andal seiring dengan pesatnya perkembangan teknologi dan infrastruktur. Kami hadir dengan komitmen memberikan solusi sistem bangunan terbaik, didukung oleh para ahli yang memiliki rekam jejak puluhan tahun di bidangnya.
+                CV. Samudera Abadi Teknik didirikan untuk merespons tingginya kebutuhan akan solusi teknis yang andal untuk hunian maupun bangunan komersial. Kami hadir dengan komitmen memberikan solusi sistem pendingin, kelistrikan, dan bangunan terbaik, didukung oleh para ahli yang memiliki rekam jejak puluhan tahun di bidangnya.
               </p>
               <p>
-                Kami mengutamakan keunggulan kualitas, integritas, dan profesionalisme di setiap proyek. Didukung oleh tim teknisi terlatih yang terus berinovasi, kami memastikan setiap pekerjaan, mulai dari instalasi hingga perawatan, diselesaikan dengan standar operasional yang ketat demi kepuasan klien dan mitra bisnis kami.
+                Kami mengutamakan keunggulan kualitas, integritas, dan profesionalisme di setiap pengerjaan. Didukung oleh tim teknisi terlatih yang terus berinovasi, kami memastikan setiap pekerjaan, mulai dari instalasi AC di rumah hingga perawatan gedung, diselesaikan dengan standar operasional yang ketat demi kepuasan pelanggan, baik skala rumah tangga maupun mitra bisnis kami.
               </p>
             </div>
 

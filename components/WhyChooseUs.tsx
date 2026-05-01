@@ -13,22 +13,22 @@ import {
 const reasons = [
   {
     title: 'Bekerja Sesuai Standar',
-    description: 'Setiap pengerjaan proyek kami pastikan mematuhi regulasi Keselamatan dan Kesehatan Kerja (K3) serta Standar Nasional Indonesia (SNI).',
+    description: 'Setiap pekerjaan kami pastikan mematuhi standar keamanan dan kualitas, baik untuk rumah tinggal maupun industri.',
     icon: <ShieldCheckBoldDuotoneIcon className="w-7 h-7" />,
   },
   {
     title: 'Teknisi Profesional',
-    description: 'Proyek Anda ditangani langsung oleh tim teknisi bersertifikasi yang bekerja secara efisien untuk menjamin ketepatan waktu penyelesaian.',
+    description: 'Kebutuhan Anda ditangani langsung oleh tim teknisi bersertifikasi yang bekerja secara efisien dan tepat waktu.',
     icon: <UsersGroupTwoRoundedBoldDuotoneIcon className="w-7 h-7" />,
   },
   {
     title: 'Instalasi & Perawatan',
-    description: 'Menyediakan layanan penuh dari pengadaan, instalasi awal, hingga program perawatan rutin untuk memastikan performa sistem tetap optimal.',
+    description: 'Menyediakan layanan penuh dari pengadaan, instalasi awal, hingga program perawatan rutin agar perangkat Anda awet.',
     icon: <SettingsBoldDuotoneIcon className="w-7 h-7" />,
   },
   {
     title: 'After-Sales Support',
-    description: 'Kami memberikan garansi pengerjaan dan dukungan teknis yang responsif untuk memastikan kenyamanan Anda setelah proyek selesai.',
+    description: 'Kami memberikan garansi pengerjaan dan dukungan teknis yang responsif untuk kenyamanan Anda.',
     icon: <HeadphonesRoundSoundBoldDuotoneIcon className="w-7 h-7" />,
   },
 ];
@@ -91,7 +91,7 @@ const WhyChooseUs = () => {
             </motion.div>
 
             <p className="text-slate-500 max-w-md text-base leading-[1.8]">
-              Kami percaya bahwa kepercayaan klien dibangun melalui konsistensi kerja, standar yang tidak kompromi, dan layanan purna jual yang nyata, bukan sekadar janji.
+              Kami percaya bahwa kepercayaan pelanggan dibangun melalui konsistensi kerja, standar yang tidak kompromi, dan layanan purna jual yang nyata, bukan sekadar janji.
             </p>
           </div>
         </div>

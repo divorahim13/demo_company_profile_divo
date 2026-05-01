@@ -27,7 +27,7 @@ export const projectList: ProjectItem[] = [
     client: 'Gedung Perkantoran Sudirman',
     category: 'HVAC',
     scope: 'Instalasi & Perbaikan VRV System 30 PK, 4 lantai',
-    image: '/assets/uploads/benerin-ac-central.png',
+    image: '/instalasiaccentralvrvsystem.jpeg',
     year: '2024',
     tag: 'Corporate',
     location: 'Jakarta Selatan',
@@ -46,7 +46,7 @@ export const projectList: ProjectItem[] = [
       'As-built drawing dan dokumen serah terima',
     ],
     tools: ['VRV System', 'Air Balancing Kit', 'Digital Manifold', 'Insulation System'],
-    gallery: ['/assets/uploads/benerin-ac-central.png', '/assets/projects/project-2.webp', '/assets/projects/project-7.webp'],
+    gallery: ['/instalasiaccentralvrvsystem.jpeg', '/assets/projects/project-2.webp', '/assets/projects/project-7.webp'],
   },
   {
     slug: 'maintenance-tahunan-ac-split',
