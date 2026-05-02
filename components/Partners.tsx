@@ -100,7 +100,7 @@ const Partners = () => {
               Mitra & Klien
             </motion.span>
             <h2 className="text-3xl md:text-4xl font-heading text-[#0a1122] tracking-tight">
-              Dipercaya Perusahaan
+              Dipercaya Perusahaan{' '}
               <br className="hidden md:block" />
               di Berbagai Sektor
             </h2>
