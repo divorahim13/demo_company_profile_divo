@@ -63,6 +63,7 @@ export default function ProjectsPreview() {
                     fill
                     sizes="(min-width: 1024px) 33vw, 100vw"
                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                    priority={true}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a1122]/75 via-[#0a1122]/15 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="absolute left-5 top-5 rounded bg-[#e63329] px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white">
