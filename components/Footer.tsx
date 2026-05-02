@@ -147,7 +147,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 text-center">
           <p className="text-xs text-gray-500 font-medium">
-            © 2024 CV. Samudera Abadi Teknik. All rights reserved.
+            © {new Date().getFullYear()} CV. Samudera Abadi Teknik. All rights reserved.
           </p>
         </div>
       </div>
