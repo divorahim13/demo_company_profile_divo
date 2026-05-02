@@ -105,6 +105,7 @@ const Services = () => {
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover object-top group-hover:scale-110 transition-transform duration-1000" 
                   referrerPolicy="no-referrer"
+                  priority
                 />
               </div>
             </motion.div>

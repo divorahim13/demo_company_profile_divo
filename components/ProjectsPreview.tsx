@@ -50,20 +50,14 @@ export default function ProjectsPreview() {
               className="surface-card group overflow-hidden"
             >
               <Link href={`/proyek/${project.slug}`} className="block h-full">
-                <motion.div
-                  className="image-reveal-mask relative aspect-[4/3] overflow-hidden bg-slate-100"
-                  initial={{ clipPath: 'inset(0 0 100% 0)' }}
-                  whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
-                  viewport={{ once: true, margin: '-70px' }}
-                  transition={{ delay: index * 0.12 + 0.15, duration: 0.85, ease: motionEase }}
-                >
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     sizes="(min-width: 1024px) 33vw, 100vw"
                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                    priority={true}
+                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a1122]/75 via-[#0a1122]/15 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="absolute left-5 top-5 rounded bg-[#e63329] px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white">
@@ -75,7 +69,7 @@ export default function ProjectsPreview() {
                     whileInView={{ width: '42%' }}
                     transition={{ delay: index * 0.12 + 0.55, duration: 0.6, ease: motionEase }}
                   />
-                </motion.div>
+                </div>
 
                 <div className="p-6">
                   <div className="mb-3 flex items-center justify-between gap-3">

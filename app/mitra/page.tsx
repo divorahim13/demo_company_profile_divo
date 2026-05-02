@@ -232,6 +232,7 @@ export default function MitraPage() {
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
+                  priority
                 />
                 <div className="absolute bottom-0 left-0 bg-[#e63329] text-white px-5 py-2 font-bold text-xl">
                   01
@@ -274,6 +275,7 @@ export default function MitraPage() {
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
+                  priority
                 />
                 <div className="absolute bottom-0 left-0 bg-[#e63329] text-white px-5 py-2 font-bold text-xl">
                   02
@@ -316,6 +318,7 @@ export default function MitraPage() {
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
+                  priority
                 />
                 <div className="absolute bottom-0 left-0 bg-[#e63329] text-white px-5 py-2 font-bold text-xl">
                   03
@@ -516,7 +519,8 @@ export default function MitraPage() {
             alt="Pipes Background" 
             fill 
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover" 
+            className="object-cover"
+            priority 
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#070d1f]"></div>
         </div>
@@ -822,7 +826,8 @@ export default function MitraPage() {
               alt="SAT Technicians" 
               fill 
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover" 
+              className="object-cover"
+              priority 
             />
             {/* Subtle Overlay */}
             <div className="absolute inset-0 bg-[#070d1f]/10"></div>

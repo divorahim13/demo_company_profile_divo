@@ -33,6 +33,7 @@ const About = () => {
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
                 referrerPolicy="no-referrer"
+                priority
               />
               {/* Subtle bottom gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />

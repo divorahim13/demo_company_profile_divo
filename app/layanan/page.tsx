@@ -190,6 +190,7 @@ export default function LayananPage() {
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#0e1c2f]/40 via-transparent to-transparent pointer-events-none" />
               </div>
@@ -237,6 +238,7 @@ export default function LayananPage() {
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#0e1c2f] via-[#0e1c2f]/80 to-transparent p-12 flex flex-col justify-between">
                 <div>
@@ -277,6 +279,7 @@ export default function LayananPage() {
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  priority
                 />
               </div>
             </div>
@@ -304,6 +307,7 @@ export default function LayananPage() {
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  priority
                 />
               </div>
             </div>
@@ -331,6 +335,7 @@ export default function LayananPage() {
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  priority
                 />
               </div>
             </div>
@@ -358,6 +363,7 @@ export default function LayananPage() {
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  priority
                 />
               </div>
             </div>
@@ -379,6 +385,7 @@ export default function LayananPage() {
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
+                priority
               />
             </div>
             
@@ -550,6 +557,7 @@ export default function LayananPage() {
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110 z-0"
+                  priority
                 />
                 
                 {/* Gradient Overlays */}

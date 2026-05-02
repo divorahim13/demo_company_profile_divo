@@ -163,6 +163,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   fill 
                   className="object-cover group-hover:scale-105 transition-transform duration-700" 
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" 
+                  priority
                 />
                 {/* Subtle overlay on hover */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />

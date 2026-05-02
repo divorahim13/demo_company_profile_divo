@@ -330,6 +330,7 @@ export default function TentangKamiPage() {
                   fill 
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110 z-0"
+                  priority
                 />
                 
                 {/* Dark Gradient Overlays */}
@@ -489,7 +490,7 @@ export default function TentangKamiPage() {
                     className="bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm"
                   >
                     <div className="relative h-48 w-full">
-                      <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+                      <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
                     </div>
                     <div className="p-5">
                       <h4 className="text-[#0a1122] font-bold text-sm mb-1">{item.title}</h4>
@@ -537,6 +538,7 @@ export default function TentangKamiPage() {
                         fill
                         sizes="(min-width: 1024px) 50vw, 100vw"
                         className="object-cover"
+                        priority
                       />
                     </div>
 
